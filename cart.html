@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coș de cumpărături - Dynasty Couture</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="header-center">
+                <a href="index.html" class="logo">DYNASTY COUTURE</a>
+            </div>
+            <div class="header-right">
+                <div class="header-actions">
+                    <a href="#" class="search-toggle">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="#" class="wishlist-toggle">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge">1</span>
+                    </a>
+                    <a href="cart.html" class="cart-toggle active">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="badge">2</span>
+                    </a>
+                    <a href="#" class="account-toggle">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="#">Noutăți</a></li>
+                <li><a href="#">Femei</a></li>
+                <li><a href="#">Bărbați</a></li>
+                <li><a href="#" class="highlight">Ediție limitată</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <div class="container">
+            <h1 class="page-title">Coșul tău</h1>
+            
+            <div class="cart-container">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th class="product-col">Produs</th>
+                                <th class="price-col">Preț</th>
+                                <th class="quantity-col">Cantitate</th>
+                                <th class="subtotal-col">Subtotal</th>
+                                <th class="remove-col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="cart-item" data-product-id="1">
+                                <td class="product-col">
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <img src="rochie-midi-seara.jpg" alt="Rochie midi de seară">
+                                        </div>
+                                        <div class="product-details">
+                                            <h3 class="product-name">Rochie midi de seară</h3>
+                                            <div class="product-options">
+                                                <div class="option">Culoare: <span>Negru</span></div>
+                                                <div class="option">Mărime: <span>S</span></div>
+                                            </div>
+                                            <button class="edit-product-btn">Editează <i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-col">
+                                    <div class="price">
+                                        <span class="current-price">500 lei</span>
+                                        <span class="old-price">1000 lei</span>
+                                    </div>
+                                </td>
+                                <td class="quantity-col">
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                        <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td class="subtotal-col">
+                                    <span class="subtotal">500 lei</span>
+                                </td>
+                                <td class="remove-col">
+                                    <button class="remove-item"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="cart-item" data-product-id="2">
+                                <td class="product-col">
+                                    <div class="product-info">
+                                        <div class="product-image">
+                                            <img src="sandale.jpg" alt="Sandale">
+                                        </div>
+                                        <div class="product-details">
+                                            <h3 class="product-name">Sandale elegante</h3>
+                                            <div class="product-options">
+                                                <div class="option">Culoare: <span>Negru</span></div>
+                                                <div class="option">Mărime: <span>38</span></div>
+                                            </div>
+                                            <button class="edit-product-btn">Editează <i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price-col">
+                                    <div class="price">
+                                        <span class="current-price">450 lei</span>
+                                    </div>
+                                </td>
+                                <td class="quantity-col">
+                                    <div class="quantity-selector">
+                                        <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10">
+                                        <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                </td>
+                                <td class="subtotal-col">
+                                    <span class="subtotal">450 lei</span>
+                                </td>
+                                <td class="remove-col">
+                                    <button class="remove-item"><i class="fas fa-times"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="cart-actions">
+                        <div class="coupon">
+                            <input type="text" placeholder="Cod de reducere">
+                            <button class="apply-coupon">Aplică</button>
+                        </div>
+                        <button class="update-cart">Actualizează coșul</button>
+                    </div>
+                </div>
+                
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h2 class="summary-title">Sumar comandă</h2>
+                    
+                    <div class="summary-row subtotal-row">
+                        <span>Subtotal</span>
+                        <span>950 lei</span>
+                    </div>
+                    
+                    <div class="summary-row shipping-row">
+                        <span>Transport</span>
+                        <span>Gratuit</span>
+                    </div>
+                    
+                    <div class="summary-row discount-row">
+                        <span>Reducere</span>
+                        <span>0 lei</span>
+                    </div>
+                    
+                    <div class="summary-row total-row">
+                        <span>Total</span>
+                        <span>950 lei</span>
+                    </div>
+                    
+                    <div class="checkout-button-container">
+                        <a href="checkout.html" class="checkout-button">Finalizează comanda</a>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <p>Metode de plată acceptate:</p>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa"></i>
+                            <i class="fab fa-cc-mastercard"></i>
+                            <i class="fab fa-paypal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recommended Products -->
+            <div class="recommended-products">
+                <h2 class="section-title">Te-ar putea interesa și</h2>
+                <div class="product-slider">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="geanta.jpg" alt="Geantă piele">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Geantă piele</h3>
+                            <div class="product-price">400 lei</div>
+                            <button class="add-to-cart-btn">Adaugă în coș</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="lantisof.jpg" alt="Lănțișor">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Lănțișor elegant</h3>
+                            <div class="product-price">1,450 lei</div>
+                            <button class="add-to-cart-btn">Adaugă în coș</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="inel.jpg" alt="Inel">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Inel auriu</h3>
+                            <div class="product-price">700 lei</div>
+                            <button class="add-to-cart-btn">Adaugă în coș</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="rochie-seara.jpg" alt="Rochie seară">
+                            <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Rochie seară</h3>
+                            <div class="product-price">400 lei</div>
+                            <button class="add-to-cart-btn">Adaugă în coș</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Empty Cart View (Initially Hidden) -->
+    <div class="empty-cart" style="display: none;">
+        <div class="container">
+            <div class="empty-cart-content">
+                <div class="empty-cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h2>Coșul tău este gol</h2>
+                <p>Se pare că nu ai adăugat încă niciun produs în coș.</p>
+                <a href="index.html" class="continue-shopping">Continuă cumpărăturile</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h3>Legături utile</h3>
+                        <ul>
+                            <li><a href="#">Despre noi</a></li>
+                            <li><a href="#">Femei</a></li>
+                            <li><a href="#">Bărbați</a></li>
+                            <li><a href="#">Ediție limitată</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Primește ajutor</h3>
+                        <ul>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Întrebări frecvente</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Informații</h3>
+                        <ul>
+                            <li><a href="#">Politica de confidențialitate</a></li>
+                            <li><a href="#">Termeni și condiții</a></li>
+                            <li><a href="#">Politica de cookies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column newsletter">
+                        <h3>ABONEAZĂ-TE LA NEWSLETTER</h3>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Adresa de email">
+                            <button type="submit">→</button>
+                        </form>
+                        <p>Primește informații despre ultimele tendințe și reduceri exclusive.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="copyright">
+                    <p>© 2025 DYNASTY COUTURE. Toate drepturile rezervate.</p>
+                </div>
+                <div class="payment-methods">
+                    <img src="visa.png" alt="Visa">
+                    <img src="mastercard.png" alt="Mastercard">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Editare Produs -->
+    <div class="edit-modal" id="editProductModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Editare produs</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-preview">
+                    <img src="" alt="" id="editProductImage">
+                    <div class="product-info">
+                        <h3 id="editProductName"></h3>
+                        <div class="product-price" id="editProductPrice"></div>
+                    </div>
+                </div>
+                
+                <div class="edit-options">
+                    <div class="option-group">
+                        <h4>Culoare</h4>
+                        <div class="color-options">
+                            <div class="color-option" data-color="negru" style="background-color: #000"></div>
+                            <div class="color-option" data-color="rosu" style="background-color: #8B0000"></div>
+                            <div class="color-option" data-color="bleumarin" style="background-color: #1A2639"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h4>Mărime</h4>
+                        <div class="size-options">
+                            <button class="size-option" data-size="XS">XS</button>
+                            <button class="size-option" data-size="S">S</button>
+                            <button class="size-option" data-size="M">M</button>
+                            <button class="size-option" data-size="L">L</button>
+                            <button class="size-option" data-size="XL">XL</button>
+                        </div>
+                    </div>
+                    
+                    <div class="option-group">
+                        <h4>Cantitate</h4>
+                        <div class="quantity-selector modal-quantity">
+                            <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                            <input type="number" class="quantity-input" value="1" min="1" max="10">
+                            <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-edit">Anulează</button>
+                <button class="save-edit">Salvează modificările</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-overlay" id="editModalOverlay"></div>
+
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Rochie midi de seară - Dynasty Couture</title>
+ <link rel="stylesheet" href="main.css">
+ <link rel="stylesheet" href="product.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <!-- Header -->
+ <header>
+  <div class="header-container">
+   <div class="header-left">
+    <button class="menu-toggle" id="menuToggle">
+     <span></span>
+     <span></span>
+     <span></span>
+    </button>
+   </div>
+   <div class="header-center">
+    <a href="index.html" class="logo">DYNASTY COUTURE</a>
+   </div>
+   <div class="header-right">
+    <div class="header-actions">
+     <a href="#" class="search-toggle">
+      <i class="fas fa-search"></i>
+     </a>
+     <a href="#" class="wishlist-toggle">
+      <i class="fas fa-heart"></i>
+      <span class="badge">1</span>
+     </a>
+     <a href="#" class="cart-toggle" id="cartToggle">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="badge">1</span>
+     </a>
+     <a href="#" class="account-toggle">
+      <i class="fas fa-user"></i>
+     </a>
+    </div>
+   </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+   <ul class="nav-list">
+    <li><a href="noutati.html">Noutăți</a></li>
+    <li><a href="femei.html">Femei</a></li>
+    <li><a href="barbati.html">Bărbați</a></li>
+    <li><a href="editie-limitata.html" class="highlight">Ediție limitată</a></li>
+   </ul>
+  </nav>
+ </header>
+
+ <!-- Breadcrumb -->
+ <div class="breadcrumb">
+  <div class="container">
+   <ul>
+    <li><a href="index.html">Acasă</a></li>
+    <li><a href="femei.html">Femei</a></li>
+    <li><a href="imbracaminte.html">Îmbrăcăminte</a></li>
+    <li>Rochie midi de seară</li>
+   </ul>
+  </div>
+ </div>
+
+ <!-- Product Detail -->
+ <main class="product-detail">
+  <div class="container">
+   <div class="product-gallery">
+    <div class="main-image">
+     <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară" id="mainImage">
+    </div>
+    <div class="thumbnail-container">
+     <button class="thumbnail-nav prev"><i class="fas fa-chevron-left"></i></button>
+     <div class="thumbnails">
+      <div class="thumbnail active">
+       <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară - față"
+        data-image="images/rochie-midi-seara.jpg">
+      </div>
+      <div class="thumbnail">
+       <img src="images/rochie-midi-seara-spate.jpg" alt="Rochie midi de seară - spate"
+        data-image="images/rochie-midi-seara-spate.jpg">
+      </div>
+      <div class="thumbnail">
+       <img src="images/rochie-midi-seara-lateral.jpg" alt="Rochie midi de seară - lateral"
+        data-image="images/rochie-midi-seara-lateral.jpg">
+      </div>
+     </div>
+     <button class="thumbnail-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+   </div>
+   <div class="product-info">
+    <div class="ratings">
+     <div class="stars">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star-half-alt"></i>
+     </div>
+     <span class="review-count">(56 de recenzii)</span>
+    </div>
+    <h1 class="product-title">Rochie midi de seară</h1>
+    <div class="product-price">
+     <span class="price-current">500 lei</span>
+     <span class="price-old">1000 lei</span>
+     <span class="discount">(50% reducere)</span>
+    </div>
+
+    <div class="product-options">
+     <div class="option-group">
+      <h3>Culoare</h3>
+      <div class="color-options">
+       <div class="color-option selected" data-color="negru" style="background-color: #000"></div>
+       <div class="color-option" data-color="rosu" style="background-color: #8B0000"></div>
+      </div>
+     </div>
+
+     <div class="option-group">
+      <h3>Mărime</h3>
+      <div class="size-options">
+       <button class="size-option" data-size="XS">XS</button>
+       <button class="size-option" data-size="S">S</button>
+       <button class="size-option selected" data-size="M">M</button>
+       <button class="size-option" data-size="L">L</button>
+       <button class="size-option" data-size="XL">XL</button>
+       <button class="size-option" data-size="XXL">XXL</button>
+      </div>
+      <a href="#" class="size-guide">Ghid mărimi</a>
+     </div>
+    </div>
+
+    <div class="product-actions">
+     <button class="add-to-cart" id="addToCart">Adaugă în coș</button>
+     <button class="add-to-wishlist"><i class="far fa-heart"></i></button>
+    </div>
+
+    <div class="product-details accordion">
+     <div class="accordion-item">
+      <button class="accordion-header">
+       <span>Detalii despre produs</span>
+       <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="accordion-content">
+       <p>Rochie midi de seară elegantă, perfectă pentru orice eveniment special. Confecționată din material premium
+        care oferă confort și un aspect rafinat.</p>
+       <ul>
+        <li>Material: 95% Poliester, 5% Elastan</li>
+        <li>Model slim fit</li>
+        <li>Bretele subțiri ajustabile</li>
+        <li>Lungime: Midi</li>
+        <li>Spălare la mașină la 30°C</li>
+       </ul>
+      </div>
+     </div>
+     <div class="accordion-item">
+      <button class="accordion-header">
+       <span>Specificații</span>
+       <i class="fas fa-chevron-down"></i>
+      </button>
+      <div class="accordion-content">
+       <table class="specs-table">
+        <tr>
+         <td>Material:</td>
+         <td>95% Poliester, 5% Elastan</td>
+        </tr>
+        <tr>
+         <td>Stil:</td>
+         <td>Elegant, De seară</td>
+        </tr>
+        <tr>
+         <td>Croială:</td>
+         <td>Slim fit</td>
+        </tr>
+        <tr>
+         <td>Ocazie:</td>
+         <td>Formală, Cocktail</td>
+        </tr>
+        <tr>
+         <td>Sezon:</td>
+         <td>Primăvară/Vară/Toamnă</td>
+        </tr>
+        <tr>
+         <td>Cod produs:</td>
+         <td>RM-2023-BLK</td>
+        </tr>
+       </table>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <!-- Complete the Look -->
+ <section class="complete-look">
+  <div class="container">
+   <h2 class="section-title">Completează ținuta</h2>
+   <div class="product-grid">
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/sandale.jpg" alt="Sandale">
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+     </div>
+     <div class="product-info">
+      <div class="product-rating">
+       <span class="rating">4.5</span>
+       <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+       </div>
+      </div>
+      <h3 class="product-name">Sandale</h3>
+      <div class="product-price">450 lei</div>
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/geanta.jpg" alt="Geantă piele">
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+     </div>
+     <div class="product-info">
+      <div class="product-rating">
+       <span class="rating">4.2</span>
+       <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+       </div>
+      </div>
+      <h3 class="product-name">Geantă piele</h3>
+      <div class="product-price">400 lei</div>
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/lant.jpg" alt="Lănțișor">
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+     </div>
+     <div class="product-info">
+      <div class="product-rating">
+       <span class="rating">4.3</span>
+       <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+       </div>
+      </div>
+      <h3 class="product-name">Lănțișor</h3>
+      <div class="product-price">1,450 lei</div>
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/inel.jpg" alt="Inel">
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+     </div>
+     <div class="product-info">
+      <div class="product-rating">
+       <span class="rating">4.5</span>
+       <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+       </div>
+      </div>
+      <h3 class="product-name">Inel</h3>
+      <div class="product-price">700 lei</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- Reviews -->
+ <section class="reviews">
+  <div class="container">
+   <h2 class="section-title">Recenzii</h2>
+   <div class="review-stats">
+    <div class="overall-rating">
+     <div class="rating-value">4.8</div>
+     <div class="stars">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star-half-alt"></i>
+     </div>
+    </div>
+    <div class="rating-bars">
+     <div class="rating-bar">
+      <span class="stars-label">5</span>
+      <div class="bar-container">
+       <div class="bar" style="width: 80%;"></div>
+      </div>
+      <span class="count">40</span>
+     </div>
+     <div class="rating-bar">
+      <span class="stars-label">4</span>
+      <div class="bar-container">
+       <div class="bar" style="width: 15%;"></div>
+      </div>
+      <span class="count">8</span>
+     </div>
+     <div class="rating-bar">
+      <span class="stars-label">3</span>
+      <div class="bar-container">
+       <div class="bar" style="width: 5%;"></div>
+      </div>
+      <span class="count">4</span>
+     </div>
+     <div class="rating-bar">
+      <span class="stars-label">2</span>
+      <div class="bar-container">
+       <div class="bar" style="width: 0%;"></div>
+      </div>
+      <span class="count">2</span>
+     </div>
+     <div class="rating-bar">
+      <span class="stars-label">1</span>
+      <div class="bar-container">
+       <div class="bar" style="width: 0%;"></div>
+      </div>
+      <span class="count">2</span>
+     </div>
+    </div>
+   </div>
+
+   <div class="review-filters">
+    <div class="filter-header">
+     <h3>Filtre</h3>
+     <i class="fas fa-sliders-h"></i>
+    </div>
+    <div class="sort-by">
+     <label>Sortează după:</label>
+     <select>
+      <option>Cele mai noi întâi</option>
+      <option>Cele mai vechi întâi</option>
+      <option>Cele mai bune evaluări</option>
+      <option>Cele mai slabe evaluări</option>
+     </select>
+    </div>
+   </div>
+
+   <div class="review-list">
+    <div class="review-item">
+     <div class="reviewer-info">
+      <div class="reviewer-name">Andreea Valentina</div>
+      <div class="reviewer-badge">Verificat</div>
+     </div>
+     <div class="review-rating">
+      <div class="stars">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+      </div>
+      <div class="review-date">acum 14 zile</div>
+     </div>
+     <h4 class="review-title">Minunat!!!</h4>
+     <p class="review-text">Lungimea midi oferă un echilibru ideal între sofisticare și confort. Având un decolteu
+      rochie și o plasă versatilă și adaptabilă la diferitele siluete femei.</p>
+    </div>
+
+    <div class="review-item">
+     <div class="reviewer-info">
+      <div class="reviewer-name">Turtureanu Larisa</div>
+      <div class="reviewer-badge">Verificat</div>
+     </div>
+     <div class="review-rating">
+      <div class="stars">
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+       <i class="fas fa-star"></i>
+      </div>
+      <div class="review-date">acum 21 zile</div>
+     </div>
+     <h4 class="review-title">Perfect confecționată</h4>
+     <p class="review-text">Această rochie midi de seară spune rafinament și stil! Find ideală pentru ocazii speciale.
+      Croiala elegantă urmează perfect liniile corpului fără a fi restrictivă, iar textura stofei înclină o notă
+      distinctivă demnă de peste 1k lei.</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <!-- Similar Products -->
+ <section class="similar-products">
+  <div class="container">
+   <div class="product-tabs">
+    <button class="tab-btn active" data-tab="similar">Produse similare</button>
+    <button class="tab-btn" data-tab="viewed">Recent vizionate</button>
+   </div>
+   <div class="tab-content active" id="similar-tab">
+    <div class="product-grid">
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/rochie-mini.jpg" alt="Rochie mini">
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <div class="product-rating">
+        <span class="rating">4.5</span>
+        <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+        </div>
+       </div>
+       <h3 class="product-name">Rochie mini</h3>
+       <div class="product-price">300 lei</div>
+      </div>
+     </div>
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/rochie-mini-vesta.jpg" alt="Rochie mini vestă">
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <div class="product-rating">
+        <span class="rating">4.2</span>
+        <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="far fa-star"></i>
+        </div>
+       </div>
+       <h3 class="product-name">Rochie mini</h3>
+       <div class="product-price">200 lei</div>
+      </div>
+     </div>
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/rochie-casual.jpg" alt="Rochie casual">
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <div class="product-rating">
+        <span class="rating">4.3</span>
+        <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="far fa-star"></i>
+        </div>
+       </div>
+       <h3 class="product-name">Rochie casual</h3>
+       <div class="product-price">250 lei</div>
+      </div>
+     </div>
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/rochie-seara.jpg" alt="Rochie seară">
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <div class="product-rating">
+        <span class="rating">4.5</span>
+        <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+        </div>
+       </div>
+       <h3 class="product-name">Rochie seară</h3>
+       <div class="product-price">400 lei</div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <div class="tab-content" id="viewed-tab">
+    <!-- Content for Recently Viewed tab -->
+   </div>
+  </div>
+ </section>
+
+ <!-- Shopping Cart Sidebar -->
+ <div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+   <h2>Coșul tău</h2>
+   <button class="close-cart" id="closeCart">
+    <i class="fas fa-times"></i>
+   </button>
+  </div>
+  <div class="cart-products" id="cartProducts">
+   <div class="cart-product">
+    <div class="product-image">
+     <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară">
+    </div>
+    <div class="product-details">
+     <h3>Rochie midi de seară</h3>
+     <p>S / Negru</p>
+     <div class="product-price">
+      <span class="current-price">500 lei</span>
+      <span class="old-price">1000 lei</span>
+      <span class="discount">(50% reducere)</span>
+     </div>
+     <div class="quantity-selector">
+      <button class="quantity-btn minus">-</button>
+      <input type="number" value="1" min="1" class="quantity-input">
+      <button class="quantity-btn plus">+</button>
+     </div>
+    </div>
+    <button class="remove-product">
+     <i class="fas fa-trash-alt"></i>
+    </button>
+   </div>
+  </div>
+  <div class="cart-recommendations">
+   <h3>Cumpărate frecvent împreună</h3>
+   <div class="recommended-product">
+    <div class="product-image">
+     <img src="images/sandale.jpg" alt="Sandale">
+    </div>
+    <div class="product-details">
+     <h4>Sandale</h4>
+     <div class="product-price">450 lei</div>
+    </div>
+    <button class="add-product">Adaugă</button>
+   </div>
+  </div>
+  <div class="cart-summary">
+   <div class="subtotal">
+    <span>Subtotal</span>
+    <span>500 lei</span>
+   </div>
+   <button class="checkout-btn">Finalizează comanda</button>
+   <a href="#" class="continue-shopping">Continuă cumpărăturile →</a>
+  </div>
+ </div>
+ <div class="cart-overlay" id="cartOverlay"></div>
+
+ <!-- Footer -->
+ <footer>
+  <div class="footer-top">
+   <div class="container">
+    <div class="footer-columns">
+     <div class="footer-column">
+      <h3>Legături utile</h3>
+      <ul>
+       <li><a href="#">Despre noi</a></li>
+       <li><a href="#">Femei</a></li>
+       <li><a href="#">Bărbați</a></li>
+       <li><a href="#">Ediție limitată</a></li>
+      </ul>
+     </div>
+     <div class="footer-column">
+      <h3>Primește ajutor</h3>
+      <ul>
+       <li><a href="#">Contact</a></li>
+       <li><a href="#">Întrebări frecvente</a></li>
+       <li><a href="#">Sitemap</a></li>
+      </ul>
+     </div>
+     <div class="footer-column">
+      <h3>Informații</h3>
+      <ul>
+       <li><a href="#">Despre noi</a></li>
+       <li><a href="#">Politica de confidențialitate</a></li>
+       <li><a href="#">Termeni și condiții</a></li>
+       <li><a href="#">Politica de cookies</a></li>
+      </ul>
+     </div>
+     <div class="footer-column newsletter">
+      <h3>ABONEAZĂ-TE LA NEWSLETTER-UL NOSTRU</h3>
+      <form class="newsletter-form">
+       <input type="email" placeholder="Adresa de email">
+       <button type="submit">→</button>
+      </form>
+      <p>Fiind unul din abonații la newsletter-ul nostru vei primi informații despre ultimele tendințe, lansări de
+       produse și reduceri exclusive, direct prin e-mail.</p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <div class="container">
+    <div class="copyright">
+     <p>© 2025 DYNASTY COUTURE. Toate drepturile rezervate.</p>
+    </div>
+    <div class="payment-methods">
+     <img src="images/visa.png" alt="Visa">
+     <img src="images/mastercard.png" alt="Mastercard">
+    </div>
+   </div>
+  </div>
+ </footer>
+
+ <script src="main.js"></script>
+ <script src="product.js"></script>
+</body>
+
+</html>
