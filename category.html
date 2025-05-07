@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Îmbrăcăminte Femei - Dynasty Couture</title>
+ <link rel="stylesheet" href="main.css">
+ <link rel="stylesheet" href="category.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <!-- Header -->
+ <header>
+  <div class="header-container">
+   <div class="header-left">
+    <button class="menu-toggle" id="menuToggle">
+     <span></span>
+     <span></span>
+     <span></span>
+    </button>
+   </div>
+   <div class="header-center">
+    <a href="index.html" class="logo">DYNASTY COUTURE</a>
+   </div>
+   <div class="header-right">
+    <div class="header-actions">
+     <a href="#" class="search-toggle">
+      <i class="fas fa-search"></i>
+     </a>
+     <a href="#" class="wishlist-toggle">
+      <i class="fas fa-heart"></i>
+      <span class="badge">0</span>
+     </a>
+     <a href="cart.html" class="cart-toggle">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="badge">0</span>
+     </a>
+     <a href="#" class="account-toggle">
+      <i class="fas fa-user"></i>
+     </a>
+    </div>
+   </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+   <ul class="nav-list">
+    <li><a href="noutati.html">Noutăți</a></li>
+    <li><a href="femei.html" class="active">Femei</a></li>
+    <li><a href="barbati.html">Bărbați</a></li>
+    <li><a href="editie-limitata.html" class="highlight">Ediție limitată</a></li>
+   </ul>
+  </nav>
+ </header>
+
+ <!-- Breadcrumb -->
+ <div class="breadcrumb">
+  <div class="container">
+   <ul>
+    <li><a href="index.html">Acasă</a></li>
+    <li><a href="femei.html">Femei</a></li>
+    <li>Îmbrăcăminte</li>
+   </ul>
+  </div>
+ </div>
+
+ <!-- Category Header -->
+ <div class="category-header">
+  <div class="container">
+   <h1 class="category-title">Îmbrăcăminte Femei</h1>
+   <p class="category-description">Descoperă colecția noastră elegantă de îmbrăcăminte pentru femei, creată cu materiale
+    premium și design sofisticat. De la ținute casual la piese statement, găsește-ți stilul perfect pentru orice ocazie.
+   </p>
+  </div>
+ </div>
+
+ <!-- Category Subcategories -->
+ <div class="category-subcategories">
+  <div class="container">
+   <div class="subcategory-grid">
+    <a href="femei-rochii.html" class="subcategory-card">
+     <div class="subcategory-image">
+      <img src="images/subcategory-rochii.jpg" alt="Rochii">
+     </div>
+     <h3 class="subcategory-name">Rochii</h3>
+    </a>
+    <a href="femei-bluze.html" class="subcategory-card">
+     <div class="subcategory-image">
+      <img src="images/subcategory-bluze.jpg" alt="Bluze și Topuri">
+     </div>
+     <h3 class="subcategory-name">Bluze și Topuri</h3>
+    </a>
+    <a href="femei-pantaloni.html" class="subcategory-card">
+     <div class="subcategory-image">
+      <img src="images/subcategory-pantaloni.jpg" alt="Pantaloni">
+     </div>
+     <h3 class="subcategory-name">Pantaloni</h3>
+    </a>
+    <a href="femei-fuste.html" class="subcategory-card">
+     <div class="subcategory-image">
+      <img src="images/subcategory-fuste.jpg" alt="Fuste">
+     </div>
+     <h3 class="subcategory-name">Fuste</h3>
+    </a>
+    <a href="femei-costume.html" class="subcategory-card">
+     <div class="subcategory-image">
+      <img src="images/subcategory-costume.jpg" alt="Costume și Seturi">
+     </div>
+     <h3 class="subcategory-name">Costume și Seturi</h3>
+    </a>
+    <a href="femei-jachete.html" class="subcategory-card">
+     <div class="subcategory-image">
+      <img src="images/subcategory-jachete.jpg" alt="Jachete și Paltoane">
+     </div>
+     <h3 class="subcategory-name">Jachete și Paltoane</h3>
+    </a>
+   </div>
+  </div>
+ </div>
+
+ <!-- Product Filters -->
+ <div class="product-filters">
+  <div class="container">
+   <div class="filters-header">
+    <div class="filters-count">
+     <span>Afișarea 1-20 din 100 produse</span>
+    </div>
+    <div class="filters-actions">
+     <button class="filter-toggle">
+      <i class="fas fa-sliders-h"></i> Filtrează
+     </button>
+     <div class="sort-dropdown">
+      <label for="sort-select">Sortare:</label>
+      <select id="sort-select">
+       <option value="relevance">Noutăți</option>
+       <option value="price-asc">Preț: crescător</option>
+       <option value="price-desc">Preț: descrescător</option>
+       <option value="name-asc">Nume: A-Z</option>
+       <option value="name-desc">Nume: Z-A</option>
+      </select>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <!-- Product Grid -->
+ <div class="product-container">
+  <div class="container">
+   <!-- Sidebar Filters (Hidden on mobile) -->
+   <div class="sidebar-filters">
+    <div class="filter-section">
+     <h3>Categorii</h3>
+     <ul class="filter-list">
+      <li><a href="femei-rochii.html" class="filter-link">Rochii <span>(42)</span></a></li>
+      <li><a href="femei-bluze.html" class="filter-link">Bluze și Topuri <span>(35)</span></a></li>
+      <li><a href="femei-pantaloni.html" class="filter-link">Pantaloni <span>(28)</span></a></li>
+      <li><a href="femei-fuste.html" class="filter-link">Fuste <span>(16)</span></a></li>
+      <li><a href="femei-costume.html" class="filter-link">Costume și Seturi <span>(12)</span></a></li>
+      <li><a href="femei-jachete.html" class="filter-link">Jachete și Paltoane <span>(18)</span></a></li>
+     </ul>
+    </div>
+    <div class="filter-section">
+     <h3>Preț</h3>
+     <div class="price-slider">
+      <input type="range" min="0" max="2000" step="50" value="1000" class="slider" id="priceRange">
+      <div class="price-values">
+       <span id="minPrice">0 lei</span>
+       <span id="maxPrice">2000 lei</span>
+      </div>
+     </div>
+    </div>
+    <div class="filter-section">
+     <h3>Culoare</h3>
+     <div class="color-filters">
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="negru">
+       <span class="color-dot" style="background-color: #000"></span>
+       <span class="color-name">Negru</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="alb">
+       <span class="color-dot" style="background-color: #fff; border: 1px solid #ddd"></span>
+       <span class="color-name">Alb</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="rosu">
+       <span class="color-dot" style="background-color: #8B0000"></span>
+       <span class="color-name">Roșu</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="bleumarin">
+       <span class="color-dot" style="background-color: #1A2639"></span>
+       <span class="color-name">Bleumarin</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="bej">
+       <span class="color-dot" style="background-color: #F5F5DC"></span>
+       <span class="color-name">Bej</span>
+      </label>
+     </div>
+    </div>
+    <div class="filter-section">
+     <h3>Mărime</h3>
+     <div class="size-filters">
+      <label class="size-filter">
+       <input type="checkbox" name="size" value="XS">
+       <span class="size-box">XS</span>
+      </label>
+      <label class="size-filter">
+       <input type="checkbox" name="size" value="S">
+       <span class="size-box">S</span>
+      </label>
+      <label class="size-filter">
+       <input type="checkbox" name="size" value="M">
+       <span class="size-box">M</span>
+      </label>
+      <label class="size-filter">
+       <input type="checkbox" name="size" value="L">
+       <span class="size-box">L</span>
+      </label>
+      <label class="size-filter">
+       <input type="checkbox" name="size" value="XL">
+       <span class="size-box">XL</span>
+      </label>
+      <label class="size-filter">
+       <input type="checkbox" name="size" value="XXL">
+       <span class="size-box">XXL</span>
+      </label>
+     </div>
+    </div>
+    <div class="filter-section">
+     <h3>Stil</h3>
+     <ul class="filter-list">
+      <li>
+       <label class="checkbox-filter">
+        <input type="checkbox" name="style" value="casual">
+        <span class="filter-name">Casual</span>
+       </label>
+      </li>
+      <li>
+       <label class="checkbox-filter">
+        <input type="checkbox" name="style" value="elegant">
+        <span class="filter-name">Elegant</span>
+       </label>
+      </li>
+      <li>
+       <label class="checkbox-filter">
+        <input type="checkbox" name="style" value="business">
+        <span class="filter-name">Business</span>
+       </label>
+      </li>
+      <li>
+       <label class="checkbox-filter">
+        <input type="checkbox" name="style" value="seara">
+        <span class="filter-name">De seară</span>
+       </label>
+      </li>
+     </ul>
+    </div>
+    <div class="filter-actions">
+     <button class="btn-reset-filters">Resetează filtrele</button>
+     <button class="btn-apply-filters">Aplică filtrele</button>
+    </div>
+   </div>
+
+   <!-- Product Grid -->
+   <div class="product-grid">
+    <!-- Product Cards - Row 1 -->
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară">
+      <div class="product-badges">
+       <span class="badge-discount">-50%</span>
+       <span class="badge-new">Nou</span>
+      </div>
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      <div class="quick-view">
+       <button class="quick-view-btn">Previzualizare rapidă</button>
+      </div>
+     </div>
+     <div class="product-info">
+      <h3 class="product-name">Rochie midi de seară</h3>
+      <div class="product-price">
+       <span class="current-price">500 lei</span>
+       <span class="old-price">1000 lei</span>
+      </div>
+      <div class="product-colors">
+       <span class="color-dot" style="background-color: #000" title="Negru"></span>
+       <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+      </div>
+      <button class="add-to-cart-btn">Adaugă în coș</button>
+     </div>
+    </div>
+
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/bluza-satin.jpg" alt="Bluză din satin">
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      <div class="quick-view">
+       <button class="quick-view-btn">Previzualizare rapidă</button>
+      </div>
+     </div>
+     <div class="product-info">
+      <h3 class="product-name">Bluză din satin</h3>
+      <div class="product-price">
+       <span class="current-price">250 lei</span>
+      </div>
+      <div class="product-colors">
+       <span class="color-dot" style="background-color: #fff; border: 1px solid #ddd" title="Alb"></span>
+       <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+       <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+      </div>
+      <button class="add-to-cart-btn">Adaugă în coș</button>
+     </div>
+    </div>
+
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/pantaloni-office.jpg" alt="Pantaloni office">
+      <div class="product-badges">
+       <span class="badge-bestseller">Bestseller</span>
+      </div>
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      <div class="quick-view">
+       <button class="quick-view-btn">Previzualizare rapidă</button>
+      </div>
+     </div>
+     <div class="product-info">
+      <h3 class="product-name">Pantaloni office</h3>
+      <div class="product-price">
+       <span class="current-price">320 lei</span>
+      </div>
+      <div class="product-colors">
+       <span class="color-dot" style="background-color: #000" title="Negru"></span>
+       <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+       <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+      </div>
+      <button class="add-to-cart-btn">Adaugă în coș</button>
+     </div>
+    </div>
+
+    <div class="product-card">
+     <div class="product-image">
+      <img src="images/fusta-plisata.jpg" alt="Fustă plisată">
+      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      <div class="quick-view">
+       <button class="quick-view-btn">Previzualizare rapidă</button>
+      </div>
+     </div>
+     <div class="product-info">
+      <h3 class="product-name">Fustă plisată</h3>
+      <div class="product-price">
+       <span class="current-price">280 lei</span>
+      </div>
+      <div class="product-colors">
+       <span class="color-dot" style="background-color: #000" title="Negru"></span>
+       <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+       <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+      </div>
+      <button class="add-to-cart-btn">Adaugă în coș</button>
+     </div>
+    </div>
+
+    <!-- Product Cards - Row 2 (și alte rânduri similar) -->
+    <!-- Se pot adăuga mai multe carduri de produse cu structură similară -->
+   </div>
+  </div>
+ </div>
+
+ <!-- Pagination -->
+ <div class="pagination">
+  <div class="container">
+   <ul class="pagination-list">
+    <li class="pagination-item active"><a href="#" class="pagination-link">1</a></li>
+    <li class="pagination-item"><a href="#" class="pagination-link">2</a></li>
+    <li class="pagination-item"><a href="#" class="pagination-link">3</a></li>
+    <li class="pagination-item"><a href="#" class="pagination-link">4</a></li>
+    <li class="pagination-item"><a href="#" class="pagination-link">5</a></li>
+    <li class="pagination-item next"><a href="#" class="pagination-link"><i class="fas fa-chevron-right"></i></a></li>
+   </ul>
+  </div>
+ </div>
+
+ <!-- Footer -->
+ <footer>
+  <div class="footer-top">
+   <div class="container">
+    <div class="footer-columns">
+     <div class="footer-column">
+      <h3>Legături utile</h3>
+      <ul>
+       <li><a href="despre-noi.html">Despre noi</a></li>
+       <li><a href="femei.html">Femei</a></li>
+       <li><a href="barbati.html">Bărbați</a></li>
+       <li><a href="editie-limitata.html">Ediție limitată</a></li>
+      </ul>
+     </div>
+     <div class="footer-column">
+      <h3>Primește ajutor</h3>
+      <ul>
+       <li><a href="contact.html">Contact</a></li>
+       <li><a href="intrebari-frecvente.html">Întrebări frecvente</a></li>
+       <li><a href="livrare.html">Livrare</a></li>
+       <li><a href="returnare.html">Returnare</a></li>
+       <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+     </div>
+     <div class="footer-column">
+      <h3>Informații</h3>
+      <ul>
+       <li><a href="politica-confidentialitate.html">Politica de confidențialitate</a></li>
+       <li><a href="termeni-conditii.html">Termeni și condiții</a></li>
+       <li><a href="politica-cookies.html">Politica de cookies</a></li>
+      </ul>
+     </div>
+     <div class="footer-column newsletter">
+      <h3>ABONEAZĂ-TE LA NEWSLETTER</h3>
+      <form class="newsletter-form">
+       <input type="email" placeholder="Adresa de email">
+       <button type="submit">→</button>
+      </form>
+      <p>Primește informații despre ultimele tendințe și reduceri exclusive.</p>
+      <div class="social-icons">
+       <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+       <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+       <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <div class="container">
+    <div class="copyright">
+     <p>© 2025 DYNASTY COUTURE. Toate drepturile rezervate.</p>
+    </div>
+    <div class="payment-methods">
+     <img src="images/visa.png" alt="Visa">
+     <img src="images/mastercard.png" alt="Mastercard">
+     <img src="images/paypal.png" alt="PayPal">
+    </div>
+   </div>
+  </div>
+ </footer>
+
+ <script src="main.js"></script>
+ <script src="category.js"></script>
+</body>
+
+</html>

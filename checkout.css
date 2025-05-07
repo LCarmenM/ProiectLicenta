@@ -490,176 +490,201 @@ textarea {
  align-items: center;
  gap: 10px;
 }
-            /* Stiluri pentru Modal-ul de Confirmare a Comenzii */
-            .order-confirmation-modal {
-             position: fixed;
-             top: 50%;
-             left: 50%;
-             transform: translate(-50%, -50%) scale(0.9);
-             width: 90%;
-             max-width: 600px;
-             background-color: white;
-             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-             z-index: 1001;
-             opacity: 0;
-             visibility: hidden;
-             transition: all 0.3s ease;
-            }
-      
-            .order-confirmation-modal.active {
-             opacity: 1;
-             visibility: visible;
-             transform: translate(-50%, -50%) scale(1);
-            }
-      
-            .modal-content {
-             padding: 0;
-            }
-      
-            .modal-header {
-             background-color: #222222;
-             color: white;
-             padding: 20px 30px;
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-            }
-      
-            .modal-header h2 {
-             margin: 0;
-             font-size: 1.5rem;
-            }
-      
-            .close-modal {
-             background: none;
-             border: none;
-             font-size: 1.5rem;
-             color: white;
-             cursor: pointer;
-             transition: color 0.3s ease;
-            }
-      
-            .close-modal:hover {
-             color: #cccccc;
-            }
-      
-            .modal-body {
-             padding: 30px;
-             text-align: center;
-            }
-      
-            .success-icon {
-             font-size: 4rem;
-             color: #4caf50;
-             margin-bottom: 20px;
-            }
-      
-            .confirmation-message {
-             font-size: 1.2rem;
-             margin-bottom: 30px;
-            }
-      
-            .order-details {
-             text-align: left;
-             background-color: #f9f9f9;
-             padding: 20px;
-             margin-bottom: 30px;
-            }
-      
-            .order-details h3 {
-             margin-top: 0;
-             margin-bottom: 15px;
-             font-size: 1.2rem;
-             color: #222222;
-            }
-      
-            .order-summary {
-             display: flex;
-             flex-direction: column;
-             gap: 10px;
-            }
-      
-            .summary-row {
-             display: flex;
-             justify-content: space-between;
-             padding: 5px 0;
-            }
-      
-            .total-row {
-             margin-top: 10px;
-             padding-top: 10px;
-             border-top: 1px solid #e0e0e0;
-             font-weight: 600;
-             font-size: 1.1rem;
-            }
-      
-            .next-steps {
-             margin-bottom: 30px;
-             color: #666666;
-            }
-      
-            .modal-actions {
-             display: flex;
-             justify-content: center;
-             gap: 20px;
-            }
-      
-            .btn-primary,
-            .btn-secondary {
-             padding: 12px 25px;
-             text-decoration: none;
-             font-weight: 600;
-             transition: all 0.3s ease;
-            }
-      
-            .btn-primary {
-             background-color: #222222;
-             color: white;
-            }
-      
-            .btn-primary:hover {
-             background-color: #444444;
-            }
-      
-            .btn-secondary {
-             background-color: white;
-             color: #222222;
-             border: 1px solid #222222;
-            }
-      
-            .btn-secondary:hover {
-             background-color: #f5f5f5;
-            }
-      
-            .modal-overlay {
-             position: fixed;
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             background-color: rgba(0, 0, 0, 0.5);
-             z-index: 1000;
-             opacity: 0;
-             visibility: hidden;
-             transition: all 0.3s ease;
-            }
-      
-            .modal-overlay.active {
-             opacity: 1;
-             visibility: visible;
-            }
-      
-            @media (max-width: 576px) {
-             .modal-actions {
-              flex-direction: column;
-             }
-      
-             .btn-primary,
-             .btn-secondary {
-              width: 100%;
-              text-align: center;
-             }
-            }
+              /* Stiluri pentru Modal-ul de Confirmare a Comenzii */
+              .order-confirmation-modal {
+               position: fixed;
+               top: 50%;
+               left: 50%;
+               transform: translate(-50%, -50%) scale(0.9);
+               width: 90%;
+               max-width: 500px;
+               max-height: 80vh;
+               /* Limitează înălțimea la 80% din înălțimea viewport-ului */
+               background-color: white;
+               box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+               z-index: 1001;
+               opacity: 0;
+               visibility: hidden;
+               transition: all 0.3s ease;
+               overflow: auto;
+               /* Adaugă scroll dacă conținutul este prea mare */
+               border-radius: 8px;
+               /* Adaugă colțuri rotunjite */
+              }
+       
+              .order-confirmation-modal.active {
+               opacity: 1;
+               visibility: visible;
+               transform: translate(-50%, -50%) scale(1);
+              }
+       
+              .modal-content {
+               padding: 0;
+              }
+       
+              .modal-header {
+               background-color: #222222;
+               color: white;
+               padding: 15px 20px;
+               /* Padding mai mic pentru header */
+               display: flex;
+               justify-content: space-between;
+               align-items: center;
+               border-top-left-radius: 8px;
+               border-top-right-radius: 8px;
+              }
+       
+              .modal-header h2 {
+               margin: 0;
+               font-size: 1.3rem;
+               /* Titlu mai mic */
+               font-weight: 600;
+              }
+       
+              .close-modal {
+               background: none;
+               border: none;
+               font-size: 1.3rem;
+               color: white;
+               cursor: pointer;
+               transition: color 0.3s ease;
+              }
+       
+              .close-modal:hover {
+               color: #cccccc;
+              }
+       
+              .modal-body {
+               padding: 20px;
+               /* Padding mai mic pentru conținut */
+               text-align: center;
+              }
+       
+              .success-icon {
+               font-size: 3rem;
+               /* Icoană mai mică */
+               color: #4caf50;
+               margin-bottom: 15px;
+              }
+       
+              .confirmation-message {
+               font-size: 1.1rem;
+               /* Text mai mic */
+               margin-bottom: 20px;
+              }
+       
+              .order-details {
+               text-align: left;
+               background-color: #f9f9f9;
+               padding: 15px;
+               margin-bottom: 20px;
+               border-radius: 4px;
+              }
+       
+              .order-details h3 {
+               margin-top: 0;
+               margin-bottom: 12px;
+               font-size: 1.1rem;
+               color: #222222;
+              }
+       
+              .order-summary {
+               display: flex;
+               flex-direction: column;
+               gap: 8px;
+              }
+       
+              .summary-row {
+               display: flex;
+               justify-content: space-between;
+               padding: 4px 0;
+               font-size: 0.95rem;
+              }
+       
+              .total-row {
+               margin-top: 8px;
+               padding-top: 8px;
+               border-top: 1px solid #e0e0e0;
+               font-weight: 600;
+               font-size: 1rem;
+              }
+       
+              .next-steps {
+               margin-bottom: 20px;
+               color: #666666;
+               font-size: 0.95rem;
+              }
+       
+              .modal-actions {
+               display: flex;
+               justify-content: center;
+               gap: 15px;
+               margin-top: 5px;
+              }
+       
+              .btn-primary,
+              .btn-secondary {
+               padding: 10px 20px;
+               text-decoration: none;
+               font-weight: 600;
+               transition: all 0.3s ease;
+               font-size: 0.9rem;
+               border-radius: 4px;
+              }
+       
+              .btn-primary {
+               background-color: #222222;
+               color: white;
+              }
+       
+              .btn-primary:hover {
+               background-color: #444444;
+              }
+       
+              .btn-secondary {
+               background-color: white;
+               color: #222222;
+               border: 1px solid #222222;
+              }
+       
+              .btn-secondary:hover {
+               background-color: #f5f5f5;
+              }
+       
+              .modal-overlay {
+               position: fixed;
+               top: 0;
+               left: 0;
+               width: 100%;
+               height: 100%;
+               background-color: rgba(0, 0, 0, 0.5);
+               z-index: 1000;
+               opacity: 0;
+               visibility: hidden;
+               transition: all 0.3s ease;
+              }
+       
+              .modal-overlay.active {
+               opacity: 1;
+               visibility: visible;
+              }
+       
+              @media (max-width: 576px) {
+               .order-confirmation-modal {
+                width: 95%;
+                max-height: 85vh;
+               }
+       
+               .modal-actions {
+                flex-direction: column;
+               }
+       
+               .btn-primary,
+               .btn-secondary {
+                width: 100%;
+                text-align: center;
+               }
+              }
 
 /* Error Styling */
 .error {

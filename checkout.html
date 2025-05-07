@@ -336,57 +336,56 @@
     </div>
   </main>
 
-  <!-- Modal Confirmare Comandă (Inițial ascuns) -->
-  <div class="order-confirmation-modal" id="orderConfirmationModal" style="opacity: 0; visibility: hidden;">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Comandă plasată cu succes!</h2>
-        <button class="close-modal">&times;</button>
+<!-- Modal Confirmare Comandă -->
+<div class="order-confirmation-modal" id="orderConfirmationModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Comandă plasată cu succes!</h2>
+      <button class="close-modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="success-icon">
+        <i class="fas fa-check-circle"></i>
       </div>
-      <div class="modal-body">
-        <div class="success-icon">
-          <i class="fas fa-check-circle"></i>
-        </div>
-        <p class="confirmation-message">
-          Mulțumim pentru comandă! Aceasta a fost înregistrată cu numărul <strong>#DYN12345</strong>.
-        </p>
-        <div class="order-details">
-          <h3>Rezumatul comenzii tale:</h3>
-          <div class="order-summary">
-            <div class="summary-row">
-              <span>Data plasării:</span>
-              <span>06.05.2025</span>
-            </div>
-            <div class="summary-row">
-              <span>Produse comandate:</span>
-              <span>2</span>
-            </div>
-            <div class="summary-row">
-              <span>Metodă de livrare:</span>
-              <span>Curier standard</span>
-            </div>
-            <div class="summary-row">
-              <span>Metodă de plată:</span>
-              <span>Card de credit</span>
-            </div>
-            <div class="summary-row total-row">
-              <span>Total plătit:</span>
-              <span>950 lei</span>
-            </div>
+      <p class="confirmation-message">
+        Mulțumim pentru comandă! <br>Comanda ta cu nr. <strong>#DYN12345</strong> a fost înregistrată.
+      </p>
+      <div class="order-details">
+        <h3>Rezumatul comenzii:</h3>
+        <div class="order-summary">
+          <div class="summary-row">
+            <span>Data plasării:</span>
+            <span>06.05.2025</span>
+          </div>
+          <div class="summary-row">
+            <span>Produse:</span>
+            <span>2</span>
+          </div>
+          <div class="summary-row">
+            <span>Livrare:</span>
+            <span>Curier standard</span>
+          </div>
+          <div class="summary-row">
+            <span>Plată:</span>
+            <span>Card de credit</span>
+          </div>
+          <div class="summary-row total-row">
+            <span>Total:</span>
+            <span>950 lei</span>
           </div>
         </div>
-        <p class="next-steps">
-          Vei primi în curând un email de confirmare cu detaliile comenzii. Poți verifica statusul comenzii în orice
-          moment în secțiunea "Contul meu".
-        </p>
-        <div class="modal-actions">
-          <a href="index.html" class="btn-secondary">Continuă cumpărăturile</a>
-          <a href="account-orders.html" class="btn-primary">Vezi comenzile mele</a>
-        </div>
+      </div>
+      <p class="next-steps">
+        Vei primi în curând un email de confirmare cu detaliile comenzii.
+      </p>
+      <div class="modal-actions">
+        <a href="index.html" class="btn-secondary">Continuă cumpărăturile</a>
+        <a href="account-orders.html" class="btn-primary">Vezi comenzile mele</a>
       </div>
     </div>
   </div>
-  <div class="modal-overlay" id="confirmationOverlay" style="opacity: 0; visibility: hidden;"></div>
+</div>
+<div class="modal-overlay" id="confirmationOverlay"></div>
   <!-- Footer -->
   <footer>
     <div class="footer-top">

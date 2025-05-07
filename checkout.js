@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Modal de confirmare
     const orderConfirmationModal = document.getElementById('orderConfirmationModal');
-    const modalOverlay = document.getElementById('modalOverlay');
+    const confirmationOverlay = document.getElementById('confirmationOverlay');
     const closeModalButton = document.querySelector('.close-modal');
     
     // Opțiuni de plată
@@ -117,7 +117,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Finalizează comanda
     if (placeOrderButton) {
-        placeOrderButton.addEventListener('click', function() {
+        placeOrderButton.addEventListener('click', function(e) {
+            e.preventDefault();
             // Validează câmpurile din pasul 3
             if (validateStep3()) {
                 // Simulează trimiterea comenzii la server
@@ -127,8 +128,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 // După 2 secunde, afișează modalul de confirmare
                 setTimeout(function() {
                     // Afișează modalul de confirmare
-                    orderConfirmationModal.classList.add('active');
-                    modalOverlay.classList.add('active');
+                    if (orderConfirmationModal && confirmationOverlay) {
+                        orderConfirmationModal.style.opacity = '1';
+                        orderConfirmationModal.style.visibility = 'visible';
+                        orderConfirmationModal.classList.add('active');
+                        
+                        confirmationOverlay.style.opacity = '1';
+                        confirmationOverlay.style.visibility = 'visible';
+                        confirmationOverlay.classList.add('active');
+                        
+                        document.body.style.overflow = 'hidden';
+                    }
                     
                     // Resetează butonul
                     placeOrderButton.disabled = false;
@@ -139,17 +149,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Închide modalul de confirmare
-    if (closeModalButton) {
+    if (closeModalButton && orderConfirmationModal && confirmationOverlay) {
         closeModalButton.addEventListener('click', function() {
             orderConfirmationModal.classList.remove('active');
-            modalOverlay.classList.remove('active');
+            orderConfirmationModal.style.opacity = '0';
+            orderConfirmationModal.style.visibility = 'hidden';
+            
+            confirmationOverlay.classList.remove('active');
+            confirmationOverlay.style.opacity = '0';
+            confirmationOverlay.style.visibility = 'hidden';
+            
+            document.body.style.overflow = '';
         });
     }
     
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', function() {
+    if (confirmationOverlay && orderConfirmationModal) {
+        confirmationOverlay.addEventListener('click', function() {
             orderConfirmationModal.classList.remove('active');
-            modalOverlay.classList.remove('active');
+            orderConfirmationModal.style.opacity = '0';
+            orderConfirmationModal.style.visibility = 'hidden';
+            
+            confirmationOverlay.classList.remove('active');
+            confirmationOverlay.style.opacity = '0';
+            confirmationOverlay.style.visibility = 'hidden';
+            
+            document.body.style.overflow = '';
         });
     }
     
@@ -162,7 +186,10 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Afișează detaliile metodei de plată selectate
-            document.getElementById(this.value + '-details').classList.add('active');
+            const detailsElement = document.getElementById(this.value + '-details');
+            if (detailsElement) {
+                detailsElement.classList.add('active');
+            }
         });
     });
     
@@ -387,94 +414,53 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-
-    document.addEventListener('DOMContentLoaded', function() {
-    // Selectăm butonul "Plasează comanda"
-    const placeOrderBtn = document.querySelector('.place-order-btn');
-    
-    if (placeOrderBtn) {
-        placeOrderBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Verificăm dacă toate câmpurile obligatorii sunt completate
-            const requiredFields = document.querySelectorAll('input[required], select[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('error');
-                } else {
-                    field.classList.remove('error');
-                }
-            });
-            
-            // Verificăm dacă sunt acceptați termenii și condițiile
-            const termsCheckbox = document.getElementById('terms');
-            if (termsCheckbox && !termsCheckbox.checked) {
-                isValid = false;
-                termsCheckbox.classList.add('error');
-            } else if (termsCheckbox) {
-                termsCheckbox.classList.remove('error');
-            }
-            
-            if (isValid) {
-                // Simulăm procesul de plasare a comenzii (în mod normal, aici ar fi un apel la server)
-                this.disabled = true;
-                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se procesează...';
+    // Funcție pentru afișarea notificărilor
+    function showNotification(message, type) {
+        // Verifică dacă există deja o notificare
+        const existingNotification = document.querySelector('.notification');
+        
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+        
+        // Creează notificarea
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span>${message}</span>
+                <button class="close-notification">&times;</button>
+            </div>
+        `;
+        
+        // Adaugă notificarea în DOM
+        document.body.appendChild(notification);
+        
+        // Afișează notificarea (cu o mică întârziere pentru animație)
+        setTimeout(() => {
+            notification.classList.add('active');
+        }, 10);
+        
+        // Adaugă butonul de închidere
+        const closeButton = notification.querySelector('.close-notification');
+        
+        if (closeButton) {
+            closeButton.addEventListener('click', function() {
+                notification.classList.remove('active');
                 
-                // După un timp scurt (simulăm răspunsul de la server), afișăm confirmarea
                 setTimeout(() => {
-                    // Afișăm modalul de confirmare
-                    showOrderConfirmation();
-                    
-                    // Resetăm butonul
-                    this.disabled = false;
-                    this.innerHTML = 'Plasează comanda';
-                }, 2000);
-            } else {
-                // Afișăm un mesaj de eroare
-                showNotification('Te rugăm să completezi toate câmpurile obligatorii.', 'error');
-            }
-        });
-    }
-});
-
-// Funcție pentru afișarea modalului de confirmare
-function showOrderConfirmation() {
-    const modal = document.getElementById('orderConfirmationModal');
-    const overlay = document.getElementById('confirmationOverlay');
-    
-    if (modal && overlay) {
-        // Afișăm modalul și overlay-ul
-        modal.classList.add('active');
-        overlay.classList.add('active');
-        
-        // Prevenim scroll-ul paginii
-        document.body.style.overflow = 'hidden';
-        
-        // Adăugăm handler pentru butonul de închidere
-        const closeBtn = modal.querySelector('.close-modal');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function() {
-                closeOrderConfirmation(modal, overlay);
+                    notification.remove();
+                }, 300);
             });
         }
         
-        // Adăugăm handler pentru click pe overlay
-        overlay.addEventListener('click', function() {
-            closeOrderConfirmation(modal, overlay);
-        });
+        // Ascunde notificarea după 5 secunde
+        setTimeout(() => {
+            notification.classList.remove('active');
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 300);
+        }, 5000);
     }
-}
-
-// Funcție pentru închiderea modalului de confirmare
-function closeOrderConfirmation(modal, overlay) {
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    
-    // Redirecționăm către pagina principală după închidere (opțional)
-    // window.location.href = 'index.html';
-}
 });
