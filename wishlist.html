@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Produse favorite - Dynasty Couture</title>
+ <link rel="stylesheet" href="main.css">
+ <link rel="stylesheet" href="wishlist.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <!-- Header -->
+ <header>
+  <div class="header-container">
+   <div class="header-left">
+    <button class="menu-toggle" id="menuToggle">
+     <span></span>
+     <span></span>
+     <span></span>
+    </button>
+   </div>
+   <div class="header-center">
+    <a href="index.html" class="logo">DYNASTY COUTURE</a>
+   </div>
+   <div class="header-right">
+    <div class="header-actions">
+     <a href="#" class="search-toggle">
+      <i class="fas fa-search"></i>
+     </a>
+     <a href="wishlist.html" class="wishlist-toggle active">
+      <i class="fas fa-heart"></i>
+      <span class="badge">5</span>
+     </a>
+     <a href="cart.html" class="cart-toggle">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="badge">1</span>
+     </a>
+     <a href="#" class="account-toggle">
+      <i class="fas fa-user"></i>
+     </a>
+    </div>
+   </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+   <ul class="nav-list">
+    <li><a href="noutati.html">Noutăți</a></li>
+    <li><a href="femei.html">Femei</a></li>
+    <li><a href="barbati.html">Bărbați</a></li>
+    <li><a href="editie-limitata.html" class="highlight">Ediție limitată</a></li>
+   </ul>
+  </nav>
+ </header>
+
+ <!-- Mobile Menu (inițial ascuns) -->
+ <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-header">
+   <div class="mobile-logo">DYNASTY COUTURE</div>
+   <button class="close-menu" id="closeMenu">
+    <i class="fas fa-times"></i>
+   </button>
+  </div>
+  <div class="mobile-menu-content">
+   <nav class="mobile-nav">
+    <ul class="mobile-nav-list">
+     <li class="mobile-nav-item">
+      <a href="noutati.html" class="mobile-nav-link">Noutăți</a>
+     </li>
+     <li class="mobile-nav-item dropdown">
+      <a href="femei.html" class="mobile-nav-link">Femei</a>
+      <button class="dropdown-toggle"><i class="fas fa-chevron-down"></i></button>
+      <ul class="dropdown-menu">
+       <li><a href="femei-imbracaminte.html">Îmbrăcăminte</a></li>
+       <li><a href="femei-incaltaminte.html">Încălțăminte</a></li>
+       <li><a href="femei-accesorii.html">Accesorii</a></li>
+      </ul>
+     </li>
+     <li class="mobile-nav-item dropdown">
+      <a href="barbati.html" class="mobile-nav-link">Bărbați</a>
+      <button class="dropdown-toggle"><i class="fas fa-chevron-down"></i></button>
+      <ul class="dropdown-menu">
+       <li><a href="barbati-imbracaminte.html">Îmbrăcăminte</a></li>
+       <li><a href="barbati-incaltaminte.html">Încălțăminte</a></li>
+       <li><a href="barbati-accesorii.html">Accesorii</a></li>
+      </ul>
+     </li>
+     <li class="mobile-nav-item">
+      <a href="editie-limitata.html" class="mobile-nav-link highlight">Ediție limitată</a>
+     </li>
+    </ul>
+   </nav>
+   <div class="mobile-account">
+    <a href="account.html" class="mobile-account-link">
+     <i class="fas fa-user"></i> Contul meu
+    </a>
+    <a href="wishlist.html" class="mobile-account-link">
+     <i class="fas fa-heart"></i> Lista de dorințe
+    </a>
+    <a href="orders.html" class="mobile-account-link">
+     <i class="fas fa-box"></i> Comenzile mele
+    </a>
+   </div>
+  </div>
+ </div>
+ <div class="menu-overlay" id="menuOverlay"></div>
+
+ <!-- Breadcrumb -->
+ <div class="breadcrumb">
+  <div class="container">
+   <ul>
+    <li><a href="index.html">Acasă</a></li>
+    <li>Produse favorite</li>
+   </ul>
+  </div>
+ </div>
+
+ <!-- Conținut principal -->
+ <main class="wishlist-page">
+  <div class="container">
+   <div class="wishlist-header">
+    <h1 class="page-title">Produsele mele favorite</h1>
+    <div class="wishlist-count">5 produse</div>
+   </div>
+
+   <div class="wishlist-controls">
+    <div class="filter-options">
+     <label for="sort-select">Sortare:</label>
+     <select id="sort-select">
+      <option value="date-desc">Cele mai recente</option>
+      <option value="price-asc">Preț: crescător</option>
+      <option value="price-desc">Preț: descrescător</option>
+      <option value="name-asc">Nume: A-Z</option>
+     </select>
+    </div>
+    <div class="wishlist-actions">
+     <button class="btn-primary add-all-to-cart">Adaugă toate în coș</button>
+     <button class="btn-secondary clear-wishlist">Golește lista</button>
+    </div>
+   </div>
+
+   <!-- Produse favorite -->
+   <div class="wishlist-grid">
+    <!-- Produs 1 -->
+    <div class="wishlist-item" data-product-id="1">
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară">
+       <div class="product-badges">
+        <span class="badge-discount">-50%</span>
+       </div>
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Rochie midi de seară</h3>
+       <div class="product-price">
+        <span class="current-price">500 lei</span>
+        <span class="old-price">1000 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #000" title="Negru"></span>
+        <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+       </div>
+       <div class="product-alert">
+        <button class="price-alert-toggle" aria-label="Activează alerta de preț">
+         <i class="far fa-bell"></i>
+        </button>
+        <span class="alert-status">Alertă preț</span>
+       </div>
+       <div class="wishlist-item-actions">
+        <button class="add-to-cart-btn">Adaugă în coș</button>
+        <button class="remove-from-wishlist"><i class="fas fa-trash-alt"></i></button>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Produs 2 -->
+    <div class="wishlist-item" data-product-id="2">
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/costum-barbati.jpg" alt="Costum elegant bărbați">
+       <div class="product-badges">
+        <span class="badge-new">Nou</span>
+       </div>
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Costum elegant bărbați</h3>
+       <div class="product-price">
+        <span class="current-price">1200 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #000" title="Negru"></span>
+        <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+       </div>
+       <div class="product-alert">
+        <button class="price-alert-toggle active" aria-label="Dezactivează alerta de preț">
+         <i class="fas fa-bell"></i>
+        </button>
+        <span class="alert-status">Alertă activă</span>
+       </div>
+       <div class="wishlist-item-actions">
+        <button class="add-to-cart-btn">Adaugă în coș</button>
+        <button class="remove-from-wishlist"><i class="fas fa-trash-alt"></i></button>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Produs 3 -->
+    <div class="wishlist-item" data-product-id="3">
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/geanta-piele.jpg" alt="Geantă din piele">
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Geantă din piele naturală</h3>
+       <div class="product-price">
+        <span class="current-price">750 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #000" title="Negru"></span>
+        <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+        <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+       </div>
+       <div class="product-alert">
+        <button class="price-alert-toggle" aria-label="Activează alerta de preț">
+         <i class="far fa-bell"></i>
+        </button>
+        <span class="alert-status">Alertă preț</span>
+       </div>
+       <div class="wishlist-item-actions">
+        <button class="add-to-cart-btn">Adaugă în coș</button>
+        <button class="remove-from-wishlist"><i class="fas fa-trash-alt"></i></button>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Produs 4 -->
+    <div class="wishlist-item" data-product-id="4">
+     <div class="product-card has-price-drop">
+      <div class="product-image">
+       <img src="images/pantofi-oxford.jpg" alt="Pantofi Oxford">
+       <div class="product-badges">
+        <span class="badge-discount">-15%</span>
+       </div>
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Pantofi Oxford piele</h3>
+       <div class="product-price">
+        <span class="current-price">680 lei</span>
+        <span class="old-price">800 lei</span>
+        <span class="price-drop-badge">Preț scăzut</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #000" title="Negru"></span>
+        <span class="color-dot" style="background-color: #8B4513" title="Maro"></span>
+       </div>
+       <div class="product-alert">
+        <button class="price-alert-toggle active" aria-label="Dezactivează alerta de preț">
+         <i class="fas fa-bell"></i>
+        </button>
+        <span class="alert-status">Alertă activă</span>
+        <span class="price-drop-alert">Prețul a scăzut cu 120 lei!</span>
+       </div>
+       <div class="wishlist-item-actions">
+        <button class="add-to-cart-btn">Adaugă în coș</button>
+        <button class="remove-from-wishlist"><i class="fas fa-trash-alt"></i></button>
+       </div>
+      </div>
+     </div>
+    </div>
+
+    <!-- Produs 5 -->
+    <div class="wishlist-item" data-product-id="5">
+     <div class="product-card">
+      <div class="product-image">
+       <img src="images/cercei-argint.jpg" alt="Cercei argint">
+       <div class="product-badges">
+        <span class="badge-bestseller">Bestseller</span>
+       </div>
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Cercei din argint cu cristale</h3>
+       <div class="product-price">
+        <span class="current-price">350 lei</span>
+       </div>
+       <div class="product-alert">
+        <button class="price-alert-toggle" aria-label="Activează alerta de preț">
+         <i class="far fa-bell"></i>
+        </button>
+        <span class="alert-status">Alertă preț</span>
+       </div>
+       <div class="wishlist-item-actions">
+        <button class="add-to-cart-btn">Adaugă în coș</button>
+        <button class="remove-from-wishlist"><i class="fas fa-trash-alt"></i></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+
+   <!-- Stare goală (inițial ascunsă) -->
+   <div class="empty-wishlist" style="display: none;">
+    <div class="empty-wishlist-icon">
+     <i class="far fa-heart"></i>
+    </div>
+    <h2>Lista ta de favorite este goală</h2>
+    <p>Salvează produsele care îți plac pentru a le găsi ușor mai târziu.</p>
+    <a href="index.html" class="btn-primary">Descoperă produse</a>
+   </div>
+
+   <!-- Recomandări -->
+   <div class="recommendations">
+    <h2 class="section-title">S-ar putea să-ți placă și</h2>
+    <div class="product-grid">
+     <!-- Produs recomandat 1 -->
+     <div class="product-card" data-product-id="6">
+      <div class="product-image">
+       <img src="images/palarie.jpg" alt="Pălărie elegantă">
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Pălărie elegantă</h3>
+       <div class="product-price">
+        <span class="current-price">320 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #000" title="Negru"></span>
+        <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+       </div>
+       <button class="add-to-cart-btn">Adaugă în coș</button>
+      </div>
+     </div>
+
+     <!-- Produs recomandat 2 -->
+     <div class="product-card" data-product-id="7">
+      <div class="product-image">
+       <img src="images/esarfa-matase.jpg" alt="Eșarfă din mătase">
+       <div class="product-badges">
+        <span class="badge-new">Nou</span>
+       </div>
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Eșarfă din mătase naturală</h3>
+       <div class="product-price">
+        <span class="current-price">250 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+        <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+       </div>
+       <button class="add-to-cart-btn">Adaugă în coș</button>
+      </div>
+     </div>
+
+     <!-- Produs recomandat 3 -->
+     <div class="product-card" data-product-id="8">
+      <div class="product-image">
+       <img src="images/cravata-matase.jpg" alt="Cravată din mătase">
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Cravată din mătase</h3>
+       <div class="product-price">
+        <span class="current-price">180 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+        <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+        <span class="color-dot" style="background-color: #000" title="Negru"></span>
+       </div>
+       <button class="add-to-cart-btn">Adaugă în coș</button>
+      </div>
+     </div>
+
+     <!-- Produs recomandat 4 -->
+     <div class="product-card" data-product-id="9">
+      <div class="product-image">
+       <img src="images/fular-casmir.jpg" alt="Fular din cașmir">
+       <div class="product-badges">
+        <span class="badge-bestseller">Bestseller</span>
+       </div>
+       <div class="quick-view">
+        <button class="quick-view-btn">Previzualizare rapidă</button>
+       </div>
+       <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+       <h3 class="product-name">Fular din cașmir</h3>
+       <div class="product-price">
+        <span class="current-price">400 lei</span>
+       </div>
+       <div class="product-colors">
+        <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+        <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+        <span class="color-dot" style="background-color: #8B4513" title="Maro"></span>
+       </div>
+       <button class="add-to-cart-btn">Adaugă în coș</button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <!-- Modal Setări Alertă -->
+ <div class="alert-modal" id="alertModal">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h2>Setează alertă de preț</h2>
+    <button class="close-modal">&times;</button>
+   </div>
+   <div class="modal-body">
+    <div class="product-preview">
+     <img src="" alt="" id="alertProductImage">
+     <div class="product-info">
+      <h3 id="alertProductName"></h3>
+      <div class="product-price" id="alertProductPrice"></div>
+     </div>
+    </div>
+
+    <div class="alert-settings">
+     <div class="setting-group">
+      <h4>Notifică-mă când prețul:</h4>
+      <div class="alert-options">
+       <label class="alert-option">
+        <input type="radio" name="alert-type" value="any" checked>
+        <span>Scade cu orice valoare</span>
+       </label>
+       <label class="alert-option">
+        <input type="radio" name="alert-type" value="percent">
+        <span>Scade cu cel puțin:</span>
+        <select id="alertPercent">
+         <option value="5">5%</option>
+         <option value="10">10%</option>
+         <option value="15">15%</option>
+         <option value="20">20%</option>
+         <option value="25">25%</option>
+         <option value="30">30%</option>
+        </select>
+       </label>
+       <label class="alert-option">
+        <input type="radio" name="alert-type" value="amount">
+        <span>Scade cu cel puțin:</span>
+        <input type="number" id="alertAmount" value="100" min="1"> lei
+       </label>
+       <label class="alert-option">
+        <input type="radio" name="alert-type" value="target">
+        <span>Ajunge la prețul dorit:</span>
+        <input type="number" id="alertTarget" value="0" min="0"> lei
+       </label>
+      </div>
+     </div>
+
+     <div class="setting-group">
+      <h4>Metode de notificare:</h4>
+      <div class="notification-options">
+       <label class="notification-option">
+        <input type="checkbox" name="notify-email" checked>
+        <span>Email</span>
+       </label>
+       <label class="notification-option">
+        <input type="checkbox" name="notify-push">
+        <span>Notificări push</span>
+       </label>
+       <label class="notification-option">
+        <input type="checkbox" name="notify-sms">
+        <span>SMS</span>
+       </label>
+      </div>
+     </div>
+
+     <div class="setting-group">
+      <h4>Durată alertă:</h4>
+      <select id="alertDuration">
+       <option value="7">7 zile</option>
+       <option value="14">14 zile</option>
+       <option value="30" selected>30 zile</option>
+       <option value="60">60 zile</option>
+       <option value="90">90 zile</option>
+       <option value="unlimited">Nelimitat</option>
+      </select>
+     </div>
+    </div>
+   </div>
+   <div class="modal-footer">
+    <button class="btn-secondary cancel-alert">Anulează</button>
+    <button class="btn-primary save-alert">Salvează alerta</button>
+   </div>
+  </div>
+ </div>
+ <div class="modal-overlay" id="alertModalOverlay"></div>
+
+ <!-- Footer -->
+ <footer>
+  <div class="footer-top">
+   <div class="container">
+    <div class="footer-columns">
+     <div class="footer-column">
+      <h3>Legături utile</h3>
+      <ul>
+       <li><a href="despre-noi.html">Despre noi</a></li>
+       <li><a href="femei.html">Femei</a></li>
+       <li><a href="barbati.html">Bărbați</a></li>
+       <li><a href="editie-limitata.html">Ediție limitată</a></li>
+      </ul>
+     </div>
+     <div class="footer-column">
+      <h3>Primește ajutor</h3>
+      <ul>
+       <li><a href="contact.html">Contact</a></li>
+       <li><a href="intrebari-frecvente.html">Întrebări frecvente</a></li>
+       <li><a href="livrare.html">Livrare</a></li>
+       <li><a href="returnare.html">Returnare</a></li>
+       <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+     </div>
+     <div class="footer-column">
+      <h3>Informații</h3>
+      <ul>
+       <li><a href="politica-confidentialitate.html">Politica de confidențialitate</a></li>
+       <li><a href="termeni-conditii.html">Termeni și condiții</a></li>
+       <li><a href="politica-cookies.html">Politica de cookies</a></li>
+      </ul>
+     </div>
+     <div class="footer-column newsletter">
+      <h3>ABONEAZĂ-TE LA NEWSLETTER</h3>
+      <form class="newsletter-form">
+       <input type="email" placeholder="Adresa de email">
+       <button type="submit">→</button>
+      </form>
+      <p>Primește informații despre ultimele tendințe și reduceri exclusive.</p>
+      <div class="social-icons">
+       <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+       <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+       <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer-bottom">
+   <div class="container">
+    <div class="copyright">
+     <p>© 2025 DYNASTY COUTURE. Toate drepturile rezervate.</p>
+    </div>
+    <div class="payment-methods">
+     <img src="images/visa.png" alt="Visa">
+     <img src="images/mastercard.png" alt="Mastercard">
+     <img src="images/paypal.png" alt="PayPal">
+    </div>
+   </div>
+  </div>
+ </footer>
+
+ <script src="main.js"></script>
+ <script src="wishlist.js"></script>
+</body>
+
+</html>
