@@ -918,54 +918,201 @@ body.menu-open {
  background-color: var(--color-accent-1);
 }
 
-/* Banner Section */
-.banner-section {
+/* summer-collections.css - Stiluri pentru secțiunea de colecții de vară */
+
+.summer-collections {
  padding: 60px 0;
-}
-
-.banner {
- height: 400px;
+ overflow: hidden;
  position: relative;
- background-position: center;
- background-size: cover;
- background-repeat: no-repeat;
+ background-color: var(--color-dominant-2);
 }
 
-.banner-content {
+.container-fluid {
+ width: 100%;
+ max-width: 1618px;
+ margin: 0 auto;
+ padding: 0 15px;
+}
+
+.collections-container {
+ width: 100%;
+ position: relative;
+ height: 750px;
+}
+
+/* Conținutul din stânga */
+.collections-content {
+ width: 510px;
  position: absolute;
- top: 50%;
- left: 10%;
- transform: translateY(-50%);
- max-width: 400px;
- color: white;
- text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+ left: 0;
+ top: 136px;
+ z-index: 2;
 }
 
-.banner-title {
- font-size: 2.5rem;
- margin-bottom: 15px;
- font-weight: 700;
-}
-
-.banner-description {
- font-size: 1.1rem;
- margin-bottom: 25px;
-}
-
-.banner-button {
- display: inline-block;
- padding: 12px 25px;
- background-color: white;
- color: var(--color-secondary-1);
+.collections-title {
+ color: var(--color-text);
+ font-size: 50px;
  font-weight: 600;
- text-transform: uppercase;
- letter-spacing: 1px;
- transition: all 0.3s ease;
+ line-height: 65px;
+ margin-bottom: 30px;
+ font-family: inherit;
 }
 
-.banner-button:hover {
+.collections-description {
+ color: var(--color-text-light);
+ font-size: 18px;
+ font-weight: 400;
+ line-height: 30px;
+ margin-bottom: 30px;
+ width: 452px;
+}
+
+.collections-btn {
+ padding: 14px 40px;
+ outline: 1px var(--color-secondary-1) solid;
+ outline-offset: -1px;
+ color: var(--color-secondary-1);
+ font-size: 16px;
+ font-weight: 700;
+ line-height: 20px;
+ display: inline-block;
+ text-decoration: none;
+ transition: all 0.3s ease;
+ text-transform: uppercase;
+}
+
+.collections-btn:hover {
  background-color: var(--color-secondary-1);
  color: white;
+}
+
+/* Panourile pentru Women și Men */
+.collections-panel {
+ width: 514px;
+ height: 750px;
+ position: absolute;
+ box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.20);
+ background-color: #8D8E8D;
+ overflow: hidden;
+ transition: transform 0.5s ease;
+}
+
+.collections-panel:hover {
+ transform: translateY(-10px);
+}
+
+.women-panel {
+ left: 555px;
+ top: 0;
+}
+
+.men-panel {
+ left: 1104px;
+ top: 0;
+}
+
+.panel-link {
+ display: block;
+ width: 100%;
+ height: 100%;
+ text-decoration: none;
+}
+
+.panel-image {
+ width: 100%;
+ height: 100%;
+ position: relative;
+}
+
+.panel-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.5s ease;
+}
+
+.collections-panel:hover .panel-image img {
+ transform: scale(1.05);
+}
+
+.panel-title {
+ position: absolute;
+ bottom: 50px;
+ left: 40px;
+ z-index: 2;
+}
+
+.panel-title h3 {
+ color: var(--color-text);
+ font-size: 50px;
+ font-weight: 700;
+ line-height: 50px;
+ margin: 0;
+}
+
+/* Responsive pentru tablete mari și desktop-uri mai mici */
+@media (max-width: 1650px) {
+ .collections-container {
+  transform: scale(0.9);
+  transform-origin: left;
+ }
+}
+
+/* Responsive pentru tablete */
+@media (max-width: 1400px) {
+ .collections-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+ }
+
+ .collections-content {
+  position: static;
+  width: 100%;
+  max-width: 510px;
+  margin-bottom: 40px;
+  text-align: center;
+ }
+
+ .collections-content .collections-description {
+  width: 100%;
+ }
+
+ .collections-panel {
+  position: static;
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 514px;
+  height: 600px;
+ }
+}
+
+/* Responsive pentru telefoane */
+@media (max-width: 576px) {
+ .collections-title {
+  font-size: 36px;
+  line-height: 46px;
+ }
+
+ .collections-description {
+  font-size: 16px;
+  line-height: 26px;
+ }
+
+ .collections-panel {
+  height: 400px;
+ }
+
+ .panel-title h3 {
+  font-size: 40px;
+ }
+
+ .collections-btn {
+  width: 100%;
+  text-align: center;
+ }
 }
 
 /* Stiluri actualizate pentru secțiunea de beneficii */
