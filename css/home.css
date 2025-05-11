@@ -506,8 +506,8 @@ body.menu-open {
 
 .slide-content {
  position: absolute;
- top: 50%;
- left: 10%;
+ top: 80%;
+ left: 5%;
  transform: translateY(-50%);
  max-width: 500px;
  color: white;
@@ -515,25 +515,47 @@ body.menu-open {
 }
 
 .slide-title {
- font-size: 3rem;
- margin-bottom: 20px;
+ font-size: 4rem;
+ width: 100%;
+ /* Adjusted font-size */
+ margin-bottom: 10px;
+ /* Reduced space to paragraph */
  font-weight: 700;
+ line-height: 1.2;
+ /* Adjusted line-height for better fit */
 }
 
 .slide-description {
- font-size: 1.2rem;
- margin-bottom: 30px;
+ font-size: 1.1rem;
+ /* Adjusted font-size */
+ margin-bottom: 20px;
+ /* Increased space to button */
+ line-height: 1.4;
+ /* Adjusted line-height */
 }
 
 .slide-button {
  display: inline-block;
- padding: 15px 30px;
- background-color: var(--color-secondary-1);
- color: white;
- font-weight: 600;
+ padding: 12px 25px;
+ /* Adjusted padding */
+ background-color: white;
+ /* Changed background color */
+ color: var(--color-secondary-1);
+ /* Changed text color */
+ font-weight: 700;
+ /* Adjusted font-weight */
  text-transform: uppercase;
  letter-spacing: 1px;
- transition: background-color 0.3s ease;
+ transition: all 0.3s ease;
+ border: 2px solid white;
+ /* Added border */
+}
+
+.slide-button:hover {
+ background-color: var(--color-accent-1);
+ color: white;
+ border-color: var(--color-accent-1);
+ /* Changed border color on hover */
 }
 
 .slide-button:hover {

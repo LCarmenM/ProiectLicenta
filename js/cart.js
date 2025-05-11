@@ -340,3 +340,5 @@ function showNotification(message, type) {
       }, 300);
   }, 3000);
 }
+
+
