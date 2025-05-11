@@ -132,12 +132,12 @@ footer {
  line-height: 24px;
 }
 
-.payment-methods {
+.payment-icons {
  display: flex;
  gap: 5.5px;
 }
 
-.payment-methods img {
+.payment-icons img {
  height: 22px;
 }
 

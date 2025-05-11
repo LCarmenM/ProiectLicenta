@@ -1,17 +1,14 @@
-/* checkout-plata.css - Stiluri specifice pentru pagina de plată */
+/* checkout-plata.css - Stiluri specifice pentru pagina de plată cu corectare footer */
 
+/* Container principal */
 .checkout-form {
- display: none;
- padding: 30px;
-}
-
-.checkout-form.active {
  display: block;
+ padding: 30px;
 }
 
 .form-section {
  margin-bottom: 30px;
- padding-bottom: 30px;
+ padding-bottom: 25px;
  border-bottom: 1px solid var(--color-border);
 }
 
@@ -25,55 +22,16 @@
  font-size: 1.25rem;
  margin-bottom: 20px;
  color: var(--color-secondary-1);
+ display: flex;
+ align-items: center;
+ gap: 10px;
 }
 
-.form-row {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 20px;
+.section-title i {
+ color: var(--color-secondary-1);
 }
 
-.form-group {
- margin-bottom: 20px;
-}
-
-.form-group:last-child {
- margin-bottom: 0;
-}
-
-label {
- display: block;
- margin-bottom: 8px;
- font-weight: 500;
- font-size: 0.9rem;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select,
-textarea {
- width: 100%;
- padding: 12px 15px;
- border: 1px solid var(--color-border);
- font-size: 1rem;
- transition: border-color 0.3s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
- border-color: var(--color-secondary-1);
- outline: none;
-}
-
-textarea {
- resize: vertical;
- min-height: 100px;
-}
-
-/* Payment Methods */
+/* Metode de plată - stilizare conform imaginii */
 .payment-methods {
  display: flex;
  flex-direction: column;
@@ -82,69 +40,193 @@ textarea {
 
 .payment-method {
  margin-bottom: 15px;
+ border: 1px solid var(--color-border);
+ border-radius: 4px;
+ overflow: hidden;
+ transition: border-color 0.3s ease;
 }
 
-.payment-method input[type="radio"] {
- position: absolute;
- opacity: 0;
+.payment-method.active {
+ border-color: var(--color-secondary-1);
+ box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.payment-method label {
+.payment-method-header {
  display: flex;
- justify-content: space-between;
  align-items: center;
  padding: 15px;
- border: 1px solid var(--color-border);
+ background-color: #fff;
  cursor: pointer;
- transition: all 0.3s ease;
+ transition: background-color 0.3s;
 }
 
-.payment-method input[type="radio"]:checked+label {
- border-color: var(--color-secondary-1);
+.payment-method-header:hover {
  background-color: rgba(0, 0, 0, 0.02);
 }
 
-.payment-method-title {
- font-weight: 600;
+.payment-method.active .payment-method-header {
+ background-color: rgba(0, 0, 0, 0.02);
+}
+
+.payment-method-check {
+ width: 20px;
+ height: 20px;
+ border: 2px solid var(--color-border);
+ border-radius: 50%;
  display: flex;
  align-items: center;
- gap: 10px;
+ justify-content: center;
+ margin-right: 12px;
+ transition: all 0.3s ease;
+}
+
+.payment-method-check i {
+ font-size: 12px;
+ opacity: 0;
+ color: white;
+ transition: opacity 0.3s ease;
+}
+
+.payment-method.active .payment-method-check {
+ border-color: var(--color-secondary-1);
+ background-color: var(--color-secondary-1);
+}
+
+.payment-method.active .payment-method-check i {
+ opacity: 1;
+}
+
+.payment-method-title {
+ display: flex;
+ align-items: center;
+ gap: 12px;
+ flex: 1;
+ font-weight: 500;
+}
+
+.payment-method-title i {
+ font-size: 1.1rem;
+ width: 24px;
+ text-align: center;
 }
 
 .payment-method-icons {
  display: flex;
- gap: 5px;
+ gap: 8px;
+}
+
+.payment-method-icons i {
  font-size: 1.5rem;
 }
 
 .payment-method-details {
  display: none;
- padding: 15px;
- border: 1px solid var(--color-border);
- border-top: none;
+ padding: 20px;
+ background-color: rgba(0, 0, 0, 0.02);
+ border-top: 1px solid var(--color-border);
 }
 
-.payment-method-details.active {
+.payment-method.active .payment-method-details {
  display: block;
- border-color: var(--color-secondary-1);
+ animation: fadeIn 0.3s ease;
 }
 
-/* Checkbox */
-.checkbox {
- display: flex;
- align-items: flex-start;
- gap: 10px;
+@keyframes fadeIn {
+ from {
+  opacity: 0;
+  transform: translateY(-10px);
+ }
+
+ to {
+  opacity: 1;
+  transform: translateY(0);
+ }
 }
 
-.checkbox input[type="checkbox"] {
- margin-top: 3px;
+/* Câmpuri pentru card conform imaginii */
+.card-fields {
+ width: 100%;
 }
 
-.checkbox label {
+.card-input-group {
+ margin-bottom: 20px;
+}
+
+.card-input-group:last-child {
  margin-bottom: 0;
+}
+
+.card-input-label {
+ display: block;
+ margin-bottom: 8px;
+ font-weight: 500;
+ font-size: 0.9rem;
+ color: var(--color-text);
+}
+
+.card-input {
+ width: 100%;
+ padding: 12px 15px;
+ border: 1px solid var(--color-border);
+ border-radius: 4px;
+ font-size: 1rem;
+ transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-input:focus {
+ border-color: var(--color-secondary-1);
+ outline: none;
+ box-shadow: 0 0 0 3px rgba(34, 34, 34, 0.1);
+}
+
+.card-input-row {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 15px;
+}
+
+.card-save-checkbox {
+ display: flex;
+ align-items: center;
+ margin-top: 5px;
+}
+
+.card-save-checkbox input[type="checkbox"] {
+ margin-right: 8px;
+}
+
+.card-save-checkbox span {
  font-size: 0.9rem;
 }
 
+/* Checkbox termeni și condiții */
+.terms-checkbox {
+ display: flex;
+ align-items: flex-start;
+ gap: 10px;
+ margin-top: 5px;
+}
+
+.terms-checkbox input[type="checkbox"] {
+ margin-top: 4px;
+}
+
+.terms-checkbox label {
+ font-size: 0.9rem;
+ line-height: 1.5;
+ margin-bottom: 0;
+}
+
+.terms-checkbox a {
+ color: var(--color-secondary-1);
+ text-decoration: underline;
+}
+
+.terms-checkbox a:hover {
+ color: var(--color-accent-1);
+}
+
+/* Butoane de acțiune */
 .form-actions {
  display: flex;
  justify-content: space-between;
@@ -155,92 +237,224 @@ textarea {
 .back-btn {
  color: var(--color-text);
  font-weight: 500;
+ text-decoration: none;
  display: flex;
  align-items: center;
- gap: 5px;
+ gap: 8px;
  transition: color 0.3s ease;
- background: none;
- border: none;
- cursor: pointer;
- padding: 0;
- font-size: 1rem;
+ font-size: 0.95rem;
 }
 
 .back-btn:hover {
  color: var(--color-secondary-1);
 }
 
-.continue-btn,
+.back-btn i {
+ font-size: 0.9rem;
+}
+
 .place-order-btn {
  background-color: var(--color-secondary-1);
  color: white;
  border: none;
+ border-radius: 4px;
  padding: 12px 25px;
+ font-size: 1rem;
  font-weight: 600;
  cursor: pointer;
- transition: background-color 0.3s ease;
+ transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.continue-btn:hover,
 .place-order-btn:hover {
  background-color: var(--color-accent-1);
 }
 
-.place-order-btn {
+.place-order-btn:active {
+ transform: translateY(1px);
+}
+
+/* Modal de confirmare a comenzii */
+.order-confirmation-modal {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0.9);
+ width: 90%;
+ max-width: 500px;
+ max-height: 90vh;
+ background-color: white;
+ box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+ z-index: 1001;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ overflow: auto;
+ border-radius: 8px;
+}
+
+.order-confirmation-modal.active {
+ opacity: 1;
+ visibility: visible;
+ transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+ padding: 0;
+}
+
+.modal-header {
+ background-color: var(--color-secondary-1);
+ color: white;
+ padding: 15px 20px;
  display: flex;
+ justify-content: space-between;
  align-items: center;
+ border-top-left-radius: 8px;
+ border-top-right-radius: 8px;
+}
+
+.modal-header h2 {
+ margin: 0;
+ font-size: 1.3rem;
+ font-weight: 600;
+ color: white;
+}
+
+.close-modal {
+ background: none;
+ border: none;
+ font-size: 1.3rem;
+ color: white;
+ cursor: pointer;
+ transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+ color: #cccccc;
+}
+
+.modal-body {
+ padding: 25px;
+ text-align: center;
+}
+
+.success-icon {
+ font-size: 3.5rem;
+ color: var(--color-success);
+ margin-bottom: 20px;
+}
+
+.confirmation-message {
+ font-size: 1.1rem;
+ margin-bottom: 25px;
+ line-height: 1.5;
+}
+
+.order-details {
+ text-align: left;
+ background-color: var(--color-dominant-1);
+ padding: 20px;
+ margin-bottom: 25px;
+ border-radius: 6px;
+}
+
+.order-details h3 {
+ margin-top: 0;
+ margin-bottom: 15px;
+ font-size: 1.1rem;
+ color: var(--color-secondary-1);
+}
+
+.modal-actions {
+ display: flex;
+ gap: 15px;
  justify-content: center;
- gap: 10px;
 }
 
-/* Error Styling */
-.error {
- border-color: var(--color-error) !important;
+.btn-primary,
+.btn-secondary {
+ padding: 12px 20px;
+ border-radius: 4px;
+ font-weight: 600;
+ text-decoration: none;
+ text-align: center;
+ transition: all 0.3s ease;
 }
 
-.error-message {
- color: var(--color-error);
- font-size: 0.8rem;
- margin-top: 5px;
+.btn-primary {
+ background-color: var(--color-secondary-1);
+ color: white;
+ flex: 1;
 }
 
-/* Responsive Design */
+.btn-primary:hover {
+ background-color: var(--color-accent-1);
+}
+
+.btn-secondary {
+ background-color: white;
+ color: var(--color-secondary-1);
+ border: 1px solid var(--color-secondary-1);
+ flex: 1;
+}
+
+.btn-secondary:hover {
+ background-color: var(--color-dominant-1);
+}
+
+.modal-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5);
+ z-index: 1000;
+ opacity: 0;
+ visibility: hidden;
+ transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+ opacity: 1;
+ visibility: visible;
+}
+
+
+
+
+/* Stiluri responsive */
+@media (max-width: 992px) {
+ .checkout-container {
+  grid-template-columns: 1fr;
+ }
+
+ .order-summary {
+  margin-top: 30px;
+  position: static;
+ }
+}
+
 @media (max-width: 768px) {
- .form-row {
+ .card-input-row {
   grid-template-columns: 1fr;
  }
 
  .form-actions {
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
  }
 
- .back-link,
  .back-btn {
   order: 2;
  }
 
- .continue-btn,
  .place-order-btn {
   order: 1;
   width: 100%;
  }
-}
 
-@media (max-width: 576px) {
- .checkout {
-  padding: 30px 0;
- }
-
- .checkout-title {
-  font-size: 1.5rem;
- }
-
- .step-name {
-  font-size: 0.8rem;
- }
-
- .checkout-form {
-  padding: 20px;
+ .modal-actions {
+  flex-direction: column;
  }
 }
