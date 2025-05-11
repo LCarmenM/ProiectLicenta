@@ -43,6 +43,16 @@ function loadSearchFunctionality() {
     const searchScript = document.createElement('script');
     searchScript.src = 'js/search.js';
     document.body.appendChild(searchScript);
+    
+    // Inițializează funcționalitatea de căutare direct după încărcarea scriptului
+    searchScript.onload = function() {
+      // Verificăm dacă există o funcție globală de inițializare a căutării
+      if (typeof initSearchFunctionality === 'function') {
+        initSearchFunctionality();
+      } else {
+        console.warn('Funcția initSearchFunctionality nu a fost găsită.');
+      }
+    };
   }
   
   // Adaugă CSS-ul de căutare dacă nu există
@@ -238,8 +248,8 @@ function initHeaderScripts() {
   const searchOverlay = document.getElementById('searchOverlay');
   const closeSearch = document.getElementById('closeSearch');
   const body = document.body;
-  const searchForm = document.querySelector('.search-form'); // Selectăm formularul
-  const searchInput = document.querySelector('.search-form input'); // Selectăm input-ul
+  const searchForm = document.querySelector('.search-form');
+  const searchInput = document.querySelector('.search-form input');
 
   // === INIȚIALIZARE MENIU MOBIL ===
   // Deschide meniul mobil
@@ -275,7 +285,7 @@ function initHeaderScripts() {
   }
 
   // === INIȚIALIZARE OVERLAY CĂUTARE ===
-  if (searchToggle && searchOverlay && closeSearch && searchForm && searchInput) { // Verificăm și formularul și input-ul
+  if (searchToggle && searchOverlay && closeSearch && searchForm && searchInput) {
    // Deschide overlay căutare
    searchToggle.addEventListener('click', function(e) {
     e.preventDefault();

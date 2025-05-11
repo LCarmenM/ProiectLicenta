@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
  initSearchFunctionality();
 });
 
+// Exportăm funcția de inițializare la nivel global pentru a o putea apela din includes.js
+window.initSearchFunctionality = initSearchFunctionality;
+
 function initSearchFunctionality() {
  // Elemente pentru căutare
  const searchToggle = document.querySelector('.search-toggle');
@@ -16,6 +19,8 @@ function initSearchFunctionality() {
  
  // Verifică dacă elementele există
  if (searchToggle && searchOverlay && closeSearch && searchForm && searchInput) {
+   console.log('Inițializare funcționalitate de căutare...');
+   
    // Deschide overlay-ul de căutare
    searchToggle.addEventListener('click', function(e) {
      e.preventDefault();
@@ -49,6 +54,15 @@ function initSearchFunctionality() {
        // Efectuează căutarea
        performSearch(searchTerm);
      }
+   });
+ } else {
+   console.warn('Unele elemente necesare pentru funcționalitatea de căutare nu au fost găsite.');
+   console.log({
+     searchToggle: !!searchToggle,
+     searchOverlay: !!searchOverlay,
+     closeSearch: !!closeSearch,
+     searchForm: !!searchForm,
+     searchInput: !!searchInput
    });
  }
  
@@ -95,30 +109,27 @@ function initSearchFunctionality() {
  }
  
  // Funcție pentru afișarea rezultatelor
- // În funcția displaySearchResults
-function displaySearchResults(products, searchTerm) {
- // Eliminăm containerul anterior dacă există
- let searchResults = document.getElementById('searchResults');
- if (searchResults) {
-   searchResults.remove();
- }
- 
- // Creăm containerul de rezultate doar dacă există produse de afișat
- if (products && products.length > 0) {
-   searchResults = document.createElement('div');
-   searchResults.id = 'searchResults';
-   searchResults.className = 'search-results';
+ function displaySearchResults(products, searchTerm) {
+   // Obținem containerul de rezultate
+   let searchResults = document.getElementById('searchResults');
    
-   // Construim conținutul rezultatelor
-   // ...
-   
-   // Adăugăm containerul în DOM
-   const searchContainer = document.querySelector('.search-container');
-   if (searchContainer) {
-     searchContainer.appendChild(searchResults);
+   // Verifică dacă avem un container de rezultate și creează unul dacă nu există
+   if (!searchResults) {
+     const searchContainer = document.querySelector('.search-container');
+     if (searchContainer) {
+       const resultsDiv = document.createElement('div');
+       resultsDiv.id = 'searchResults';
+       resultsDiv.className = 'search-results';
+       searchContainer.appendChild(resultsDiv);
+       searchResults = resultsDiv;
+     } else {
+       console.error('Container pentru rezultate negăsit');
+       return;
+     }
+   } else {
+     // Curăță rezultatele anterioare
+     searchResults.innerHTML = '';
    }
- }
-}
    
    // Verifică dacă sunt rezultate
    if (products.length === 0) {
@@ -146,7 +157,8 @@ function displaySearchResults(products, searchTerm) {
      // Adaugă fiecare produs
      products.forEach(product => {
        const hasDiscount = product.originalPrice > product.price;
-       const discountPercentage = Math.round((product.originalPrice - product.price) / product.originalPrice * 100);
+       const discountPercentage = hasDiscount ? 
+         Math.round((product.originalPrice - product.price) / product.originalPrice * 100) : 0;
        
        resultsHTML += `
          <div class="search-product">
@@ -178,189 +190,7 @@ function displaySearchResults(products, searchTerm) {
      searchResults.innerHTML = resultsHTML;
    }
    
-   // Adaugă stiluri pentru rezultate dacă nu există deja
-   addSearchResultsStyles();
+   // Asigură-te că rezultatele sunt vizibile
+   searchResults.style.display = 'block';
  }
- 
- // Funcție pentru adăugarea stilurilor pentru rezultatele căutării
- function addSearchResultsStyles() {
-   if (!document.getElementById('searchResultsStyles')) {
-     const styles = document.createElement('style');
-     styles.id = 'searchResultsStyles';
-     styles.textContent = `
-       .search-results {
-         background-color: white;
-         border-radius: 4px;
-         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-         margin-top: 20px;
-         max-height: 60vh;
-         overflow-y: auto;
-         padding: 20px;
-       }
-       
-       .results-header {
-         border-bottom: 1px solid #eee;
-         margin-bottom: 15px;
-         padding-bottom: 10px;
-       }
-       
-       .results-header h3 {
-         color: #222;
-         font-size: 1.1rem;
-         margin-bottom: 5px;
-       }
-       
-       .results-header p {
-         color: #666;
-         font-size: 0.9rem;
-         margin: 0;
-       }
-       
-       .results-grid {
-         display: grid;
-         grid-template-columns: repeat(3, 1fr);
-         gap: 15px;
-       }
-       
-       .search-product {
-         background-color: white;
-         border-radius: 4px;
-         border: 1px solid #eee;
-         overflow: hidden;
-         transition: transform 0.3s ease, box-shadow 0.3s ease;
-       }
-       
-       .search-product:hover {
-         transform: translateY(-5px);
-         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-       }
-       
-       .product-link {
-         display: block;
-         text-decoration: none;
-         color: inherit;
-       }
-       
-       .product-image {
-         position: relative;
-         height: 150px;
-         overflow: hidden;
-       }
-       
-       .product-image img {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-         transition: transform 0.5s ease;
-       }
-       
-       .search-product:hover .product-image img {
-         transform: scale(1.05);
-       }
-       
-       .discount-badge {
-         position: absolute;
-         top: 10px;
-         left: 10px;
-         background-color: #c62828;
-         color: white;
-         font-size: 0.8rem;
-         font-weight: 500;
-         padding: 2px 6px;
-         border-radius: 3px;
-       }
-       
-       .product-info {
-         padding: 12px;
-       }
-       
-       .product-name {
-         font-size: 0.95rem;
-         font-weight: 500;
-         margin: 0 0 5px;
-         color: #222;
-         white-space: nowrap;
-         overflow: hidden;
-         text-overflow: ellipsis;
-       }
-       
-       .product-category {
-         color: #666;
-         font-size: 0.8rem;
-         margin-bottom: 8px;
-       }
-       
-       .product-price {
-         display: flex;
-         align-items: center;
-         gap: 10px;
-       }
-       
-       .current-price {
-         font-weight: 600;
-         color: #222;
-         font-size: 0.95rem;
-       }
-       
-       .original-price {
-         text-decoration: line-through;
-         color: #888;
-         font-size: 0.85rem;
-       }
-       
-       .view-all-results {
-         margin-top: 20px;
-         text-align: center;
-       }
-       
-       .view-all-results a {
-         color: #222;
-         font-size: 0.95rem;
-         font-weight: 500;
-         text-decoration: underline;
-         transition: color 0.3s ease;
-       }
-       
-       .view-all-results a:hover {
-         color: #c62828;
-       }
-       
-       .no-results {
-         padding: 20px;
-         text-align: center;
-       }
-       
-       .no-results p {
-         margin-bottom: 10px;
-         color: #666;
-       }
-       
-       .no-results ul {
-         text-align: left;
-         margin: 0 auto;
-         max-width: 300px;
-         padding-left: 20px;
-       }
-       
-       .no-results li {
-         margin-bottom: 5px;
-         color: #666;
-       }
-       
-       /* Responsivitate */
-       @media (max-width: 768px) {
-         .results-grid {
-           grid-template-columns: repeat(2, 1fr);
-         }
-       }
-       
-       @media (max-width: 480px) {
-         .results-grid {
-           grid-template-columns: 1fr;
-         }
-       }
-     `;
-     
-     document.head.appendChild(styles);
-   }
- }
+}

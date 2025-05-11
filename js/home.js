@@ -69,77 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Hero Slider
-    const slides = document.querySelectorAll('.slider-slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevArrow = document.querySelector('.slider-arrow.prev');
-    const nextArrow = document.querySelector('.slider-arrow.next');
-    let currentSlide = 0;
-    let slideInterval;
-    
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (n + slides.length) % slides.length;
-        
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-    
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-    
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-    
-    // Inițializare slider automat
-    function startSlideInterval() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-    
-    // Oprire slider automat la hover
-    const sliderContainer = document.querySelector('.slider-container');
-    
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', function() {
-            clearInterval(slideInterval);
-        });
-        
-        sliderContainer.addEventListener('mouseleave', function() {
-            startSlideInterval();
-        });
-    }
-    
-    // Navigare cu butoanele
-    if (prevArrow && nextArrow) {
-        prevArrow.addEventListener('click', function() {
-            prevSlide();
-            clearInterval(slideInterval);
-            startSlideInterval();
-        });
-        
-        nextArrow.addEventListener('click', function() {
-            nextSlide();
-            clearInterval(slideInterval);
-            startSlideInterval();
-        });
-    }
-    
-    // Navigare cu punctele
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-            showSlide(index);
-            clearInterval(slideInterval);
-            startSlideInterval();
-        });
-    });
-    
-    // Inițializare slider
-    showSlide(0);
-    startSlideInterval();
+    // Hero Slider îmbunătățit
+    initEnhancedSlider();
     
     // Product Carousel
     const productCarousels = document.querySelectorAll('.product-carousel');
@@ -314,4 +245,231 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Funcție pentru slider îmbunătățit
+    function initEnhancedSlider() {
+        const sliderContainer = document.querySelector('.slider-container');
+        const slides = document.querySelectorAll('.slider-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevArrow = document.querySelector('.slider-arrow.prev');
+        const nextArrow = document.querySelector('.slider-arrow.next');
+        const arrows = document.querySelectorAll('.slider-arrow');
+        
+        // Verifică dacă elementele există
+        if (!sliderContainer || slides.length === 0) return;
+        
+        let currentSlide = 0;
+        let slideInterval;
+        let isHovering = false;
+        
+        // Înlocuim butoanele existente cu iconițe de săgeți fără fundal
+        if (arrows.length) {
+            arrows.forEach(arrow => {
+                // Stiluri pentru săgeți
+                arrow.style.opacity = '0';
+                arrow.style.transition = 'opacity 0.3s ease';
+                arrow.style.background = 'none'; // Eliminăm fundalul
+                arrow.style.fontSize = '2rem'; // Mărim iconița
+                arrow.style.color = 'rgba(255, 255, 255, 0.7)'; // Culoare semi-transparentă pentru iconițe
+                
+                // Adăugăm hover effect direct pe săgeți
+                arrow.addEventListener('mouseenter', function() {
+                    this.style.color = 'white'; // Culoare solidă la hover
+                });
+                
+                arrow.addEventListener('mouseleave', function() {
+                    this.style.color = 'rgba(255, 255, 255, 0.7)'; // Revenim la semi-transparent
+                });
+            });
+        }
+        
+        // Afișează un slide specific
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('active');
+            }
+        }
+        
+        // Navighează la slide-ul următor
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        // Navighează la slide-ul anterior
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Pornește auto-play-ul
+        function startSlideInterval() {
+            // Curăță intervalul anterior dacă există
+            if (slideInterval) {
+                clearInterval(slideInterval);
+            }
+            
+            // Pornește un nou interval de rulare automată
+            slideInterval = setInterval(() => {
+                if (!isHovering) {
+                    nextSlide();
+                }
+            }, 5000);
+        }
+        
+        // Event listeners pentru hover pe slider
+        sliderContainer.addEventListener('mouseenter', function() {
+            isHovering = true;
+            
+            // Afișează butoanele de navigare
+            if (arrows.length) {
+                arrows.forEach(arrow => {
+                    arrow.style.opacity = '1';
+                });
+            }
+        });
+        
+        sliderContainer.addEventListener('mouseleave', function() {
+            isHovering = false;
+            
+            // Ascunde butoanele de navigare
+            if (arrows.length) {
+                arrows.forEach(arrow => {
+                    arrow.style.opacity = '0';
+                });
+            }
+        });
+        
+        // Event listeners pentru butoanele de navigare
+        if (prevArrow && nextArrow) {
+            prevArrow.addEventListener('click', function() {
+                prevSlide();
+                // Restart timer
+                startSlideInterval();
+            });
+            
+            nextArrow.addEventListener('click', function() {
+                nextSlide();
+                // Restart timer
+                startSlideInterval();
+            });
+        }
+        
+        // Event listeners pentru punctele de navigare
+        if (dots.length) {
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    showSlide(index);
+                    // Restart timer
+                    startSlideInterval();
+                });
+            });
+        }
+        
+        // Inițializează slider-ul cu primul slide
+        showSlide(0);
+        
+        // Pornește auto-play-ul
+        startSlideInterval();
+        
+        // Adaugă CSS-ul pentru slider
+        addSliderStyles();
+    }
+
+    // Adaugă stilurile CSS pentru slider direct prin JavaScript
+    function addSliderStyles() {
+        // Verifică dacă stilurile există deja
+        if (document.getElementById('enhanced-slider-styles')) {
+            return;
+        }
+        
+        const styleElement = document.createElement('style');
+        styleElement.id = 'enhanced-slider-styles';
+        styleElement.textContent = `
+            .slider-container {
+                position: relative;
+                height: 100%;
+                overflow: hidden;
+            }
+            
+            .slider-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 1s ease;
+            }
+            
+            .slider-slide.active {
+                opacity: 1;
+            }
+            
+            .slider-arrow {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 50px;
+                height: 50px;
+                border: none;
+                font-size: 2rem;
+                color: rgba(255, 255, 255, 0.7);
+                cursor: pointer;
+                z-index: 1;
+                transition: color 0.3s ease, opacity 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                background: none;
+            }
+            
+            .slider-arrow:hover {
+                color: white;
+            }
+            
+            .slider-container:hover .slider-arrow {
+                opacity: 1;
+            }
+            
+            .slider-arrow.prev {
+                left: 20px;
+            }
+            
+            .slider-arrow.next {
+                right: 20px;
+            }
+            
+            .slider-dots {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 10px;
+                z-index: 1;
+            }
+            
+            .dot {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background-color: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                border: none;
+            }
+            
+            .dot.active, .dot:hover {
+                background-color: white;
+            }
+        `;
+        
+        document.head.appendChild(styleElement);
+    }
 });

@@ -968,226 +968,98 @@ body.menu-open {
  color: white;
 }
 
-/* Features Section */
-/* Features Section */
+/* Stiluri actualizate pentru secțiunea de beneficii */
 .features-section {
- padding: 60px 0;
+ padding: 30px 0;
  background-color: white;
+ border-top: 1px solid #f1f1f1;
+ border-bottom: 1px solid #f1f1f1;
 }
 
-.section-title {
- text-align: center;
- margin-bottom: 2rem;
- position: relative;
- font-size: 1.75rem;
-}
-
-.features-grid {
- display: grid;
- grid-template-columns: repeat(4, 1fr);
- /* Four equal-width columns */
- grid-template-rows: auto;
- /* Allow rows to auto-size */
- gap: 30px;
- /* Increased gap for more spacing */
- width: 100%;
-}
-
-.feature-container {
+.features-container {
  display: flex;
- flex-direction: row;
+ justify-content: space-between;
  align-items: center;
- /* Center items vertically */
- justify-content: flex-start;
- /* Align items to the start horizontally */
- height: 100px;
- /* Fixed height for each container */
+ width: 100%;
+ max-width: 1200px;
+ margin: 0 auto;
 }
 
-.feature-item {
- display: grid;
- grid-template-columns: auto 1fr;
- /* Image and text columns */
- grid-template-rows: auto auto;
- /* Title and description rows */
+.feature-box {
+ display: flex;
  align-items: center;
- /* Center items vertically */
- padding: 13px;
- background-color: white;
- box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
- border-radius: 4px;
- width: 300px;
- /* Fixed width for the box */
- height: 100%;
+ padding: 10px 15px;
 }
 
-.feature-item img {
- grid-row: 1 / 3;
- /* Span two rows */
- width: 30px;
- height: auto;
- margin-right: 10px;
- /* Space between image and text */
-}
-
-.feature-item h3 {
- grid-column: 2;
- font-size: 1rem;
- font-weight: 600;
- margin-bottom: 0;
- /* No margin below title */
-}
-
-.feature-item p {
- grid-column: 2;
- font-size: 0.8rem;
- color: var(--color-text-light);
- margin-top: 0;
- /* No margin above description */
-}
-
-.feature-divider {
- width: 1px;
- height: 80%;
- /* Match feature-item height */
- background-color: var(--color-border);
- transform: rotate(90deg);
- outline: none;
- outline-offset: 0;
- margin: 0 20px;
- /* Increased spacing for the divider */
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
- .features-grid {
-  grid-template-columns: 1fr;
-  /* Single column layout */
- }
-
- .feature-container {
-  width: 90%;
-  margin-bottom: 20px;
-  flex-direction: row;
-  /* Horizontal layout on mobile too */
-  height: auto;
- }
-
- .feature-item {
-  width: 100%;
-  /* Take full width on mobile */
- }
-
- .feature-divider {
-  display: none;
-  /* Hide dividers on mobile */
- }
-}
-/* Instagram Section */
-.instagram-section {
- padding: 60px 0;
- background-color: var(--color-dominant-1);
-}
-
-.section-subtitle {
- text-align: center;
- margin-bottom: 30px;
- color: var(--color-text-light);
-}
-
-.instagram-grid {
- display: grid;
- grid-template-columns: repeat(5, 1fr);
- gap: 10px;
-}
-
-.instagram-item {
- position: relative;
- overflow: hidden;
- aspect-ratio: 1/1;
-}
-
-.instagram-item img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- transition: transform 0.5s ease;
-}
-
-.instagram-overlay {
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-color: rgba(0, 0, 0, 0.3);
+.feature-icon {
+ font-size: 2rem;
+ color: var(--color-secondary-1);
+ margin-right: 15px;
+ min-width: 40px;
  display: flex;
  justify-content: center;
- align-items: center;
- color: white;
- font-size: 1.5rem;
- opacity: 0;
- transition: opacity 0.3s ease;
 }
 
-.instagram-item:hover img {
- transform: scale(1.05);
-}
-
-.instagram-item:hover .instagram-overlay {
- opacity: 1;
-}
-
-/* Newsletter Section */
-.newsletter-section {
- padding: 60px 0;
- background-color: white;
-}
-
-.newsletter-container {
- padding: 50px;
- background-color: var(--color-secondary-1);
- color: white;
+.feature-content {
  display: flex;
- align-items: center;
- justify-content: space-between;
+ flex-direction: column;
 }
 
-.newsletter-title {
- font-size: 2rem;
- margin-bottom: 10px;
-}
-
-.newsletter-description {
- font-size: 1.1rem;
- max-width: 450px;
-}
-
-.newsletter-form {
- display: flex;
- width: 100%;
- max-width: 450px;
-}
-
-.newsletter-form input {
- flex: 1;
- padding: 15px;
- border: none;
- outline: none;
-}
-.newsletter-form button {
- padding: 0 25px;
- background-color: var(--color-accent-1);
- color: white;
- border: none;
+.feature-title {
+ font-size: 1rem;
  font-weight: 600;
- cursor: pointer;
- transition: background-color 0.3s ease;
+ margin: 0 0 5px 0;
+ color: var(--color-secondary-1);
 }
 
-.newsletter-form button:hover {
- background-color: var(--color-accent-2);
+.feature-description {
+ font-size: 0.85rem;
+ color: var(--color-text-light);
+ margin: 0;
+ line-height: 1.4;
 }
+
+.feature-separator {
+ width: 1px;
+ height: 50px;
+ background-color: #e0e0e0;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+ .features-container {
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+
+ .feature-separator {
+  display: none;
+ }
+
+ .feature-box {
+  width: 50%;
+  padding: 15px;
+  box-sizing: border-box;
+ }
+}
+
+@media (max-width: 768px) {
+ .feature-box {
+  width: 100%;
+  padding: 10px 0;
+ }
+
+ .features-container {
+  flex-direction: column;
+ }
+
+ .feature-icon {
+  font-size: 1.75rem;
+ }
+}
+
+
+
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
