@@ -5,7 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       document.getElementById('header-placeholder').innerHTML = data;
       
-      // Inițializează scripturile pentru header DUPĂ ce conținutul a fost adăugat în DOM
+      // Adaugă CSS-ul pentru header după încărcarea header-ului
+      if (!document.querySelector('link[href="css/header.css"]')) {
+        const headerCSS = document.createElement('link');
+        headerCSS.rel = 'stylesheet';
+        headerCSS.href = 'css/header.css';
+        document.head.appendChild(headerCSS);
+      }
+      
+      // Inițializează scripturile pentru header
       initializeHeaderScripts();
     });
   
@@ -14,6 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
+      
+      // Adaugă CSS-ul pentru footer după încărcarea footer-ului
+      if (!document.querySelector('link[href="css/footer.css"]')) {
+        const footerCSS = document.createElement('link');
+        footerCSS.rel = 'stylesheet';
+        footerCSS.href = 'css/footer.css';
+        document.head.appendChild(footerCSS);
+      }
     });
 });
 

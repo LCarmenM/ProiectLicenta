@@ -1,4 +1,4 @@
-/* Checkout Styles */
+/* checkout.css - Stiluri comune pentru toate paginile de checkout */
 
 .checkout {
  padding: 60px 0;
@@ -29,7 +29,6 @@
 .step-circle {
  width: 40px;
  height: 40px;
- /* Eliminarea border-radius pentru a avea un pătrat în loc de cerc */
  background-color: #e0e0e0;
  display: flex;
  justify-content: center;
@@ -72,267 +71,9 @@
  gap: 30px;
 }
 
-/* Checkout Forms */
-.checkout-forms {
- background-color: white;
- /* Eliminarea border-radius */
- box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
- overflow: hidden;
-}
-
-.checkout-form {
- display: none;
- padding: 30px;
-}
-
-.checkout-form.active {
- display: block;
-}
-
-.form-section {
- margin-bottom: 30px;
- padding-bottom: 30px;
- border-bottom: 1px solid var(--color-border);
-}
-
-.form-section:last-child {
- margin-bottom: 0;
- padding-bottom: 0;
- border-bottom: none;
-}
-
-.section-title {
- font-size: 1.25rem;
- margin-bottom: 20px;
- color: var(--color-secondary-1);
-}
-
-.form-row {
- display: grid;
- grid-template-columns: 1fr 1fr;
- gap: 20px;
-}
-
-.form-group {
- margin-bottom: 20px;
-}
-
-.form-group:last-child {
- margin-bottom: 0;
-}
-
-label {
- display: block;
- margin-bottom: 8px;
- font-weight: 500;
- font-size: 0.9rem;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select,
-textarea {
- width: 100%;
- padding: 12px 15px;
- border: 1px solid var(--color-border);
- /* Eliminarea border-radius */
- font-size: 1rem;
- transition: border-color 0.3s ease;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
- border-color: var(--color-secondary-1);
- outline: none;
-}
-
-textarea {
- resize: vertical;
- min-height: 100px;
-}
-
-/* Shipping Options */
-.shipping-options {
- display: flex;
- flex-direction: column;
- gap: 15px;
-}
-
-.shipping-option {
- position: relative;
-}
-
-.shipping-option input[type="radio"] {
- position: absolute;
- opacity: 0;
-}
-
-.shipping-option label {
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 15px;
- border: 1px solid var(--color-border);
- /* Eliminarea border-radius */
- cursor: pointer;
- transition: all 0.3s ease;
-}
-
-.shipping-option input[type="radio"]:checked+label {
- border-color: var(--color-secondary-1);
- background-color: rgba(0, 0, 0, 0.02);
-}
-
-.shipping-option-title {
- font-weight: 600;
- margin-bottom: 5px;
-}
-
-.shipping-option-description {
- font-size: 0.85rem;
- color: var(--color-text-light);
-}
-
-.shipping-option-price {
- font-weight: 600;
-}
-
-/* Payment Methods */
-.payment-methods {
- display: flex;
- flex-direction: column;
- gap: 15px;
-}
-
-.payment-method {
- margin-bottom: 15px;
-}
-
-.payment-method input[type="radio"] {
- position: absolute;
- opacity: 0;
-}
-
-.payment-method label {
- display: flex;
- justify-content: space-between;
- align-items: center;
- padding: 15px;
- border: 1px solid var(--color-border);
- /* Eliminarea border-radius pentru partea de sus */
- cursor: pointer;
- transition: all 0.3s ease;
-}
-
-.payment-method input[type="radio"]:checked+label {
- border-color: var(--color-secondary-1);
- background-color: rgba(0, 0, 0, 0.02);
-}
-
-.payment-method-title {
- font-weight: 600;
- display: flex;
- align-items: center;
- gap: 10px;
-}
-
-.payment-method-icons {
- display: flex;
- gap: 5px;
- font-size: 1.5rem;
-}
-
-.payment-method-details {
- display: none;
- padding: 15px;
- border: 1px solid var(--color-border);
- border-top: none;
- /* Eliminarea border-radius pentru partea de jos */
-}
-
-.payment-method-details.active {
- display: block;
- border-color: var(--color-secondary-1);
-}
-
-/* Checkbox */
-.checkbox {
- display: flex;
- align-items: flex-start;
- gap: 10px;
-}
-
-.checkbox input[type="checkbox"] {
- margin-top: 3px;
-}
-
-.checkbox label {
- margin-bottom: 0;
- font-size: 0.9rem;
-}
-
-/* Form Actions */
-.form-actions {
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-top: 30px;
-}
-
-.back-link,
-.back-btn {
- color: var(--color-text);
- font-weight: 500;
- display: flex;
- align-items: center;
- gap: 5px;
- transition: color 0.3s ease;
-}
-
-.back-link:hover,
-.back-btn:hover {
- color: var(--color-secondary-1);
-}
-
-.back-btn {
- background: none;
- border: none;
- cursor: pointer;
- padding: 0;
- font-size: 1rem;
-}
-
-.continue-btn,
-.place-order-btn {
- background-color: var(--color-secondary-1);
- color: white;
- border: none;
- padding: 12px 25px;
- /* Eliminarea border-radius */
- font-weight: 600;
- cursor: pointer;
- transition: background-color 0.3s ease;
-}
-
-.continue-btn:hover,
-.place-order-btn:hover {
- background-color: var(--color-accent-1);
-}
-
-.place-order-btn {
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 10px;
-}
-
 /* Order Summary */
 .order-summary {
  background-color: white;
- /* Eliminarea border-radius */
  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
  padding: 30px;
  position: sticky;
@@ -490,271 +231,173 @@ textarea {
  align-items: center;
  gap: 10px;
 }
-              /* Stiluri pentru Modal-ul de Confirmare a Comenzii */
-              .order-confirmation-modal {
-               position: fixed;
-               top: 50%;
-               left: 50%;
-               transform: translate(-50%, -50%) scale(0.9);
-               width: 90%;
-               max-width: 500px;
-               max-height: 80vh;
-               /* Limitează înălțimea la 80% din înălțimea viewport-ului */
-               background-color: white;
-               box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
-               z-index: 1001;
-               opacity: 0;
-               visibility: hidden;
-               transition: all 0.3s ease;
-               overflow: auto;
-               /* Adaugă scroll dacă conținutul este prea mare */
-               border-radius: 8px;
-               /* Adaugă colțuri rotunjite */
-              }
-       
-              .order-confirmation-modal.active {
-               opacity: 1;
-               visibility: visible;
-               transform: translate(-50%, -50%) scale(1);
-              }
-       
-              .modal-content {
-               padding: 0;
-              }
-       
-              .modal-header {
-               background-color: #222222;
-               color: white;
-               padding: 15px 20px;
-               /* Padding mai mic pentru header */
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-               border-top-left-radius: 8px;
-               border-top-right-radius: 8px;
-              }
-       
-              .modal-header h2 {
-               margin: 0;
-               font-size: 1.3rem;
-               /* Titlu mai mic */
-               font-weight: 600;
-              }
-       
-              .close-modal {
-               background: none;
-               border: none;
-               font-size: 1.3rem;
-               color: white;
-               cursor: pointer;
-               transition: color 0.3s ease;
-              }
-       
-              .close-modal:hover {
-               color: #cccccc;
-              }
-       
-              .modal-body {
-               padding: 20px;
-               /* Padding mai mic pentru conținut */
-               text-align: center;
-              }
-       
-              .success-icon {
-               font-size: 3rem;
-               /* Icoană mai mică */
-               color: #4caf50;
-               margin-bottom: 15px;
-              }
-       
-              .confirmation-message {
-               font-size: 1.1rem;
-               /* Text mai mic */
-               margin-bottom: 20px;
-              }
-       
-              .order-details {
-               text-align: left;
-               background-color: #f9f9f9;
-               padding: 15px;
-               margin-bottom: 20px;
-               border-radius: 4px;
-              }
-       
-              .order-details h3 {
-               margin-top: 0;
-               margin-bottom: 12px;
-               font-size: 1.1rem;
-               color: #222222;
-              }
-       
-              .order-summary {
-               display: flex;
-               flex-direction: column;
-               gap: 8px;
-              }
-       
-              .summary-row {
-               display: flex;
-               justify-content: space-between;
-               padding: 4px 0;
-               font-size: 0.95rem;
-              }
-       
-              .total-row {
-               margin-top: 8px;
-               padding-top: 8px;
-               border-top: 1px solid #e0e0e0;
-               font-weight: 600;
-               font-size: 1rem;
-              }
-       
-              .next-steps {
-               margin-bottom: 20px;
-               color: #666666;
-               font-size: 0.95rem;
-              }
-       
-              .modal-actions {
-               display: flex;
-               justify-content: center;
-               gap: 15px;
-               margin-top: 5px;
-              }
-       
-              .btn-primary,
-              .btn-secondary {
-               padding: 10px 20px;
-               text-decoration: none;
-               font-weight: 600;
-               transition: all 0.3s ease;
-               font-size: 0.9rem;
-               border-radius: 4px;
-              }
-       
-              .btn-primary {
-               background-color: #222222;
-               color: white;
-              }
-       
-              .btn-primary:hover {
-               background-color: #444444;
-              }
-       
-              .btn-secondary {
-               background-color: white;
-               color: #222222;
-               border: 1px solid #222222;
-              }
-       
-              .btn-secondary:hover {
-               background-color: #f5f5f5;
-              }
-       
-              .modal-overlay {
-               position: fixed;
-               top: 0;
-               left: 0;
-               width: 100%;
-               height: 100%;
-               background-color: rgba(0, 0, 0, 0.5);
-               z-index: 1000;
-               opacity: 0;
-               visibility: hidden;
-               transition: all 0.3s ease;
-              }
-       
-              .modal-overlay.active {
-               opacity: 1;
-               visibility: visible;
-              }
-       
-              @media (max-width: 576px) {
-               .order-confirmation-modal {
-                width: 95%;
-                max-height: 85vh;
-               }
-       
-               .modal-actions {
-                flex-direction: column;
-               }
-       
-               .btn-primary,
-               .btn-secondary {
-                width: 100%;
-                text-align: center;
-               }
-              }
 
-/* Error Styling */
-.error {
- border-color: var(--color-error) !important;
+/* Stiluri pentru Modal-ul de Confirmare a Comenzii */
+.order-confirmation-modal {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0.9);
+ width: 90%;
+ max-width: 500px;
+ max-height: 80vh;
+ background-color: white;
+ box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+ z-index: 1001;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ overflow: auto;
+ border-radius: 8px;
 }
 
-.error-message {
- color: var(--color-error);
- font-size: 0.8rem;
+.order-confirmation-modal.active {
+ opacity: 1;
+ visibility: visible;
+ transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+ padding: 0;
+}
+
+.modal-header {
+ background-color: #222222;
+ color: white;
+ padding: 15px 20px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ border-top-left-radius: 8px;
+ border-top-right-radius: 8px;
+}
+
+.modal-header h2 {
+ margin: 0;
+ font-size: 1.3rem;
+ font-weight: 600;
+}
+
+.close-modal {
+ background: none;
+ border: none;
+ font-size: 1.3rem;
+ color: white;
+ cursor: pointer;
+ transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+ color: #cccccc;
+}
+
+.modal-body {
+ padding: 20px;
+ text-align: center;
+}
+
+.success-icon {
+ font-size: 3rem;
+ color: #4caf50;
+ margin-bottom: 15px;
+}
+
+.confirmation-message {
+ font-size: 1.1rem;
+ margin-bottom: 20px;
+}
+
+.order-details {
+ text-align: left;
+ background-color: #f9f9f9;
+ padding: 15px;
+ margin-bottom: 20px;
+ border-radius: 4px;
+}
+
+.order-details h3 {
+ margin-top: 0;
+ margin-bottom: 12px;
+ font-size: 1.1rem;
+ color: #222222;
+}
+
+.order-summary {
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+}
+
+.summary-row {
+ display: flex;
+ justify-content: space-between;
+ padding: 4px 0;
+ font-size: 0.95rem;
+}
+
+.total-row {
+ margin-top: 8px;
+ padding-top: 8px;
+ border-top: 1px solid #e0e0e0;
+ font-weight: 600;
+ font-size: 1rem;
+}
+
+.next-steps {
+ margin-bottom: 20px;
+ color: #666666;
+ font-size: 0.95rem;
+}
+
+.modal-actions {
+ display: flex;
+ justify-content: center;
+ gap: 15px;
  margin-top: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
- .checkout-container {
-  grid-template-columns: 1fr;
- }
-
- .order-summary {
-  position: static;
-  margin-top: 30px;
- }
+.btn-primary,
+.btn-secondary {
+ padding: 10px 20px;
+ text-decoration: none;
+ font-weight: 600;
+ transition: all 0.3s ease;
+ font-size: 0.9rem;
+ border-radius: 4px;
 }
 
-@media (max-width: 768px) {
- .checkout-steps {
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 20px;
- }
+.btn-primary {
+ background-color: #222222;
+ color: white;
+}
 
- .step-connector {
-  width: 50px;
- }
+.btn-primary:hover {
+ background-color: #444444;
+}
 
- .form-row {
-  grid-template-columns: 1fr;
- }
+.btn-secondary {
+ background-color: white;
+ color: #222222;
+ border: 1px solid #222222;
+}
 
- .form-actions {
-  flex-direction: column;
-  gap: 15px;
- }
-
- .back-link,
- .back-btn {
-  order: 2;
- }
-
- .continue-btn,
- .place-order-btn {
-  order: 1;
-  width: 100%;
- }
+.btn-secondary:hover {
+ background-color: #f5f5f5;
 }
 
 @media (max-width: 576px) {
- .checkout {
-  padding: 30px 0;
+ .order-confirmation-modal {
+  width: 95%;
+  max-height: 85vh;
  }
 
- .checkout-title {
-  font-size: 1.5rem;
+ .modal-actions {
+  flex-direction: column;
  }
 
- .step-name {
-  font-size: 0.8rem;
- }
-
- .checkout-form {
-  padding: 20px;
+ .btn-primary,
+ .btn-secondary {
+  width: 100%;
+  text-align: center;
  }
 }

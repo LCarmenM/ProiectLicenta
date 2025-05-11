@@ -1,0 +1,246 @@
+/* checkout-plata.css - Stiluri specifice pentru pagina de plată */
+
+.checkout-form {
+ display: none;
+ padding: 30px;
+}
+
+.checkout-form.active {
+ display: block;
+}
+
+.form-section {
+ margin-bottom: 30px;
+ padding-bottom: 30px;
+ border-bottom: 1px solid var(--color-border);
+}
+
+.form-section:last-child {
+ margin-bottom: 0;
+ padding-bottom: 0;
+ border-bottom: none;
+}
+
+.section-title {
+ font-size: 1.25rem;
+ margin-bottom: 20px;
+ color: var(--color-secondary-1);
+}
+
+.form-row {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 20px;
+}
+
+.form-group {
+ margin-bottom: 20px;
+}
+
+.form-group:last-child {
+ margin-bottom: 0;
+}
+
+label {
+ display: block;
+ margin-bottom: 8px;
+ font-weight: 500;
+ font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select,
+textarea {
+ width: 100%;
+ padding: 12px 15px;
+ border: 1px solid var(--color-border);
+ font-size: 1rem;
+ transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+ border-color: var(--color-secondary-1);
+ outline: none;
+}
+
+textarea {
+ resize: vertical;
+ min-height: 100px;
+}
+
+/* Payment Methods */
+.payment-methods {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+
+.payment-method {
+ margin-bottom: 15px;
+}
+
+.payment-method input[type="radio"] {
+ position: absolute;
+ opacity: 0;
+}
+
+.payment-method label {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 15px;
+ border: 1px solid var(--color-border);
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+
+.payment-method input[type="radio"]:checked+label {
+ border-color: var(--color-secondary-1);
+ background-color: rgba(0, 0, 0, 0.02);
+}
+
+.payment-method-title {
+ font-weight: 600;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+}
+
+.payment-method-icons {
+ display: flex;
+ gap: 5px;
+ font-size: 1.5rem;
+}
+
+.payment-method-details {
+ display: none;
+ padding: 15px;
+ border: 1px solid var(--color-border);
+ border-top: none;
+}
+
+.payment-method-details.active {
+ display: block;
+ border-color: var(--color-secondary-1);
+}
+
+/* Checkbox */
+.checkbox {
+ display: flex;
+ align-items: flex-start;
+ gap: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+ margin-top: 3px;
+}
+
+.checkbox label {
+ margin-bottom: 0;
+ font-size: 0.9rem;
+}
+
+.form-actions {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-top: 30px;
+}
+
+.back-btn {
+ color: var(--color-text);
+ font-weight: 500;
+ display: flex;
+ align-items: center;
+ gap: 5px;
+ transition: color 0.3s ease;
+ background: none;
+ border: none;
+ cursor: pointer;
+ padding: 0;
+ font-size: 1rem;
+}
+
+.back-btn:hover {
+ color: var(--color-secondary-1);
+}
+
+.continue-btn,
+.place-order-btn {
+ background-color: var(--color-secondary-1);
+ color: white;
+ border: none;
+ padding: 12px 25px;
+ font-weight: 600;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+.continue-btn:hover,
+.place-order-btn:hover {
+ background-color: var(--color-accent-1);
+}
+
+.place-order-btn {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+}
+
+/* Error Styling */
+.error {
+ border-color: var(--color-error) !important;
+}
+
+.error-message {
+ color: var(--color-error);
+ font-size: 0.8rem;
+ margin-top: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .form-row {
+  grid-template-columns: 1fr;
+ }
+
+ .form-actions {
+  flex-direction: column;
+  gap: 15px;
+ }
+
+ .back-link,
+ .back-btn {
+  order: 2;
+ }
+
+ .continue-btn,
+ .place-order-btn {
+  order: 1;
+  width: 100%;
+ }
+}
+
+@media (max-width: 576px) {
+ .checkout {
+  padding: 30px 0;
+ }
+
+ .checkout-title {
+  font-size: 1.5rem;
+ }
+
+ .step-name {
+  font-size: 0.8rem;
+ }
+
+ .checkout-form {
+  padding: 20px;
+ }
+}

@@ -11,15 +11,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
-  <!-- Header -->
+<body style="display: flex; flex-direction: column; min-height: 100vh;">
   <div id="header-placeholder"></div>
 
-  <main class="checkout">
+  <main class="checkout" style="flex: 1;">
     <div class="container">
       <h1 class="checkout-title">Finalizare comandă</h1>
 
-      <!-- Checkout Steps Indicator -->
       <div class="checkout-steps">
         <div class="step active" id="step-indicator-1">
           <div class="step-circle">1</div>
@@ -38,9 +36,7 @@
       </div>
 
       <div class="checkout-container">
-        <!-- Checkout Forms -->
         <div class="checkout-forms">
-        <!-- Step 1: Informații personale -->
         <div class="checkout-form active" id="step-1">
           <div class="form-section">
             <h2 class="section-title">Informații personale</h2>
@@ -72,7 +68,6 @@
           </div>
         </div>
         
-        <!-- Step 2: Livrare -->
         <div class="checkout-form" id="step-2">
           <div class="form-section">
             <h2 class="section-title">Adresă de livrare</h2>
@@ -94,7 +89,6 @@
                   <option value="Arges">Argeș</option>
                   <option value="Bacau">Bacău</option>
                   <option value="Bihor">Bihor</option>
-                  <!-- Other counties would go here -->
                   <option value="Iasi">Iași</option>
                 </select>
               </div>
@@ -155,7 +149,6 @@
           </div>
         </div>
 
-          <!-- Step 3: Payment -->
           <div class="checkout-form" id="step-3">
             <div class="form-section">
               <h2 class="section-title">Metodă de plată</h2>
@@ -236,7 +229,6 @@
           </div>
         </div>
 
-        <!-- Order Summary -->
         <div class="order-summary">
           <h2 class="summary-title">Sumar comandă</h2>
           <div class="summary-products">
@@ -295,7 +287,6 @@
     </div>
   </main>
 
-<!-- Modal Confirmare Comandă -->
 <div class="order-confirmation-modal" id="orderConfirmationModal">
   <div class="modal-content">
     <div class="modal-header">
@@ -345,7 +336,6 @@
   </div>
 </div>
 <div class="modal-overlay" id="confirmationOverlay"></div>
-  <!-- Footer -->
   <div id="footer-placeholder"></div>
   <script src="js/includes.js"></script>
 

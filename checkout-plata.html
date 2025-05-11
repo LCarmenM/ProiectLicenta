@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Checkout - Plată - Dynasty Couture</title>
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="css/checkout.css">
+  <link rel="stylesheet" href="css/checkout-info.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <div id="header-placeholder"></div>
+
+ <main class="checkout">
+  <div class="container">
+   <h1 class="checkout-title">Finalizare comandă</h1>
+
+   <div class="checkout-steps">
+    <div class="step completed" id="step-indicator-1">
+     <div class="step-circle">1</div>
+     <div class="step-name">Informații</div>
+    </div>
+    <div class="step-connector completed" id="connector-1-2"></div>
+    <div class="step completed" id="step-indicator-2">
+     <div class="step-circle">2</div>
+     <div class="step-name">Livrare</div>
+    </div>
+    <div class="step-connector active" id="connector-2-3"></div>
+    <div class="step active" id="step-indicator-3">
+     <div class="step-circle">3</div>
+     <div class="step-name">Plată</div>
+    </div>
+   </div>
+
+   <div class="checkout-container">
+    <div class="checkout-forms">
+     <div class="checkout-form active" id="step-3">
+      <div class="form-section">
+       <h2 class="section-title">Metodă de plată</h2>
+       <div class="payment-methods">
+        <div class="payment-method">
+         <input type="radio" id="card" name="payment" value="card" checked>
+         <label for="card">
+          <div class="payment-method-title">
+           <i class="far fa-credit-card"></i> Card de credit/debit
+          </div>
+          <div class="payment-method-icons">
+           <i class="fab fa-cc-visa"></i>
+           <i class="fab fa-cc-mastercard"></i>
+          </div>
+         </label>
+         <div class="payment-method-details active" id="card-details">
+          <div class="form-group">
+           <label for="card-number">Număr card</label>
+           <input type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+          </div>
+          <div class="form-row">
+           <div class="form-group">
+            <label for="card-expiry">Data expirării</label>
+            <input type="text" id="card-expiry" name="card-expiry" placeholder="LL/AA" required>
+           </div>
+           <div class="form-group">
+            <label for="card-cvv">CVV</label>
+            <input type="text" id="card-cvv" name="card-cvv" placeholder="XXX" required>
+           </div>
+          </div>
+          <div class="form-group">
+           <label for="card-name">Nume titular card</label>
+           <input type="text" id="card-name" name="card-name" required>
+          </div>
+         </div>
+        </div>
+
+        <div class="payment-method">
+         <input type="radio" id="paypal" name="payment" value="paypal">
+         <label for="paypal">
+          <div class="payment-method-title">
+           <i class="fab fa-paypal"></i> PayPal
+          </div>
+         </label>
+         <div class="payment-method-details" id="paypal-details">
+          <p>Veți fi redirecționat către PayPal pentru a finaliza plata.</p>
+         </div>
+        </div>
+
+        <div class="payment-method">
+         <input type="radio" id="cash" name="payment" value="cash">
+         <label for="cash">
+          <div class="payment-method-title">
+           <i class="fas fa-money-bill-wave"></i> Plată la livrare
+          </div>
+         </label>
+         <div class="payment-method-details" id="cash-details">
+          <p>Veți plăti suma în numerar curierului la livrare.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+
+      <div class="form-section">
+       <div class="checkout-agreement">
+        <div class="form-group checkbox">
+         <input type="checkbox" id="terms" name="terms" required>
+         <label for="terms">Am citit și sunt de acord cu <a href="#">Termenii și condițiile</a> și <a href="#">Politica
+           de confidențialitate</a></label>
+        </div>
+       </div>
+      </div>
+
+      <div class="form-actions">
+       <a href="checkout-livrare.html" class="back-btn" id="back-to-step-2">Înapoi la livrare</a>
+       <button id="place-order-btn" class="place-order-btn">Plasează comanda</button>
+      </div>
+     </div>
+    </div>
+    <div class="order-summary">
+     <h2 class="summary-title">Sumar comandă</h2>
+     <div class="summary-products">
+      <div class="summary-product">
+       <div class="product-image">
+        <img src="rochie-midi-seara.jpg" alt="Rochie midi de seară">
+       </div>
+       <div class="product-details">
+        <div class="product-name">Rochie midi de seară</div>
+        <div class="product-options">Negru / S</div>
+        <div class="product-quantity">Cantitate: 1</div>
+       </div>
+       <div class="product-price">500 lei</div>
+      </div>
+     </div>
+
+     <div class="discount-code">
+      <div class="discount-input">
+       <input type="text" placeholder="Cod de reducere">
+       <button>Aplică</button>
+      </div>
+     </div>
+
+     <div class="summary-totals">
+      <div class="summary-row">
+       <span>Subtotal</span>
+       <span>500 lei</span>
+      </div>
+      <div class="summary-row shipping-cost">
+       <span>Transport</span>
+       <span>Gratuit</span>
+      </div>
+      <div class="summary-row total-row">
+       <span>Total</span>
+       <span>500 lei</span>
+      </div>
+     </div>
+
+     <div class="secure-checkout">
+      <div class="secure-icon">
+       <i class="fas fa-lock"></i>
+      </div>
+      <p>Plată securizată SSL. Datele tale sunt în siguranță.</p>
+     </div>
+
+     <div class="need-help">
+      <h3>Ai nevoie de ajutor?</h3>
+      <p>Contactează-ne:</p>
+      <div class="contact-info">
+       <div><i class="fas fa-phone"></i> 0700 123 456</div>
+       <div><i class="fas fa-envelope"></i> support@dynastycouture.ro</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <div class="order-confirmation-modal" id="orderConfirmationModal">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h2>Comandă plasată cu succes!</h2>
+    <button class="close-modal">&times;</button>
+   </div>
+   <div class="modal-body">
+    <div class="success-icon">
+     <i class="fas fa-check-circle"></i>
+    </div>
+    <p class="confirmation-message">
+     Mulțumim pentru comandă! <br>Comanda ta cu nr. <strong>#DYN12345</strong> a fost înregistrată.
+    </p>
+    <div class="order-details">
+     <h3>Rezumatul comenzii:</h3>
+     <div class="order-summary">
+      <div class="summary-row">
+       <span>Data plasării:</span>
+       <span>06.05.2025</span>
+      </div>
+      <div class="summary-row">
+       <span>Produse:</span>
+       <span>2</span>
+      </div>
+      <div class="summary-row">
+       <span>Livrare:</span>
+       <span>Curier standard</span>
+      </div>
+      <div class="summary-row">
+       <span>Plată:</span>
+       <span>Card de credit</span>
+      </div>
+      <div class="summary-row total-row">
+       <span>Total:</span>
+       <span>950 lei</span>
+      </div>
+     </div>
+    </div>
+    <p class="next-steps">
+     Vei primi în curând un email de confirmare cu detaliile comenzii.
+    </p>
+    <div class="modal-actions">
+     <a href="index.html" class="btn-secondary">Continuă cumpărăturile</a>
+     <a href="account-orders.html" class="btn-primary">Vezi comenzile mele</a>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="modal-overlay" id="confirmationOverlay"></div>
+
+ <div id="footer-placeholder"></div>
+ <script src="js/includes.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/checkout.js"></script>
+</body>
+
+</html>

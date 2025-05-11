@@ -1,0 +1,210 @@
+/* footer.css - Stilizări specifice pentru footer */
+
+/* Importăm familia de fonturi Maven Pro folosită în footer */
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap');
+
+/* Stiluri de bază pentru footer */
+footer {
+ background-color: var(--color-footer-bg);
+ color: var(--color-footer-text);
+ margin-top: 60px;
+ font-family: 'Maven Pro', 'Poppins', sans-serif;
+}
+
+.footer-top {
+ padding: 40px 0;
+}
+
+.footer-columns {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 30px;
+}
+
+/* Titluri pentru secțiunile din footer */
+.footer-column h3 {
+ font-size: 16px;
+ text-transform: initial;
+ margin-bottom: 20px;
+ font-weight: 400;
+ color: var(--color-footer-title);
+ letter-spacing: 0.2px;
+ line-height: 24px;
+}
+
+/* Liste și link-uri în footer */
+.footer-column ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+.footer-column ul li {
+ margin-bottom: 10px;
+}
+
+.footer-column ul a {
+ color: var(--color-footer-text);
+ font-size: 14px;
+ letter-spacing: 1.4px;
+ line-height: 16.8px;
+ transition: color 0.3s ease;
+ text-decoration: none;
+}
+
+.footer-column ul a:hover {
+ color: var(--color-footer-title);
+}
+
+/* Secțiunea de newsletter */
+.footer-column.newsletter h3 {
+ color: var(--color-footer-text);
+ font-size: 16px;
+ letter-spacing: 1.4px;
+ text-transform: uppercase;
+}
+
+.footer-column.newsletter .newsletter-form {
+ display: flex;
+ margin-bottom: 15px;
+}
+
+.footer-column.newsletter .newsletter-form input {
+ flex: 1;
+ padding: 18px 15px;
+ border: 1px solid #DDDBDC;
+ background-color: white;
+ color: var(--color-footer-text);
+ font-size: 14px;
+ letter-spacing: 1.4px;
+}
+
+.footer-column.newsletter .newsletter-form button {
+ background-color: var(--color-footer-title);
+ color: white;
+ border: none;
+ padding: 14.5px;
+ font-size: 16px;
+ cursor: pointer;
+ transition: background-color 0.3s ease;
+}
+
+.footer-column.newsletter .newsletter-form button:hover {
+ opacity: 0.9;
+}
+
+.footer-column.newsletter p {
+ color: var(--color-footer-text);
+ font-size: 14px;
+ line-height: 16.8px;
+ letter-spacing: 1.4px;
+ margin-bottom: 0;
+}
+
+/* Iconițe social media */
+.social-icons {
+ display: flex;
+ gap: 11px;
+ margin-top: 12px;
+}
+
+.social-icon {
+ color: #1F2937;
+ font-size: 22px;
+ transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+ color: var(--color-footer-title);
+}
+
+/* Metode de plată */
+.payment-section {
+ margin-top: 20px;
+}
+
+.payment-title {
+ color: var(--color-footer-title);
+ font-size: 16px;
+ margin-bottom: 15px;
+ font-weight: 400;
+ letter-spacing: 0.2px;
+ line-height: 24px;
+}
+
+.payment-methods {
+ display: flex;
+ gap: 5.5px;
+}
+
+.payment-methods img {
+ height: 22px;
+}
+
+/* Partea de jos a footer-ului */
+.footer-bottom {
+ padding: 10px 0 16px 0;
+ border-top: none;
+}
+
+.footer-bottom .container {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+/* Link-uri politici */
+.footer-policies {
+ display: flex;
+ justify-content: center;
+ gap: 24px;
+ margin-bottom: 16px;
+}
+
+.footer-policies a {
+ color: var(--color-footer-text);
+ font-size: 12px;
+ line-height: 16px;
+ letter-spacing: 0.2px;
+ text-decoration: none;
+}
+
+.footer-policies a:hover {
+ color: var(--color-footer-title);
+}
+
+/* Copyright */
+.copyright {
+ text-align: center;
+ color: var(--color-footer-text);
+ font-size: 12px;
+ line-height: 16px;
+ letter-spacing: 0.2px;
+ width: 100%;
+}
+
+/* Responsivitate */
+@media (max-width: 1200px) {
+ .footer-columns {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+ }
+}
+
+@media (max-width: 768px) {
+ .footer-columns {
+  grid-template-columns: 1fr;
+  gap: 30px;
+ }
+
+ .footer-bottom .container {
+  flex-direction: column;
+  gap: 15px;
+ }
+
+ .footer-policies {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+ }
+}

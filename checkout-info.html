@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Checkout - Informații personale - Dynasty Couture</title>
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="css/checkout.css">
+ <link rel="stylesheet" href="css/checkout-info.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <div id="header-placeholder"></div>
+
+ <main class="checkout">
+  <div class="container">
+   <h1 class="checkout-title">Finalizare comandă</h1>
+
+   <div class="checkout-steps">
+    <div class="step active" id="step-indicator-1">
+     <div class="step-circle">1</div>
+     <div class="step-name">Informații</div>
+    </div>
+    <div class="step-connector" id="connector-1-2"></div>
+    <div class="step" id="step-indicator-2">
+     <div class="step-circle">2</div>
+     <div class="step-name">Livrare</div>
+    </div>
+    <div class="step-connector" id="connector-2-3"></div>
+    <div class="step" id="step-indicator-3">
+     <div class="step-circle">3</div>
+     <div class="step-name">Plată</div>
+    </div>
+   </div>
+
+   <div class="checkout-container">
+    <div class="checkout-forms">
+     <div class="checkout-form active" id="step-1">
+      <div class="form-section">
+       <h2 class="section-title">Informații personale</h2>
+       <div class="form-row">
+        <div class="form-group">
+         <label for="first-name">Prenume</label>
+         <input type="text" id="first-name" name="first-name" required>
+        </div>
+        <div class="form-group">
+         <label for="last-name">Nume</label>
+         <input type="text" id="last-name" name="last-name" required>
+        </div>
+       </div>
+       <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+       </div>
+       <div class="form-group">
+        <label for="phone">Telefon</label>
+        <input type="tel" id="phone" name="phone" required>
+       </div>
+      </div>
+
+      <div class="form-actions">
+       <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Înapoi la magazin
+       </a>
+       <a href="checkout-livrare.html" class="continue-btn" id="to-step-2">Continuă la livrare</a>
+      </div>
+     </div>
+    </div>
+    <div class="order-summary">
+     <h2 class="summary-title">Sumar comandă</h2>
+     <div class="summary-products">
+      <div class="summary-product">
+       <div class="product-image">
+        <img src="rochie-midi-seara.jpg" alt="Rochie midi de seară">
+       </div>
+       <div class="product-details">
+        <div class="product-name">Rochie midi de seară</div>
+        <div class="product-options">Negru / S</div>
+        <div class="product-quantity">Cantitate: 1</div>
+       </div>
+       <div class="product-price">500 lei</div>
+      </div>
+     </div>
+
+     <div class="discount-code">
+      <div class="discount-input">
+       <input type="text" placeholder="Cod de reducere">
+       <button>Aplică</button>
+      </div>
+     </div>
+
+     <div class="summary-totals">
+      <div class="summary-row">
+       <span>Subtotal</span>
+       <span>500 lei</span>
+      </div>
+      <div class="summary-row shipping-cost">
+       <span>Transport</span>
+       <span>Gratuit</span>
+      </div>
+      <div class="summary-row total-row">
+       <span>Total</span>
+       <span>500 lei</span>
+      </div>
+     </div>
+
+     <div class="secure-checkout">
+      <div class="secure-icon">
+       <i class="fas fa-lock"></i>
+      </div>
+      <p>Plată securizată SSL. Datele tale sunt în siguranță.</p>
+     </div>
+
+     <div class="need-help">
+      <h3>Ai nevoie de ajutor?</h3>
+      <p>Contactează-ne:</p>
+      <div class="contact-info">
+       <div><i class="fas fa-phone"></i> 0700 123 456</div>
+       <div><i class="fas fa-envelope"></i> support@dynastycouture.ro</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <div id="footer-placeholder"></div>
+ <script src="js/includes.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/checkout-info.js"></script>
+</body>
+
+</html>
