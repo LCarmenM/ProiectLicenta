@@ -1,140 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Dynasty Couture</title>
- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
- <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
- <header>
-  <div class="container">
-   <div class="header-container">
-    <div class="header-left">
-     <button class="menu-toggle" id="menuToggle">
-      <span></span>
-      <span></span>
-      <span></span>
-     </button>
-    </div>
-    <div class="header-center">
-     <a href="index.html" class="logo">Dynasty Couture</a>
-    </div>
-    <div class="header-right">
-     <div class="header-actions">
-      <a href="#" id="searchToggle"><i class="fas fa-search"></i></a>
-      <a href="account.html"><i class="fas fa-user"></i></a>
-      <a href="wishlist.html"><i class="fas fa-heart"></i></a>
-      <a href="cart.html" id="cartToggle"><i class="fas fa-shopping-bag"></i><span class="badge">0</span></a>
-     </div>
-    </div>
-   </div>
-   <nav class="main-nav">
-    <ul class="nav-list">
-     <li><a href="index.html" class="active">Home</a></li>
-     <li><a href="womens.html">Women</a></li>
-     <li><a href="mens.html">Men</a></li>
-     <li><a href="new-arrivals.html" class="highlight">New Arrivals</a></li>
-     <li><a href="limited-edition.html">Limited Edition</a></li>
-     <li><a href="about.html">About Us</a></li>
-     <li><a href="contact.html">Contact</a></li>
-    </ul>
-   </nav>
-  </div>
- </header>
-
- <!-- Mobile Menu -->
- <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-header">
-   <div class="mobile-logo">Dynasty Couture</div>
-   <button class="close-menu" id="closeMenu">
-    <i class="fas fa-times"></i>
+<!-- Header -->
+<header>
+ <div class="header-container">
+  <div class="header-left">
+   <button class="menu-toggle" id="menuToggle">
+    <span></span>
+    <span></span>
+    <span></span>
    </button>
   </div>
-  <div class="mobile-menu-content">
+  <div class="header-center">
+   <a href="home.html" class="logo">DYNASTY COUTURE</a>
+  </div>
+  <div class="header-right">
+   <div class="header-actions">
+    <a href="#" class="search-toggle">
+     <i class="fas fa-search"></i>
+    </a>
+    <a href="wishlist.html" class="wishlist-toggle">
+     <i class="fas fa-heart"></i>
+     <span class="badge">1</span>
+    </a>
+    <a href="cart.html" class="cart-toggle">
+     <i class="fas fa-shopping-bag"></i>
+     <span class="badge">1</span>
+    </a>
+    <a href="#" class="account-toggle">
+     <i class="fas fa-user"></i>
+    </a>
+   </div>
+  </div>
+ </div>
+
+ <!-- Main Navigation -->
+ <nav class="main-nav">
+  <ul class="nav-list">
+   <li><a href="noutati.html">Noutăți</a></li>
+   <li><a href="femei.html">Femei</a></li>
+   <li><a href="barbati.html">Bărbați</a></li>
+   <li><a href="editie-limitata.html" class="highlight">Ediție limitată</a></li>
+  </ul>
+ </nav>
+</header>
+
+<!-- Mobile Menu (inițial ascuns) -->
+<div class="mobile-menu" id="mobileMenu">
+ <div class="mobile-menu-header">
+  <div class="mobile-logo">DYNASTY COUTURE</div>
+  <button class="close-menu" id="closeMenu">
+   <i class="fas fa-times"></i>
+  </button>
+ </div>
+ <div class="mobile-menu-content">
+  <nav class="mobile-nav">
    <ul class="mobile-nav-list">
-    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+    <li class="mobile-nav-item">
+     <a href="noutati.html" class="mobile-nav-link">Noutăți</a>
+    </li>
     <li class="mobile-nav-item dropdown">
-     <a href="womens.html" class="mobile-nav-link">Women</a>
-     <button class="dropdown-toggle">
-      <i class="fas fa-chevron-down"></i>
-     </button>
+     <a href="femei.html" class="mobile-nav-link">Femei</a>
+     <button class="dropdown-toggle"><i class="fas fa-chevron-down"></i></button>
      <ul class="dropdown-menu">
-      <li><a href="womens.html?category=dresses">Dresses</a></li>
-      <li><a href="womens.html?category=tops">Tops</a></li>
-      <li><a href="womens.html?category=bottoms">Bottoms</a></li>
-      <li><a href="womens.html?category=accessories">Accessories</a></li>
+      <li class="dropdown-item featured-category">
+       <a href="femei-imbracaminte.html">Îmbrăcăminte</a>
+       <button class="sub-dropdown-toggle"><i class="fas fa-chevron-down"></i></button>
+       <ul class="sub-dropdown-menu">
+        <li><a href="femei-rochii.html">Rochii</a></li>
+        <li><a href="femei-bluze.html">Bluze și Topuri</a></li>
+        <li><a href="femei-pantaloni.html">Pantaloni</a></li>
+        <li><a href="femei-fuste.html">Fuste</a></li>
+        <li><a href="femei-costume.html">Costume și Seturi</a></li>
+        <li><a href="femei-jachete.html">Jachete și Paltoane</a></li>
+       </ul>
+      </li>
+      <li class="dropdown-item featured-category">
+       <a href="femei-incaltaminte.html">Încălțăminte</a>
+      </li>
+      <li><a href="femei-accesorii.html">Accesorii</a></li>
+      <li><a href="femei-genti.html">Genți</a></li>
+      <li><a href="femei-bijuterii.html">Bijuterii</a></li>
      </ul>
     </li>
     <li class="mobile-nav-item dropdown">
-     <a href="mens.html" class="mobile-nav-link">Men</a>
-     <button class="dropdown-toggle">
-      <i class="fas fa-chevron-down"></i>
-     </button>
+     <a href="barbati.html" class="mobile-nav-link">Bărbați</a>
+     <button class="dropdown-toggle"><i class="fas fa-chevron-down"></i></button>
      <ul class="dropdown-menu">
-      <li><a href="mens.html?category=shirts">Shirts</a></li>
-      <li><a href="mens.html?category=pants">Pants</a></li>
-      <li><a href="mens.html?category=outerwear">Outerwear</a></li>
-      <li><a href="mens.html?category=accessories">Accessories</a></li>
+      <!-- Categorii pentru bărbați similar structurate -->
+      <li><a href="barbati-imbracaminte.html">Îmbrăcăminte</a></li>
+      <li><a href="barbati-incaltaminte.html">Încălțăminte</a></li>
+      <li><a href="barbati-accesorii.html">Accesorii</a></li>
      </ul>
     </li>
-    <li><a href="new-arrivals.html" class="mobile-nav-link highlight">New Arrivals</a></li>
-    <li><a href="limited-edition.html" class="mobile-nav-link">Limited Edition</a></li>
-    <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
-    <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    <li class="mobile-nav-item">
+     <a href="editie-limitata.html" class="mobile-nav-link highlight">Ediție limitată</a>
+    </li>
    </ul>
-   <div class="mobile-account">
-    <a href="account.html" class="mobile-account-link">
-     <i class="fas fa-user"></i> My Account
-    </a>
-    <a href="orders.html" class="mobile-account-link">
-     <i class="fas fa-box"></i> My Orders
-    </a>
-    <a href="wishlist.html" class="mobile-account-link">
-     <i class="fas fa-heart"></i> Wishlist
-    </a>
+  </nav>
+  <div class="mobile-account">
+   <a href="account.html" class="mobile-account-link">
+    <i class="fas fa-user"></i> Contul meu
+   </a>
+   <a href="wishlist.html" class="mobile-account-link">
+    <i class="fas fa-heart"></i> Lista de dorințe
+   </a>
+   <a href="orders.html" class="mobile-account-link">
+    <i class="fas fa-box"></i> Comenzile mele
+   </a>
+  </div>
+  <div class="mobile-contact">
+   <div class="mobile-contact-item">
+    <i class="fas fa-phone"></i> 0700 123 456
+   </div>
+   <div class="mobile-contact-item">
+    <i class="fas fa-envelope"></i> contact@dynastycouture.ro
+   </div>
+   <div class="mobile-social">
+    <a href="#" class="mobile-social-link"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="mobile-social-link"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="mobile-social-link"><i class="fab fa-twitter"></i></a>
    </div>
   </div>
  </div>
+</div>
+<div class="menu-overlay" id="menuOverlay"></div>
 
- <!-- Search Overlay -->
- <div class="search-overlay" id="searchOverlay">
-  <div class="search-container">
-   <form class="search-form">
-    <input type="text" placeholder="Search for products...">
-    <button type="submit"><i class="fas fa-search"></i></button>
-   </form>
-   <button class="close-search" id="closeSearch">
-    <i class="fas fa-times"></i>
-   </button>
-  </div>
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+ <div class="search-container">
+  <form class="search-form">
+   <input type="text" placeholder="Caută produse...">
+   <button type="submit"><i class="fas fa-search"></i></button>
+  </form>
+  <button class="close-search" id="closeSearch">
+   <i class="fas fa-times"></i>
+  </button>
  </div>
-
- <!-- Cart Sidebar -->
- <div class="cart-sidebar" id="cartSidebar">
-  <div class="cart-header">
-   <h2>Shopping Cart</h2>
-   <button class="close-cart" id="closeCart">
-    <i class="fas fa-times"></i>
-   </button>
-  </div>
-  <div class="cart-products">
-   <div class="empty-cart-message">Your cart is empty</div>
-   <!-- Cart products will be added dynamically using JavaScript -->
-  </div>
-  <div class="cart-summary">
-   <div class="subtotal">
-    <span>Subtotal:</span>
-    <span>$0.00</span>
-   </div>
-   <a href="checkout.html" class="checkout-btn">Checkout</a>
-   <a href="#" class="continue-shopping" id="continueShopping">Continue Shopping</a>
-  </div>
- </div>
-
- <!-- Menu Overlay -->
- <div class="menu-overlay" id="menuOverlay"></div>
+</div>
