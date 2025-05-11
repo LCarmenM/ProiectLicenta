@@ -1,0 +1,191 @@
+/* account-user.css - Stiluri pentru pagina contului utilizator */
+
+.account-page {
+ padding: 40px 0;
+ background-color: var(--color-dominant-1);
+}
+
+.page-title {
+ font-size: 2rem;
+ margin-bottom: 30px;
+ text-align: center;
+}
+
+.account-dashboard {
+ display: grid;
+ grid-template-columns: 250px 1fr;
+ gap: 30px;
+}
+
+.account-navigation {
+ background-color: white;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.account-navigation ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+.account-navigation li a {
+ display: block;
+ padding: 15px 20px;
+ color: var(--color-text);
+ text-decoration: none;
+ border-bottom: 1px solid var(--color-border);
+ transition: background-color 0.3s ease;
+ font-size: 1rem;
+}
+
+.account-navigation li a:hover,
+.account-navigation li a.active {
+ background-color: var(--color-secondary-1);
+ color: white;
+}
+
+.account-content {
+ background-color: white;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ padding: 20px;
+}
+
+.account-section {
+ display: none;
+}
+
+.account-section.active {
+ display: block;
+}
+
+/* Stiluri pentru formulare */
+.form-group {
+ margin-bottom: 15px;
+}
+
+.form-group label {
+ display: block;
+ font-weight: 500;
+ margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+ width: 100%;
+ padding: 10px;
+ border: 1px solid var(--color-border);
+ border-radius: 4px;
+ font-size: 1rem;
+ /* Added font-size */
+}
+
+.form-group small {
+ color: var(--color-text-light);
+ font-size: 0.8rem;
+}
+
+/* Stiluri pentru tabele */
+.order-list table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-bottom: 20px;
+}
+
+.order-list th,
+.order-list td {
+ padding: 10px;
+ text-align: left;
+ border-bottom: 1px solid var(--color-border);
+}
+
+.order-list th {
+ font-weight: 600;
+}
+
+/* Stiluri pentru wishlist */
+.wishlist-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 20px;
+}
+
+.wishlist-item {
+ border: 1px solid var(--color-border);
+ padding: 10px;
+}
+
+.empty-wishlist-message {
+ text-align: center;
+ color: var(--color-text-light);
+}
+
+/* Stiluri pentru adrese */
+.address-book {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 20px;
+ margin-bottom: 20px;
+}
+
+.address-card {
+ border: 1px solid var(--color-border);
+ padding: 15px;
+}
+
+.address-card h3 {
+ font-size: 1.1rem;
+ margin-bottom: 10px;
+}
+
+/* Butoane - folosim clasele din main.css */
+.edit-address,
+.add-address,
+.change-password {
+ display: inline-block;
+ padding: 10px 20px;
+ background-color: white;
+ color: var(--color-secondary-1);
+ border: 1px solid var(--color-secondary-1);
+ font-size: 1rem;
+ font-weight: 500;
+ text-align: center;
+ cursor: pointer;
+ transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.edit-address:hover,
+.add-address:hover,
+.change-password:hover {
+ background-color: var(--color-secondary-1);
+ color: white;
+ transform: translateY(-2px);
+}
+
+/* Stiluri pentru setări */
+.settings-options {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+}
+
+.setting-item {
+ border-bottom: 1px solid var(--color-border);
+ padding-bottom: 20px;
+ margin-bottom: 20px;
+}
+
+.setting-item:last-child {
+ border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .account-dashboard {
+  grid-template-columns: 1fr;
+ }
+
+ .account-navigation {
+  margin-bottom: 20px;
+ }
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Contul meu - Dynasty Couture</title>
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="css/account-user.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <div id="header-placeholder"></div>
+
+ <main class="account-page">
+  <div class="container">
+   <h1 class="page-title">Contul meu</h1>
+
+   <div class="account-dashboard">
+    <aside class="account-navigation">
+     <ul>
+      <li><a href="#" class="active" data-section="profile"><i class="fas fa-user"></i> Profil</a></li>
+      <li><a href="#" data-section="orders"><i class="fas fa-shopping-bag"></i> Comenzi</a></li>
+      <li><a href="#" data-section="wishlist"><i class="fas fa-heart"></i> Favorite</a></li>
+      <li><a href="#" data-section="address"><i class="fas fa-map-marker-alt"></i> Adrese</a></li>
+      <li><a href="#" data-section="settings"><i class="fas fa-cog"></i> Setări</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> Deconectare</a></li>
+     </ul>
+    </aside>
+
+    <div class="account-content">
+     <section id="profile" class="account-section active">
+      <h2>Informații profil</h2>
+      <form id="profile-form">
+       <div class="form-group">
+        <label for="profile-name">Nume</label>
+        <input type="text" id="profile-name" name="profile-name" value="John Doe">
+       </div>
+       <div class="form-group">
+        <label for="profile-email">Email</label>
+        <input type="email" id="profile-email" name="profile-email" value="john.doe@example.com" disabled>
+        <small>Nu poți schimba adresa de email.</small>
+       </div>
+       <div class="form-group">
+        <label for="profile-phone">Telefon</label>
+        <input type="tel" id="profile-phone" name="profile-phone" value="0712345678">
+       </div>
+       <button type="submit" class="btn-primary">Salvează modificările</button>
+      </form>
+     </section>
+
+     <section id="orders" class="account-section">
+      <h2>Istoric comenzi</h2>
+      <div class="order-filters">
+       <label for="order-status-filter">Status:</label>
+       <select id="order-status-filter">
+        <option value="all">Toate</option>
+        <option value="processing">În procesare</option>
+        <option value="shipped">Expediată</option>
+        <option value="delivered">Livrată</option>
+        <option value="cancelled">Anulată</option>
+       </select>
+      </div>
+      <div class="order-list">
+       <table>
+        <thead>
+         <tr>
+          <th>Comandă</th>
+          <th>Data</th>
+          <th>Status</th>
+          <th>Total</th>
+          <th>Detalii</th>
+         </tr>
+        </thead>
+        <tbody id="order-table-body">
+         <tr>
+          <td>#12345</td>
+          <td>2024-03-10</td>
+          <td>Livrată</td>
+          <td>1200 lei</td>
+          <td><a href="#">Vezi detalii</a></td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+     </section>
+
+     <section id="wishlist" class="account-section">
+      <h2>Lista de favorite</h2>
+      <div class="wishlist-grid">
+      </div>
+      <p class="empty-wishlist-message" style="display: none;">Nu ai produse favorite.</p>
+     </section>
+
+     <section id="address" class="account-section">
+      <h2>Gestionare adrese</h2>
+      <div class="address-book">
+       <div class="address-card">
+        <h3>Adresă de livrare principală</h3>
+        <p>John Doe</p>
+        <p>Str. Exemplu, Nr. 123</p>
+        <p>București, România</p>
+        <button class="btn-secondary edit-address">Editează</button>
+       </div>
+       <div class="address-card">
+        <h3>Adresă de facturare</h3>
+        <p>John Doe</p>
+        <p>Str. Exemplu, Nr. 123</p>
+        <p>București, România</p>
+        <button class="btn-secondary edit-address">Editează</button>
+       </div>
+      </div>
+      <button class="btn-primary add-address">Adaugă adresă nouă</button>
+     </section>
+
+     <section id="settings" class="account-section">
+      <h2>Setări cont</h2>
+      <div class="settings-options">
+       <div class="setting-item">
+        <h3>Schimbă parola</h3>
+        <button class="btn-secondary change-password">Schimbă parola</button>
+       </div>
+       <div class="setting-item">
+        <h3>Preferințe newsletter</h3>
+        <label>
+         <input type="checkbox" id="newsletter-subscribe" checked>
+         Abonare la newsletter
+        </label>
+       </div>
+      </div>
+     </section>
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <div id="footer-placeholder"></div>
+ <script src="js/includes.js"></script>
+ <script src="js/account-user.js"></script>
+</body>
+
+</html>
