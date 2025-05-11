@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Rezultate căutare - Dynasty Couture</title>
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="css/search-results.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <div id="header-placeholder"></div>
+
+ <!-- Breadcrumb -->
+ <div class="breadcrumb">
+  <div class="container">
+   <ul>
+    <li><a href="home.html">Acasă</a></li>
+    <li>Rezultate căutare</li>
+   </ul>
+  </div>
+ </div>
+
+ <!-- Main Content -->
+ <main class="search-results-page">
+  <div class="container">
+   <div class="search-header">
+    <h1 class="page-title">Rezultate căutare</h1>
+    <div class="search-term" id="searchTermDisplay"></div>
+    <div class="search-count" id="searchCountDisplay"></div>
+
+    <!-- Search form for refining search -->
+    <div class="search-refine">
+     <form id="searchRefineForm" class="search-form">
+      <input type="text" id="searchInput" placeholder="Caută produse...">
+      <button type="submit"><i class="fas fa-search"></i></button>
+     </form>
+    </div>
+   </div>
+
+   <div class="search-content">
+    <div class="search-filters">
+     <div class="filter-section">
+      <h3>Categorii</h3>
+      <ul class="filter-list" id="categoryFilters">
+       <!-- Categoriile vor fi generate prin JS -->
+      </ul>
+     </div>
+
+     <div class="filter-section">
+      <h3>Preț</h3>
+      <div class="price-slider">
+       <input type="range" min="0" max="2000" step="50" value="2000" class="slider" id="priceRange">
+       <div class="price-values">
+        <span>0 lei</span>
+        <span id="maxPrice">2000 lei</span>
+       </div>
+      </div>
+     </div>
+
+     <div class="filter-section">
+      <h3>Reduceri</h3>
+      <label class="checkbox-filter">
+       <input type="checkbox" id="discountFilter">
+       <span class="filter-name">Doar produse cu reducere</span>
+      </label>
+     </div>
+
+     <div class="filter-actions">
+      <button id="resetFilters" class="btn-reset-filters">Resetează filtrele</button>
+     </div>
+    </div>
+
+    <div class="search-results-container">
+     <div class="results-header">
+      <div class="results-count" id="visibleResultsCount"></div>
+      <div class="sort-dropdown">
+       <label for="sort-select">Sortare:</label>
+       <select id="sort-select">
+        <option value="relevance">Relevanță</option>
+        <option value="price-asc">Preț: crescător</option>
+        <option value="price-desc">Preț: descrescător</option>
+        <option value="name-asc">Nume: A-Z</option>
+        <option value="name-desc">Nume: Z-A</option>
+       </select>
+      </div>
+     </div>
+
+     <div class="results-grid" id="searchResultsGrid">
+      <!-- Rezultatele vor fi generate prin JS -->
+     </div>
+
+     <div class="no-results" id="noResultsMessage" style="display: none;">
+      <p>Nu s-au găsit rezultate pentru căutarea dvs.</p>
+      <p>Sugestii:</p>
+      <ul>
+       <li>Verifică ortografia termenului căutat.</li>
+       <li>Încearcă termeni mai generali.</li>
+       <li>Încearcă categorii precum "Femei", "Bărbați", "Accesorii".</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+ </main>
+
+ <div id="footer-placeholder"></div>
+ <script src="js/includes.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/search.js"></script>
+ <script src="js/search-results.js"></script>
+</body>
+
+</html>
