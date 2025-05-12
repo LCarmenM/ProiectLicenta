@@ -1,19 +1,13 @@
-/* product-card.css - Actualizat pentru dimensiunile exacte din Figma */
-
-/* Reset specific pentru product-card */
-.product-card * {
- box-sizing: border-box;
- margin: 0;
- padding: 0;
-}
+/* product-card.css - Rating aliniat cu numele și preț scăzut mutat sus */
 
 /* Container pentru grid-ul de produse */
 .wishlist-grid,
 .product-grid {
  display: grid;
- grid-template-columns: repeat(auto-fill, 240px);
- gap: 40px;
- padding: 20px 0;
+ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+ gap: 10px;
+ /* Modifică această valoare pentru a schimba distanța dintre carduri */
+ padding: 10px 0;
  background-color: transparent;
  max-width: 1200px;
  margin: 0 auto;
@@ -21,10 +15,8 @@
 }
 
 /* Card produs - container principal */
-.wishlist-page .product-card,
 .product-card {
  width: 240px !important;
- height: 401px !important;
  position: relative;
  background-color: #ffffff;
  overflow: hidden;
@@ -38,13 +30,10 @@
 }
 
 /* Imagine produs */
-.wishlist-page .product-image,
 .product-image {
  width: 240px !important;
- height: 300.22px !important;
- position: absolute;
- left: 0;
- top: 0;
+ height: 300px !important;
+ position: relative;
  overflow: hidden;
  background-color: #f9f9f9;
 }
@@ -55,7 +44,7 @@
  object-fit: cover;
 }
 
-/* Badge-uri */
+/* Badge-uri - actualizat pentru a include preț scăzut */
 .product-badges {
  position: absolute;
  top: 10px;
@@ -67,7 +56,8 @@
 
 .badge-discount,
 .badge-new,
-.badge-bestseller {
+.badge-bestseller,
+.badge-price-drop {
  display: inline-block;
  padding: 4px 10px;
  font-size: 11px;
@@ -87,6 +77,10 @@
 
 .badge-bestseller {
  background-color: #4caf50;
+}
+
+.badge-price-drop {
+ background-color: #ff9800;
 }
 
 /* Buton X pentru wishlist */
@@ -117,45 +111,76 @@
  color: #666;
 }
 
-/* Nume produs - poziționat exact ca în Figma */
+/* Container informații produs */
+.product-info {
+ padding: 12px;
+ position: relative;
+}
+
+/* Container pentru nume și rating pe aceeași linie */
+.product-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 12px;
+}
+
+/* Nume produs */
 .product-name {
- position: absolute;
- left: 0;
- top: 328.98px;
  color: black;
  font-size: 18px;
  font-family: 'Maven Pro', 'Poppins', sans-serif;
  font-weight: 600;
- line-height: 20px;
- word-wrap: break-word;
+ line-height: 22px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ max-width: 160px;
+ /* Limitează lățimea pentru a face loc rating-ului */
+}
+
+/* Rating - acum aliniat cu numele */
+.product-rating {
+ display: flex;
+ align-items: center;
+ gap: 6px;
+ flex-shrink: 0;
+}
+
+.rating-star {
+ width: 14px;
+ height: 14px;
+ color: #ffc107;
+}
+
+.rating-value {
+ color: #666666;
+ font-size: 14px;
+ font-family: 'Inter', sans-serif;
+ font-weight: 400;
+ line-height: 14px;
 }
 
 /* Container pentru detaliile produsului */
 .product-details {
- width: 234px;
- position: absolute;
- left: 0;
- top: 360px;
  display: flex;
  justify-content: space-between;
  align-items: flex-start;
+ margin-bottom: 12px;
 }
 
 /* Secțiune stângă - preț și culori */
 .product-left-section {
- width: 123px;
  display: flex;
- flex-wrap: wrap;
- align-content: flex-start;
+ flex-direction: column;
  gap: 8px;
 }
 
 /* Preț */
 .product-price {
- width: 100%;
  display: flex;
  align-items: center;
- gap: 10px;
+ gap: 8px;
 }
 
 .current-price {
@@ -164,7 +189,6 @@
  font-family: 'Maven Pro', 'Poppins', sans-serif;
  font-weight: 600;
  line-height: 20px;
- word-wrap: break-word;
 }
 
 .old-price {
@@ -185,6 +209,7 @@
  width: 14px;
  height: 14px;
  border: 1px solid #808080;
+ border-radius: 50%;
  cursor: pointer;
  transition: all 0.2s ease;
 }
@@ -194,36 +219,11 @@
  border-color: #333333;
 }
 
-/* Rating - poziționat în dreapta jos */
-.product-rating {
- position: absolute;
- right: 6px;
- bottom: 0;
- display: flex;
- align-items: center;
- gap: 6px;
-}
-
-.rating-star {
- width: 14px;
- height: 14px;
- color: #333333;
-}
-
-.rating-value {
- color: #666666;
- font-size: 14px;
- font-family: 'Inter', sans-serif;
- font-weight: 400;
- line-height: 14px;
- word-wrap: break-word;
-}
-
 /* Buton coș */
 .add-to-cart-btn {
  position: absolute;
- right: 6px;
- top: 358px;
+ right: 12px;
+ bottom: 12px;
  width: 32px;
  height: 32px;
  background-color: #333333;
@@ -246,100 +246,94 @@
  font-size: 14px;
 }
 
-/* X icon din Figma (partea de sus dreapta pentru wishlist remove) */
-.wishlist-x-icon {
- width: 11.23px;
- height: 9.48px;
- position: absolute;
- left: 217px;
- top: 11px;
- background: #333333;
+/* Secțiune alertă preț */
+.price-alert-section {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ margin-top: 12px;
 }
 
-/* Container informații produs - versiune mai simplă pentru compatibilitate */
-.product-info {
- padding: 0;
- position: relative;
- height: 100%;
+.price-alert-toggle {
+ width: 24px;
+ height: 24px;
+ background-color: transparent;
+ border: 1px solid #e0e0e0;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ transition: all 0.3s ease;
 }
 
-/* Quick view - ascuns deoarece nu apare în design-ul Figma */
-.quick-view {
- display: none;
+.price-alert-toggle:hover {
+ background-color: #f5f5f5;
+ border-color: #333333;
 }
 
-/* Responsive pentru tablete */
-@media (max-width: 1200px) {
-
- .wishlist-grid,
- .product-grid {
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
- }
+.price-alert-toggle.active {
+ background-color: #ff9800;
+ border-color: #ff9800;
+ color: white;
 }
 
+.price-alert-toggle i {
+ font-size: 12px;
+}
+
+.alert-text {
+ font-size: 12px;
+ color: #666666;
+ font-family: 'Inter', sans-serif;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
 
  .wishlist-grid,
  .product-grid {
-  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
   gap: 16px;
   padding: 20px 15px;
-  justify-items: center;
  }
 
  .product-card {
-  width: 240px;
-  /* Menține dimensiunea fixă */
+  width: 100% !important;
  }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 480px) {
 
  .wishlist-grid,
  .product-grid {
   grid-template-columns: 1fr;
-  justify-items: center;
  }
 
  .product-card {
-  width: 240px;
-  /* Menține dimensiunea fixă */
+  max-width: 300px;
   margin: 0 auto;
  }
 }
 
-/* Stiluri suplimentare pentru funcționalități speciale */
-
-/* Badge preț scăzut - actualizat pentru poziționare relativă la card */
-.price-drop-badge {
- background-color: #dc2626;
- color: white;
- font-size: 10px;
- padding: 2px 6px;
- border-radius: 2px;
- margin-left: 4px;
- font-weight: 500;
- white-space: nowrap;
+/* Stiluri suplimentare pentru wishlist */
+.wishlist-page .product-card {
+ cursor: default;
 }
 
-/* Secțiune alertă preț - opțională, poziționată relativ la elementele existente */
-.price-alert-section {
- display: none;
- /* Ascuns deoarece nu apare în design-ul Figma */
+.wishlist-page .price-alert-section {
+ display: flex;
+ /* Mereu vizibil în wishlist */
 }
 
-/* Ajustări pentru integrare cu restul aplicației */
-.product-header {
- display: none;
- /* Nu e folosit în design-ul din Figma */
+/* Animație pentru eliminare */
+.product-card.removing {
+ animation: fadeOut 0.3s ease forwards;
 }
 
-.action-buttons {
- display: none;
- /* Simplificat pentru a se potrivi cu design-ul din Figma */
-}
-
-/* Ajustări pentru wishlist-specific */
-.remove-wishlist {
- /* Folosește stilul standard pentru butonul wishlist */
+@keyframes fadeOut {
+ to {
+  opacity: 0;
+  transform: scale(0.9);
+ }
 }

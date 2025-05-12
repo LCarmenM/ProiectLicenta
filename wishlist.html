@@ -9,7 +9,7 @@
  <link rel="stylesheet" href="css/product-card.css">
  <link rel="stylesheet" href="css/wishlist.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -25,13 +25,31 @@
     <div class="wishlist-count">4 produse</div>
    </div>
 
+   <!-- Controls section -->
+   <div class="wishlist-controls">
+    <div class="filter-options">
+     <label for="sort-select">Sortare:</label>
+     <select id="sort-select">
+      <option value="date-desc">Recente întâi</option>
+      <option value="price-asc">Preț: crescător</option>
+      <option value="price-desc">Preț: descrescător</option>
+      <option value="name-asc">Nume: A-Z</option>
+     </select>
+    </div>
+
+    <div class="wishlist-actions">
+     <button class="btn-secondary clear-wishlist">Golește lista</button>
+     <button class="btn-primary add-all-to-cart">Adaugă toate în coș</button>
+    </div>
+   </div>
+
    <!-- Grid de produse -->
    <div class="wishlist-grid">
 
     <!-- Produs 1 - Rochie midi de seară -->
-    <div class="product-card" data-product-id="1">
+    <div class="product-card wishlist-product" data-product-id="1">
      <div class="product-image">
-      <img src="images/sandale.png" alt="Rochie midi de seară">
+      <img src="images/rochie-midi.png" alt="Rochie midi de seară">
       <div class="product-badges">
        <span class="badge-discount">-50%</span>
       </div>
@@ -41,6 +59,7 @@
      </div>
 
      <div class="product-info">
+      <!-- Header cu nume și rating pe aceeași linie -->
       <div class="product-header">
        <h3 class="product-name">Rochie midi de seară</h3>
        <div class="product-rating">
@@ -49,39 +68,40 @@
        </div>
       </div>
 
+      <!-- Container pentru detalii (preț și culori) -->
       <div class="product-details">
-       <div class="product-price-section">
+       <div class="product-left-section">
         <div class="product-price">
          <span class="current-price">500 lei</span>
          <span class="old-price">1000 lei</span>
         </div>
 
         <div class="product-colors">
-         <span class="color-dot" style="background-color: #000000"></span>
-         <span class="color-dot" style="background-color: #8B0000"></span>
+         <span class="color-dot" style="background-color: #000000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
         </div>
        </div>
+      </div>
 
-       <div class="action-buttons">
-        <div class="price-alert-section">
-         <button class="price-alert-toggle" aria-label="Alertă preț">
-          <i class="far fa-bell"></i>
-          <span class="alert-text">Alertă preț</span>
-         </button>
-        </div>
+      <!-- Buton coș -->
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
 
-        <button class="add-to-cart-btn" aria-label="Adaugă în coș">
-         <i class="fas fa-shopping-cart"></i>
-        </button>
-       </div>
+      <!-- Alertă preț -->
+      <div class="price-alert-section">
+       <button class="price-alert-toggle" aria-label="Alertă preț">
+        <i class="far fa-bell"></i>
+       </button>
+       <span class="alert-text">Alertă preț</span>
       </div>
      </div>
     </div>
 
     <!-- Produs 2 - Costum elegant bărbați -->
-    <div class="product-card" data-product-id="2">
+    <div class="product-card wishlist-product" data-product-id="2">
      <div class="product-image">
-      <img src="images/geanta.png" alt="Costum elegant bărbați">
+      <img src="images/sacou.png" alt="Costum elegant bărbați">
       <div class="product-badges">
        <span class="badge-new">NOU</span>
       </div>
@@ -92,7 +112,7 @@
 
      <div class="product-info">
       <div class="product-header">
-       <h3 class="product-name">Costum elegant bărbați</h3>
+       <h3 class="product-name">Costum bărbați</h3>
        <div class="product-rating">
         <i class="fas fa-star rating-star"></i>
         <span class="rating-value">4.9</span>
@@ -100,7 +120,7 @@
       </div>
 
       <div class="product-details">
-       <div class="product-price-section">
+       <div class="product-left-section">
         <div class="product-price">
          <span class="current-price">1200 lei</span>
         </div>
@@ -110,27 +130,25 @@
          <span class="color-dot" style="background-color: #1A2639"></span>
         </div>
        </div>
+      </div>
 
-       <div class="action-buttons">
-        <div class="price-alert-section">
-         <button class="price-alert-toggle active" aria-label="Alertă activă">
-          <i class="fas fa-bell"></i>
-          <span class="alert-text">Alertă activă</span>
-         </button>
-        </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
 
-        <button class="add-to-cart-btn" aria-label="Adaugă în coș">
-         <i class="fas fa-shopping-cart"></i>
-        </button>
-       </div>
+      <div class="price-alert-section">
+       <button class="price-alert-toggle active" aria-label="Alertă activă">
+        <i class="fas fa-bell"></i>
+       </button>
+       <span class="alert-text">Alertă activă</span>
       </div>
      </div>
     </div>
 
     <!-- Produs 3 - Geantă din piele naturală -->
-    <div class="product-card" data-product-id="3">
+    <div class="product-card wishlist-product" data-product-id="3">
      <div class="product-image">
-      <img src="images/lant.png" alt="Geantă din piele naturală">
+      <img src="images/geanta.png" alt="Geantă din piele naturală">
       <button class="wishlist-btn remove-wishlist" aria-label="Elimină de la favorite">
        <i class="fas fa-times"></i>
       </button>
@@ -138,7 +156,7 @@
 
      <div class="product-info">
       <div class="product-header">
-       <h3 class="product-name">Geantă din piele naturală</h3>
+       <h3 class="product-name">Geantă din piele</h3>
        <div class="product-rating">
         <i class="fas fa-star rating-star"></i>
         <span class="rating-value">4.5</span>
@@ -146,7 +164,7 @@
       </div>
 
       <div class="product-details">
-       <div class="product-price-section">
+       <div class="product-left-section">
         <div class="product-price">
          <span class="current-price">750 lei</span>
         </div>
@@ -157,29 +175,28 @@
          <span class="color-dot" style="background-color: #F5F5DC"></span>
         </div>
        </div>
+      </div>
 
-       <div class="action-buttons">
-        <div class="price-alert-section">
-         <button class="price-alert-toggle" aria-label="Alertă preț">
-          <i class="far fa-bell"></i>
-          <span class="alert-text">Alertă preț</span>
-         </button>
-        </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
 
-        <button class="add-to-cart-btn" aria-label="Adaugă în coș">
-         <i class="fas fa-shopping-cart"></i>
-        </button>
-       </div>
+      <div class="price-alert-section">
+       <button class="price-alert-toggle" aria-label="Alertă preț">
+        <i class="far fa-bell"></i>
+       </button>
+       <span class="alert-text">Alertă preț</span>
       </div>
      </div>
     </div>
 
     <!-- Produs 4 - Pantofi Oxford piele -->
-    <div class="product-card" data-product-id="4">
+    <div class="product-card wishlist-product" data-product-id="4">
      <div class="product-image">
-      <img src="images/lant.png" alt="Pantofi Oxford piele">
+      <img src="images/balerini.png" alt="Pantofi Oxford piele">
       <div class="product-badges">
        <span class="badge-discount">-15%</span>
+       <span class="badge-price-drop">Preț scăzut!</span>
       </div>
       <button class="wishlist-btn remove-wishlist" aria-label="Elimină de la favorite">
        <i class="fas fa-times"></i>
@@ -188,7 +205,7 @@
 
      <div class="product-info">
       <div class="product-header">
-       <h3 class="product-name">Pantofi Oxford piele</h3>
+       <h3 class="product-name">Balerini damă</h3>
        <div class="product-rating">
         <i class="fas fa-star rating-star"></i>
         <span class="rating-value">4.6</span>
@@ -196,7 +213,7 @@
       </div>
 
       <div class="product-details">
-       <div class="product-price-section">
+       <div class="product-left-section">
         <div class="product-price">
          <span class="current-price">680 lei</span>
          <span class="old-price">800 lei</span>
@@ -207,27 +224,78 @@
          <span class="color-dot" style="background-color: #8B4513"></span>
         </div>
        </div>
+      </div>
 
-       <div class="action-buttons">
-        <div class="price-alert-section">
-         <button class="price-alert-toggle active" aria-label="Alertă activă">
-          <i class="fas fa-bell"></i>
-          <span class="alert-text">Alertă activă</span>
-          <span class="price-drop-badge">Preț scăzut!</span>
-         </button>
-        </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
 
-        <button class="add-to-cart-btn" aria-label="Adaugă în coș">
-         <i class="fas fa-shopping-cart"></i>
-        </button>
-       </div>
+      <div class="price-alert-section">
+       <button class="price-alert-toggle active" aria-label="Alertă activă">
+        <i class="fas fa-bell"></i>
+       </button>
+       <span class="alert-text">Alertă activă</span>
       </div>
      </div>
     </div>
 
    </div>
+
+   <!-- Empty state (ascuns implicit) -->
+   <div class="empty-wishlist" style="display: none;">
+    <div class="empty-wishlist-icon">
+     <i class="far fa-heart"></i>
+    </div>
+    <h2>Lista ta de favorite este goală</h2>
+    <p>Salvează produsele preferate pentru a le putea găsi mai ușor</p>
+    <a href="home.html" class="btn-primary">Descoperă produsele</a>
+   </div>
+
+   <!-- Recomandări -->
+   <section class="recommendations">
+    <h2 class="section-title">Te-ar putea interesa</h2>
+    <div class="product-grid">
+     <!-- Produsele recomandate vor fi inseriate aici -->
+    </div>
+   </section>
+
   </div>
  </main>
+
+ <!-- Modal pentru alertă de preț -->
+ <div class="alert-modal" id="alertModal">
+  <div class="modal-content">
+   <div class="modal-header">
+    <h2>Setează alertă de preț</h2>
+    <button class="close-modal">&times;</button>
+   </div>
+   <div class="modal-body">
+    <div class="alert-product-info">
+     <img src="" alt="" id="alertProductImage">
+     <div>
+      <h3 id="alertProductName"></h3>
+      <p class="current-price" id="alertProductPrice"></p>
+     </div>
+    </div>
+    <div class="alert-settings">
+     <label>
+      <input type="radio" name="alert-type" value="any-drop" checked>
+      Alertează-mă la orice reducere de preț
+     </label>
+     <label>
+      <input type="radio" name="alert-type" value="specific">
+      Alertează-mă când prețul scade sub:
+      <input type="number" id="targetPrice" placeholder="Preț țintă">
+     </label>
+    </div>
+   </div>
+   <div class="modal-footer">
+    <button class="btn-secondary cancel-alert">Anulează</button>
+    <button class="btn-primary save-alert">Salvează alerta</button>
+   </div>
+  </div>
+ </div>
+ <div class="modal-overlay" id="alertModalOverlay"></div>
 
  <!-- Footer -->
  <div id="footer-placeholder"></div>

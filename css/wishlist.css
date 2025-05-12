@@ -2,9 +2,11 @@
 
 .wishlist-page {
  padding: 60px 0;
- background-color: var(--color-dominant-1);
+ background-color: #f5f5f5;
+ min-height: calc(100vh - 200px);
 }
 
+/* Header wishlist */
 .wishlist-header {
  display: flex;
  justify-content: space-between;
@@ -14,25 +16,28 @@
 
 .page-title {
  font-size: 2rem;
- margin-bottom: 0;
+ font-weight: 600;
+ margin: 0;
+ color: #333;
 }
 
 .wishlist-count {
- background-color: var(--color-secondary-1);
+ background-color: #333;
  color: white;
- padding: 5px 15px;
+ padding: 8px 16px;
  border-radius: 20px;
  font-size: 0.9rem;
  font-weight: 500;
 }
 
+/* Controale wishlist */
 .wishlist-controls {
  display: flex;
  justify-content: space-between;
  align-items: center;
  margin-bottom: 30px;
  padding-bottom: 20px;
- border-bottom: 1px solid var(--color-border);
+ border-bottom: 1px solid #e0e0e0;
 }
 
 .filter-options {
@@ -43,11 +48,12 @@
 
 .filter-options label {
  font-size: 0.9rem;
+ color: #666;
 }
 
 .filter-options select {
  padding: 8px 12px;
- border: 1px solid var(--color-border);
+ border: 1px solid #e0e0e0;
  border-radius: 4px;
  font-size: 0.9rem;
  background-color: white;
@@ -58,13 +64,43 @@
  gap: 15px;
 }
 
-/* Grid pentru produsele favorite - folosește stilurile din product-card.css */
+.btn-primary,
+.btn-secondary {
+ padding: 10px 20px;
+ border-radius: 4px;
+ font-weight: 500;
+ font-size: 0.9rem;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ border: none;
+}
+
+.btn-primary {
+ background-color: #333;
+ color: white;
+}
+
+.btn-primary:hover {
+ background-color: #555;
+}
+
+.btn-secondary {
+ background-color: white;
+ color: #333;
+ border: 1px solid #333;
+}
+
+.btn-secondary:hover {
+ background-color: #f5f5f5;
+}
+
+/* Grid pentru produse */
 .wishlist-grid {
  display: grid;
  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
  gap: 40px;
- justify-items: center;
  margin-bottom: 60px;
+ justify-items: center;
 }
 
 /* Adaptări pentru cardurile din wishlist */
@@ -72,101 +108,29 @@
  position: relative;
 }
 
-/* Buton de eliminare din wishlist */
-.wishlist-product .remove-wishlist {
- background-color: rgba(255, 255, 255, 0.9);
- color: var(--color-error);
-}
-
-.wishlist-product .remove-wishlist:hover {
- background-color: var(--color-error);
- color: white;
-}
-
-/* Secțiune alertă de preț */
-.price-alert-section {
- display: flex;
- align-items: center;
- gap: 5px;
- margin-top: 8px;
-}
-
-.price-alert-toggle {
- width: 24px;
- height: 24px;
- background-color: transparent;
- border: 1px solid var(--color-border);
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- cursor: pointer;
- transition: all 0.3s ease;
-}
-
-.price-alert-toggle:hover {
- background-color: var(--color-secondary-1);
- color: white;
- border-color: var(--color-secondary-1);
-}
-
-.price-alert-toggle.active {
- background-color: var(--color-accent-1);
- color: white;
- border-color: var(--color-accent-1);
-}
-
-.alert-text {
- font-size: 12px;
- color: var(--color-text-light);
-}
-
-.price-drop-badge {
- background-color: var(--color-accent-1);
- color: white;
- font-size: 11px;
- padding: 2px 6px;
- border-radius: 3px;
- margin-left: 5px;
- font-weight: 500;
- animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
- 0% {
-  opacity: 0.6;
- }
-
- 50% {
-  opacity: 1;
- }
-
- 100% {
-  opacity: 0.6;
- }
-}
-
 /* Stare goală */
 .empty-wishlist {
  text-align: center;
- padding: 60px 0;
+ padding: 80px 0;
+ display: none;
 }
 
 .empty-wishlist-icon {
  font-size: 4rem;
- color: var(--color-text-light);
+ color: #ddd;
  margin-bottom: 20px;
 }
 
 .empty-wishlist h2 {
  font-size: 1.75rem;
+ color: #333;
  margin-bottom: 15px;
 }
 
 .empty-wishlist p {
  font-size: 1.1rem;
+ color: #666;
  margin-bottom: 30px;
- color: var(--color-text-light);
  max-width: 500px;
  margin-left: auto;
  margin-right: auto;
@@ -174,7 +138,26 @@
 
 /* Secțiune recomandări */
 .recommendations {
- margin-top: 60px;
+ margin-top: 80px;
+}
+
+.recommendations .section-title {
+ text-align: center;
+ font-size: 1.75rem;
+ margin-bottom: 40px;
+ color: #333;
+ position: relative;
+}
+
+.recommendations .section-title::after {
+ content: '';
+ position: absolute;
+ bottom: -10px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 50px;
+ height: 3px;
+ background-color: #333;
 }
 
 /* Modal pentru alertă de preț */
@@ -198,6 +181,110 @@
  opacity: 1;
  visibility: visible;
  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+ padding: 0;
+}
+
+.modal-header {
+ padding: 20px;
+ border-bottom: 1px solid #e0e0e0;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.modal-header h2 {
+ margin: 0;
+ font-size: 1.25rem;
+ color: #333;
+}
+
+.close-modal {
+ background: none;
+ border: none;
+ font-size: 1.5rem;
+ color: #999;
+ cursor: pointer;
+ transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+ color: #333;
+}
+
+.modal-body {
+ padding: 20px;
+}
+
+.alert-product-info {
+ display: flex;
+ gap: 15px;
+ margin-bottom: 20px;
+ padding-bottom: 20px;
+ border-bottom: 1px solid #e0e0e0;
+}
+
+.alert-product-info img {
+ width: 60px;
+ height: 80px;
+ object-fit: cover;
+ border-radius: 4px;
+}
+
+.alert-product-info h3 {
+ margin: 0 0 5px 0;
+ font-size: 1rem;
+ color: #333;
+}
+
+.alert-settings {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+}
+
+.alert-settings label {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ font-size: 0.9rem;
+ cursor: pointer;
+}
+
+.alert-settings input[type="number"] {
+ width: 100px;
+ padding: 5px 10px;
+ border: 1px solid #e0e0e0;
+ border-radius: 4px;
+ margin-left: 10px;
+}
+
+.modal-footer {
+ padding: 20px;
+ border-top: 1px solid #e0e0e0;
+ display: flex;
+ justify-content: flex-end;
+ gap: 15px;
+}
+
+.modal-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5);
+ z-index: 1000;
+ opacity: 0;
+ visibility: hidden;
+ transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+ opacity: 1;
+ visibility: visible;
 }
 
 /* Responsive design */
@@ -228,11 +315,20 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
  }
+
+ .alert-modal {
+  width: 95%;
+  max-width: 480px;
+ }
 }
 
 @media (max-width: 576px) {
  .wishlist-grid {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+ }
+
+ .page-title {
+  font-size: 1.5rem;
  }
 }

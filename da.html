@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Produse Populare - Dynasty Couture</title>
+
+ <!-- CSS pentru carduri -->
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="css/product-card.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <!-- Header -->
+ <div id="header-placeholder"></div>
+
+ <!-- Main Content -->
+ <main class="page-content">
+  <div class="container">
+   <h1 class="page-title">Produse Populare</h1>
+
+   <!-- Container pentru produse -->
+   <div class="product-grid">
+
+    <!-- Card 1 -->
+    <div class="product-card" data-product-id="1">
+     <div class="product-image">
+      <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară">
+      <div class="product-badges">
+       <span class="badge-discount">-50%</span>
+      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Rochie midi de seară</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.8</span>
+       </div>
+      </div>
+
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">500 lei</span>
+         <span class="old-price">1000 lei</span>
+        </div>
+
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000000"></span>
+         <span class="color-dot" style="background-color: #8B0000"></span>
+        </div>
+       </div>
+      </div>
+
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card" data-product-id="2">
+     <div class="product-image">
+      <img src="images/costum-barbati.jpg" alt="Costum elegant bărbați">
+      <div class="product-badges">
+       <span class="badge-new">NOU</span>
+      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Costum elegant bărbați</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.9</span>
+       </div>
+      </div>
+
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">1200 lei</span>
+        </div>
+
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000000"></span>
+         <span class="color-dot" style="background-color: #1A2639"></span>
+        </div>
+       </div>
+      </div>
+
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+
+   </div>
+  </div>
+ </main>
+
+ <!-- Footer -->
+ <div id="footer-placeholder"></div>
+
+ <!-- JavaScript -->
+ <script src="js/includes.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/product-card.js"></script>
+
+ <script>
+  // Inițializează funcționalitatea cardurilor după încărcarea paginii
+  document.addEventListener('DOMContentLoaded', function () {
+   initProductCards();
+  });
+ </script>
+</body>
+
+</html>
