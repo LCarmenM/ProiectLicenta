@@ -8,7 +8,7 @@ Stilurile specifice pentru header și footer au fost mutate în fișiere separat
 :root {
  /* Regula 60-30-10 pentru culori */
  /* Culori dominante (60%) */
- --color-dominant-1: #f9f9f9;
+ --color-dominant-1: #FFFFFB;
  --color-dominant-2: #ffffff;
 
  /* Culori secundare (30%) */

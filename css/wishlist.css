@@ -1,7 +1,8 @@
-/* Wishlist Page Styles */
+/* wishlist.css - Stiluri actualizate pentru pagina de favorite */
 
 .wishlist-page {
  padding: 60px 0;
+ background-color: var(--color-dominant-1);
 }
 
 .wishlist-header {
@@ -57,74 +58,48 @@
  gap: 15px;
 }
 
+/* Grid pentru produsele favorite - folosește stilurile din product-card.css */
 .wishlist-grid {
  display: grid;
- grid-template-columns: repeat(4, 1fr);
- gap: 30px;
+ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+ gap: 40px;
+ justify-items: center;
  margin-bottom: 60px;
 }
 
-.wishlist-item {
+/* Adaptări pentru cardurile din wishlist */
+.wishlist-product {
  position: relative;
 }
 
-.wishlist-item .product-card {
- height: 100%;
- display: flex;
- flex-direction: column;
+/* Buton de eliminare din wishlist */
+.wishlist-product .remove-wishlist {
+ background-color: rgba(255, 255, 255, 0.9);
+ color: var(--color-error);
 }
 
-.wishlist-item .product-info {
- flex: 1;
- display: flex;
- flex-direction: column;
-}
-
-.wishlist-item-actions {
- margin-top: auto;
- display: flex;
- gap: 10px;
-}
-
-.wishlist-item-actions .add-to-cart-btn {
- flex: 1;
-}
-
-.remove-from-wishlist {
- width: 40px;
- height: 40px;
- background-color: white;
- border: 1px solid var(--color-border);
- display: flex;
- justify-content: center;
- align-items: center;
- transition: all 0.3s ease;
-}
-
-.remove-from-wishlist:hover {
+.wishlist-product .remove-wishlist:hover {
  background-color: var(--color-error);
  color: white;
- border-color: var(--color-error);
 }
 
-/* Price Alert Styles */
-.product-alert {
+/* Secțiune alertă de preț */
+.price-alert-section {
  display: flex;
  align-items: center;
- gap: 8px;
- margin-bottom: 12px;
- flex-wrap: wrap;
+ gap: 5px;
+ margin-top: 8px;
 }
 
 .price-alert-toggle {
- width: 30px;
- height: 30px;
- border-radius: 50%;
- background-color: white;
+ width: 24px;
+ height: 24px;
+ background-color: transparent;
  border: 1px solid var(--color-border);
+ border-radius: 50%;
  display: flex;
- justify-content: center;
  align-items: center;
+ justify-content: center;
  cursor: pointer;
  transition: all 0.3s ease;
 }
@@ -141,28 +116,18 @@
  border-color: var(--color-accent-1);
 }
 
-.alert-status {
- font-size: 0.8rem;
+.alert-text {
+ font-size: 12px;
  color: var(--color-text-light);
-}
-
-.price-drop-alert {
- background-color: var(--color-accent-1);
- color: white;
- font-size: 0.8rem;
- padding: 2px 8px;
- border-radius: 3px;
- margin-left: auto;
- font-weight: 500;
 }
 
 .price-drop-badge {
  background-color: var(--color-accent-1);
  color: white;
- font-size: 0.8rem;
- padding: 2px 8px;
+ font-size: 11px;
+ padding: 2px 6px;
  border-radius: 3px;
- margin-left: 8px;
+ margin-left: 5px;
  font-weight: 500;
  animation: pulse 2s infinite;
 }
@@ -181,161 +146,7 @@
  }
 }
 
-.has-price-drop .product-image::after {
- content: "";
- position: absolute;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- border: 3px solid var(--color-accent-1);
- pointer-events: none;
- box-sizing: border-box;
-}
-
-/* Alert Modal */
-.alert-modal {
- position: fixed;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%) scale(0.9);
- width: 90%;
- max-width: 550px;
- background-color: white;
- box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
- z-index: 1001;
- opacity: 0;
- visibility: hidden;
- transition: all 0.3s ease;
-}
-
-.alert-modal.active {
- opacity: 1;
- visibility: visible;
- transform: translate(-50%, -50%) scale(1);
-}
-
-.modal-content {
- position: relative;
-}
-
-.modal-header {
- padding: 20px;
- border-bottom: 1px solid var(--color-border);
- display: flex;
- justify-content: space-between;
- align-items: center;
-}
-
-.modal-header h2 {
- margin: 0;
- font-size: 1.3rem;
-}
-
-.close-modal {
- background: none;
- border: none;
- font-size: 1.5rem;
- cursor: pointer;
- color: var(--color-text-light);
- transition: color 0.3s ease;
-}
-
-.close-modal:hover {
- color: var(--color-text);
-}
-
-.modal-body {
- padding: 20px;
-}
-
-.product-preview {
- display: flex;
- align-items: center;
- gap: 20px;
- margin-bottom: 20px;
- padding-bottom: 20px;
- border-bottom: 1px solid var(--color-border);
-}
-
-.product-preview img {
- width: 80px;
- height: 100px;
- object-fit: cover;
-}
-
-.product-preview .product-info h3 {
- font-size: 1.1rem;
- margin-bottom: 5px;
-}
-
-.alert-settings {
- display: flex;
- flex-direction: column;
- gap: 20px;
-}
-
-.setting-group {
- margin-bottom: 15px;
-}
-
-.setting-group h4 {
- font-size: 1rem;
- margin-bottom: 10px;
-}
-
-.alert-options {
- display: flex;
- flex-direction: column;
- gap: 12px;
-}
-
-.alert-option,
-.notification-option {
- display: flex;
- align-items: center;
- gap: 10px;
- font-size: 0.9rem;
-}
-
-.alert-option input[type="number"] {
- width: 80px;
- padding: 5px;
- border: 1px solid var(--color-border);
-}
-
-.notification-options {
- display: flex;
- gap: 20px;
-}
-
-.modal-footer {
- padding: 15px 20px;
- border-top: 1px solid var(--color-border);
- display: flex;
- justify-content: flex-end;
- gap: 15px;
-}
-
-.modal-overlay {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-color: rgba(0, 0, 0, 0.5);
- z-index: 1000;
- opacity: 0;
- visibility: hidden;
- transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.modal-overlay.active {
- opacity: 1;
- visibility: visible;
-}
-
-/* Empty Wishlist State */
+/* Stare goală */
 .empty-wishlist {
  text-align: center;
  padding: 60px 0;
@@ -361,24 +172,35 @@
  margin-right: auto;
 }
 
-/* Recommendations Section */
+/* Secțiune recomandări */
 .recommendations {
  margin-top: 60px;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
- .wishlist-grid {
-  grid-template-columns: repeat(3, 1fr);
- }
+/* Modal pentru alertă de preț */
+.alert-modal {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0.9);
+ width: 90%;
+ max-width: 550px;
+ background-color: white;
+ box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+ z-index: 1001;
+ opacity: 0;
+ visibility: hidden;
+ transition: all 0.3s ease;
+ border-radius: 8px;
 }
 
-@media (max-width: 992px) {
- .wishlist-grid {
-  grid-template-columns: repeat(2, 1fr);
- }
+.alert-modal.active {
+ opacity: 1;
+ visibility: visible;
+ transform: translate(-50%, -50%) scale(1);
 }
 
+/* Responsive design */
 @media (max-width: 768px) {
  .wishlist-header {
   flex-direction: column;
@@ -402,23 +224,15 @@
   width: 100%;
  }
 
- .notification-options {
-  flex-direction: column;
-  gap: 10px;
+ .wishlist-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
  }
 }
 
 @media (max-width: 576px) {
  .wishlist-grid {
-  grid-template-columns: 1fr;
- }
-
- .product-preview {
-  flex-direction: column;
-  text-align: center;
- }
-
- .alert-option {
-  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
  }
 }
