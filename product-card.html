@@ -1,4 +1,4 @@
-<!-- Structură HTML pentru cardul de produs actualizat -->
+<!-- Structură HTML actualizată pentru card produs -->
 <div class="product-card">
  <!-- Imaginea produsului -->
  <div class="product-image">
@@ -16,21 +16,15 @@
   </button>
  </div>
 
- <!-- Informații produs -->
+ <!-- Container informații produs -->
  <div class="product-info">
   <!-- Numele produsului -->
   <h3 class="product-name">Sandale</h3>
 
-  <!-- Rating -->
-  <div class="product-rating">
-   <i class="fas fa-star rating-star"></i>
-   <span class="rating-value">4.2</span>
-  </div>
-
-  <!-- Detalii produs -->
+  <!-- Container pentru detalii -->
   <div class="product-details">
-   <!-- Secțiune preț și culori -->
-   <div class="product-price-section">
+   <!-- Secțiunea din stânga cu preț și culori -->
+   <div class="product-left-section">
     <!-- Preț -->
     <div class="product-price">
      <span class="current-price">450 lei</span>
@@ -44,15 +38,91 @@
     </div>
    </div>
 
+   <!-- Rating în dreapta -->
+   <div class="product-rating">
+    <i class="fas fa-star rating-star"></i>
+    <span class="rating-value">4.2</span>
+   </div>
+  </div>
+
+  <!-- Container pentru acțiuni -->
+  <div class="product-actions">
+   <!-- Alertă preț (opțional) -->
+   <div class="price-alert-section">
+    <button class="price-alert-toggle" aria-label="Alertă preț">
+     <i class="far fa-bell"></i>
+     <span class="alert-text">Alertă preț</span>
+    </button>
+   </div>
+
    <!-- Buton adaugă în coș -->
    <button class="add-to-cart-btn" aria-label="Adaugă în coș">
     <i class="fas fa-shopping-cart"></i>
    </button>
   </div>
  </div>
+</div>
 
- <!-- Previzualizare rapidă (opțional) -->
- <div class="quick-view">
-  <button class="quick-view-btn">Previzualizare rapidă</button>
+<!-- Exemplu cu toate elementele vizibile pentru wishlist -->
+<div class="product-card">
+ <!-- Imaginea produsului -->
+ <div class="product-image">
+  <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară">
+
+  <!-- Badge-uri -->
+  <div class="product-badges">
+   <span class="badge-discount">-50%</span>
+  </div>
+
+  <!-- Buton X pentru eliminare din wishlist -->
+  <button class="wishlist-btn remove-wishlist" aria-label="Elimină de la favorite">
+   <i class="fas fa-times"></i>
+  </button>
+ </div>
+
+ <!-- Container informații produs -->
+ <div class="product-info">
+  <!-- Numele produsului -->
+  <h3 class="product-name">Rochie midi de seară</h3>
+
+  <!-- Container pentru detalii -->
+  <div class="product-details">
+   <!-- Secțiunea din stânga cu preț și culori -->
+   <div class="product-left-section">
+    <!-- Preț -->
+    <div class="product-price">
+     <span class="current-price">500 lei</span>
+     <span class="old-price">1000 lei</span>
+    </div>
+
+    <!-- Culori disponibile -->
+    <div class="product-colors">
+     <span class="color-dot" style="background-color: #000000" title="Negru"></span>
+     <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+    </div>
+   </div>
+
+   <!-- Rating în dreapta -->
+   <div class="product-rating">
+    <i class="fas fa-star rating-star"></i>
+    <span class="rating-value">4.8</span>
+   </div>
+  </div>
+
+  <!-- Container pentru acțiuni -->
+  <div class="product-actions">
+   <!-- Alertă preț -->
+   <div class="price-alert-section">
+    <button class="price-alert-toggle" aria-label="Alertă preț">
+     <i class="far fa-bell"></i>
+     <span class="alert-text">Alertă preț</span>
+    </button>
+   </div>
+
+   <!-- Buton adaugă în coș -->
+   <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+    <i class="fas fa-shopping-cart"></i>
+   </button>
+  </div>
  </div>
 </div>
