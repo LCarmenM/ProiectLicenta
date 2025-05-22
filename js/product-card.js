@@ -1,4 +1,4 @@
-// product-card.js - Funcționalități unificate pentru toate cardurile de produse
+// js/product-card.js - Funcționalități unificate pentru toate cardurile de produse cu header inteligent
 
 document.addEventListener('DOMContentLoaded', function() {
     // Inițializare funcționalități pentru product cards
@@ -23,13 +23,18 @@ function initProductCards() {
     });
 }
 
-// Inițializare buton wishlist
+// Inițializare buton wishlist cu header trigger
 function initWishlistButton(card) {
     const wishlistBtn = card.querySelector('.wishlist-btn');
     if (!wishlistBtn) return;
     
     wishlistBtn.addEventListener('click', function(e) {
         e.stopPropagation();
+        
+        // TRIGGER HEADER - Afișează header-ul la acțiunea de wishlist
+        if (typeof window.showHeaderOnAction === 'function') {
+            window.showHeaderOnAction();
+        }
         
         const icon = this.querySelector('i');
         const productId = card.getAttribute('data-product-id');
@@ -83,13 +88,18 @@ function removeFromWishlist(card, productId, productName) {
     }, 300);
 }
 
-// Inițializare buton adăugare în coș
+// Inițializare buton adăugare în coș cu header trigger
 function initAddToCartButton(card) {
-    const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    const addToCartBtn = card.querySelector('.add-to-cart-btn, .add-to-cart');
     if (!addToCartBtn) return;
     
     addToCartBtn.addEventListener('click', function(e) {
         e.stopPropagation();
+        
+        // TRIGGER HEADER - Afișează header-ul la adăugarea în coș
+        if (typeof window.showHeaderOnAction === 'function') {
+            window.showHeaderOnAction();
+        }
         
         const productName = card.querySelector('.product-name').textContent;
         const productPrice = card.querySelector('.current-price').textContent;
@@ -132,12 +142,17 @@ function initColorSelection(card) {
 
 // Inițializare quick view
 function initQuickViewButton(card) {
-    const quickViewBtn = card.querySelector('.quick-view-btn');
+    const quickViewBtn = card.querySelector('.quick-view-btn, .quick-view');
     if (!quickViewBtn) return;
     
     quickViewBtn.addEventListener('click', function(e) {
         e.stopPropagation();
         e.preventDefault();
+        
+        // TRIGGER HEADER - Afișează header-ul la quick view
+        if (typeof window.showHeaderOnAction === 'function') {
+            window.showHeaderOnAction();
+        }
         
         const productId = card.getAttribute('data-product-id');
         openQuickView(productId);
@@ -150,21 +165,30 @@ function initProductClick(card) {
         // Nu naviga dacă s-a făcut click pe butoane
         if (e.target.closest('.wishlist-btn') || 
             e.target.closest('.add-to-cart-btn') || 
+            e.target.closest('.add-to-cart') ||
             e.target.closest('.color-dot') ||
-            e.target.closest('.quick-view-btn')) {
+            e.target.closest('.quick-view-btn') ||
+            e.target.closest('.quick-view')) {
             return;
         }
         
         // Navighează la pagina produsului
         const productId = this.getAttribute('data-product-id');
-        window.location.href = `product.html?id=${productId}`;
+        if (productId) {
+            window.location.href = `product.html?id=${productId}`;
+        }
     });
 }
 
 // Funcții helper
 
-// Afișare notificări
+// Afișare notificări cu trigger header
 function showNotification(message, type = 'info') {
+    // TRIGGER HEADER - Afișează header-ul când apare notificarea
+    if (typeof window.showHeaderOnAction === 'function') {
+        window.showHeaderOnAction();
+    }
+    
     // Elimină notificarea existentă
     const existingNotification = document.querySelector('.notification');
     if (existingNotification) {
@@ -204,7 +228,7 @@ function showNotification(message, type = 'info') {
 
 // Actualizare contor wishlist
 function updateWishlistCount(change, newTotal = null) {
-    const wishlistBadge = document.querySelector('.wishlist-toggle .badge');
+    const wishlistBadge = document.querySelector('.wishlist-toggle .badge, #wishlist-badge');
     if (!wishlistBadge) return;
     
     if (newTotal !== null) {
@@ -213,15 +237,25 @@ function updateWishlistCount(change, newTotal = null) {
         let currentCount = parseInt(wishlistBadge.textContent) || 0;
         wishlistBadge.textContent = Math.max(0, currentCount + change);
     }
+    
+    // Actualizează și contorul din header dacă există
+    if (typeof updateWishlistCount === 'function') {
+        updateWishlistCount(wishlistBadge.textContent);
+    }
 }
 
 // Actualizare contor coș
 function updateCartCount(change) {
-    const cartBadge = document.querySelector('.cart-toggle .badge');
+    const cartBadge = document.querySelector('.cart-toggle .badge, #cart-badge');
     if (!cartBadge) return;
     
     let currentCount = parseInt(cartBadge.textContent) || 0;
     cartBadge.textContent = currentCount + change;
+    
+    // Actualizează și contorul din header dacă există
+    if (typeof updateCartCount === 'function') {
+        updateCartCount(cartBadge.textContent);
+    }
 }
 
 // Afișare stare goală pentru wishlist
@@ -243,24 +277,22 @@ function showEmptyWishlistState() {
 
 // Adaugă produs în coș
 function addToCart(product) {
-    // Obține coșul curent din localStorage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Simulare adăugare în coș - în aplicația reală ar fi un call la API
+    console.log('Produs adăugat în coș:', product);
     
-    // Adaugă produsul
+    // Aici ai putea integra cu localStorage sau un API
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push({
         ...product,
-        id: Date.now(), // ID temporar
+        id: Date.now(),
         quantity: 1
     });
-    
-    // Salvează înapoi în localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // Deschide quick view
 function openQuickView(productId) {
-    // Aici ar fi logica pentru deschiderea modalului quick view
-    // Pentru demo, doar afișăm o notificare
+    // Simulare quick view - în aplicația reală ar deschide un modal
     showNotification('Quick view pentru produsul #' + productId, 'info');
 }
 
@@ -316,13 +348,11 @@ function syncWishlistWithBackend() {
         });
     });
     
-    // Aici ar fi requestul către server
     console.log('Sincronizare wishlist:', wishlistData);
 }
 
 // Validare disponibilitate produs
 function checkProductAvailability(productId) {
-    // Simulare verificare stoc
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(Math.random() > 0.2); // 80% șansă să fie disponibil
@@ -330,11 +360,34 @@ function checkProductAvailability(productId) {
     });
 }
 
+// Funcții pentru integrarea cu header-ul inteligent
+function setupHeaderIntegration() {
+    // Configurează toate butoanele să declanșeze afișarea header-ului
+    const buttons = document.querySelectorAll('.add-to-cart-btn, .wishlist-btn, .quick-view-btn');
+    
+    buttons.forEach(button => {
+        if (!button.hasAttribute('data-header-integrated')) {
+            button.addEventListener('click', function() {
+                if (typeof window.showHeaderOnAction === 'function') {
+                    window.showHeaderOnAction();
+                }
+            });
+            button.setAttribute('data-header-integrated', 'true');
+        }
+    });
+}
+
+// Inițializare integrare header la încărcarea paginii
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(setupHeaderIntegration, 500);
+});
+
 // Export funcții pentru utilizare în alte module
 window.ProductCardManager = {
     init: initProductCards,
     showNotification: showNotification,
     updateWishlistCount: updateWishlistCount,
     updateCartCount: updateCartCount,
-    syncWishlist: syncWishlistWithBackend
+    syncWishlist: syncWishlistWithBackend,
+    setupHeaderIntegration: setupHeaderIntegration
 };
