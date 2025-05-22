@@ -47,9 +47,7 @@ body {
  background-color: var(--color-dominant-1);
  line-height: 1.6;
  overflow-x: hidden;
- /* display: flex;
- flex-direction: column;
- min-height: 100vh; */
+ padding-top: 120px;
  display: grid;
  grid-template-rows: auto 1fr auto;
  min-height: 100vh;
