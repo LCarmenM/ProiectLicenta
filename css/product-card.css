@@ -128,9 +128,9 @@
 /* Nume produs */
 .product-name {
  color: black;
- font-size: 16px;
+ font-size: 15px;
  font-family: 'Maven Pro', 'Poppins', sans-serif;
- font-weight: 600;
+ font-weight: 500;
  line-height: 22px;
  white-space: nowrap;
  overflow: hidden;
@@ -185,7 +185,7 @@
 
 .current-price {
  color: #333333;
- font-size: 20px;
+ font-size: 18px;
  font-family: 'Maven Pro', 'Poppins', sans-serif;
  font-weight: 600;
  line-height: 20px;

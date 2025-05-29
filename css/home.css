@@ -679,86 +679,6 @@ body.menu-open {
  transform: translateX(5px);
 }
 
-/* New Arrivals & Bestsellers */
-/* Stiluri actualizate pentru cardurile de produse din home */
-
-/* Container pentru toate cardurile de produse */
-.new-arrivals .product-grid,
-.bestsellers .product-grid {
- display: grid;
- grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
- gap: 30px;
- margin-bottom: 40px;
-}
-
-/* Card produs - același stil ca wishlist */
-.new-arrivals .product-card,
-.bestsellers .product-card {
- width: 100% !important;
- position: relative;
- background-color: #ffffff;
- overflow: hidden;
- box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
- transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.new-arrivals .product-card:hover,
-.bestsellers .product-card:hover {
- transform: translateY(-4px);
- box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-}
-
-/* Imagine produs */
-.new-arrivals .product-image,
-.bestsellers .product-image {
- width: 100% !important;
- height: 300px !important;
- position: relative;
- overflow: hidden;
- background-color: #f9f9f9;
-}
-
-.new-arrivals .product-image img,
-.bestsellers .product-image img {
- width: 100%;
- height: 100%;
- object-fit: cover;
-}
-
-/* Badge-uri */
-.new-arrivals .product-badges,
-.bestsellers .product-badges {
- position: absolute;
- top: 10px;
- left: 10px;
- display: flex;
- flex-direction: column;
- gap: 6px;
-}
-
-.badge-discount,
-.badge-new,
-.badge-bestseller {
- display: inline-block;
- padding: 4px 10px;
- font-size: 11px;
- font-weight: 600;
- text-transform: uppercase;
- letter-spacing: 0.2px;
- color: white;
-}
-
-.badge-discount {
- background-color: #dc2626;
-}
-
-.badge-new {
- background-color: #1f2937;
-}
-
-.badge-bestseller {
- background-color: #4caf50;
-}
 
 /* Buton wishlist */
 .new-arrivals .wishlist-btn,
@@ -807,93 +727,7 @@ body.menu-open {
  margin-bottom: 12px;
 }
 
-/* Nume produs */
-.new-arrivals .product-name,
-.bestsellers .product-name {
- color: black;
- font-size: 18px;
- font-family: 'Maven Pro', 'Poppins', sans-serif;
- font-weight: 600;
- line-height: 22px;
- white-space: nowrap;
- overflow: hidden;
- text-overflow: ellipsis;
- max-width: 160px;
- margin: 0;
-}
 
-/* Rating - acum aliniat cu numele */
-.new-arrivals .product-rating,
-.bestsellers .product-rating {
- display: flex;
- align-items: center;
- gap: 6px;
- flex-shrink: 0;
-}
-
-.rating-star {
- width: 14px;
- height: 14px;
- color: #ffc107;
-}
-
-.rating-value {
- color: #666666;
- font-size: 14px;
- font-family: 'Inter', sans-serif;
- font-weight: 400;
- line-height: 14px;
-}
-
-/* Container pentru detaliile produsului */
-.new-arrivals .product-details,
-.bestsellers .product-details {
- display: flex;
- justify-content: space-between;
- align-items: flex-start;
- margin-bottom: 12px;
-}
-
-/* Secțiune stângă - preț și culori */
-.new-arrivals .product-left-section,
-.bestsellers .product-left-section {
- display: flex;
- flex-direction: column;
- gap: 8px;
-}
-
-/* Preț */
-.new-arrivals .product-price,
-.bestsellers .product-price {
- display: flex;
- align-items: center;
- gap: 8px;
-}
-
-.new-arrivals .current-price,
-.bestsellers .current-price {
- color: #333333;
- font-size: 20px;
- font-family: 'Maven Pro', 'Poppins', sans-serif;
- font-weight: 600;
- line-height: 20px;
-}
-
-.new-arrivals .old-price,
-.bestsellers .old-price {
- font-size: 16px;
- text-decoration: line-through;
- color: #9e9e9e;
- font-weight: 400;
-}
-
-/* Culori disponibile */
-.new-arrivals .product-colors,
-.bestsellers .product-colors {
- display: flex;
- gap: 8px;
- align-items: center;
-}
 
 .new-arrivals .color-dot,
 .bestsellers .color-dot {
@@ -979,7 +813,8 @@ body.menu-open {
 /* summer-collections.css - Stiluri pentru secțiunea de colecții de vară */
 
 .summer-collections {
- padding: 60px 0;
+ padding-left: 10px;
+ padding-right: 150px;
  overflow: hidden;
  position: relative;
  background-color: var(--color-dominant-2);
@@ -1391,4 +1226,6 @@ body.menu-open {
   width: 100%;
   padding: 15px;
  }
+ 
+ 
 }

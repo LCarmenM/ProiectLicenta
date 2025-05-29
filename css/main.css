@@ -44,10 +44,10 @@ Stilurile specifice pentru header și footer au fost mutate în fișiere separat
 body {
  font-family: 'Poppins', sans-serif;
  color: var(--color-text);
- background-color: var(--color-dominant-1);
+ background-color: #ffffff !important;
  line-height: 1.6;
  overflow-x: hidden;
- padding-top: 120px;
+ padding-top: 90px;
  /* ADĂUGAT - compensează înălțimea header-ului fix */
  display: grid;
  grid-template-rows: auto 1fr auto;
