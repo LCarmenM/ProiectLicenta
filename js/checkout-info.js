@@ -4,11 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
  const toStep2Button = document.getElementById('to-step-2');
  const backToShopLink = document.querySelector('.back-link');
 
- // Funcții de validare specifice acestei pagini
  function validateStep1() {
      const requiredFields = step1.querySelectorAll('input[required], select[required]');
      let isValid = true;
-
      requiredFields.forEach(function(field) {
          if (!field.value.trim()) {
              isValid = false;
@@ -17,21 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
              clearError(field);
          }
      });
-
      // Validare email
      const emailField = document.getElementById('email');
      if (emailField && emailField.value.trim() && !isValidEmail(emailField.value)) {
          isValid = false;
          showError(emailField, 'Adresa de email nu este validă');
      }
-
      // Validare telefon
      const phoneField = document.getElementById('phone');
      if (phoneField && phoneField.value.trim() && !isValidPhone(phoneField.value)) {
          isValid = false;
          showError(phoneField, 'Numărul de telefon nu este valid');
      }
-
      return isValid;
  }
 

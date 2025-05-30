@@ -1,363 +1,503 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Variabile pentru elementele din pagină
-    const paymentMethods = document.querySelectorAll('.payment-method');
-    const paymentMethodHeaders = document.querySelectorAll('.payment-method-header');
-    const backToStep2Button = document.getElementById('back-to-step-2');
-    const placeOrderButton = document.getElementById('place-order-btn');
-    const orderConfirmationModal = document.getElementById('orderConfirmationModal');
-    const confirmationOverlay = document.getElementById('confirmationOverlay');
-    const closeModalButton = document.querySelector('.close-modal');
-    const termsCheckbox = document.getElementById('terms');
-  
-    // Inițializare elemente
-    initPaymentMethods();
-    initBackButton();
-    initPlaceOrderButton();
-    initModalControls();
-    initFormValidation();
-  
-    // Funcție pentru inițializarea metodelor de plată
-    function initPaymentMethods() {
-      paymentMethodHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-          // Obținem metoda de plată asociată headerului
-          const methodId = this.getAttribute('data-method');
-          const methodElement = this.closest('.payment-method');
-          
-          // Dezactivăm toate metodele de plată
-          paymentMethods.forEach(method => {
-            method.classList.remove('active');
+  // Variabile pentru elementele din pagină
+  const paymentMethods = document.querySelectorAll('.payment-method');
+  const paymentMethodHeaders = document.querySelectorAll('.payment-method-header');
+  const backToStep2Button = document.getElementById('back-to-step-2');
+  const placeOrderButton = document.getElementById('place-order-btn');
+  const orderConfirmationModal = document.getElementById('orderConfirmationModal');
+  const confirmationOverlay = document.getElementById('confirmationOverlay');
+  const closeModalButton = document.querySelector('.close-modal');
+  const termsCheckbox = document.getElementById('terms');
+
+  // INIȚIALIZARE SISTEM DE VALIDARE
+  initializePaymentValidation();
+
+  // Inițializare elemente
+  initPaymentMethods();
+  initBackButton();
+  initPlaceOrderButton();
+  initModalControls();
+
+  // === SISTEM DE VALIDARE PENTRU PLATĂ ===
+  function initializePaymentValidation() {
+      setupFormValidation();
+      setupRealTimeValidation();
+      setupCardFormatting();
+      updatePlaceOrderButtonState();
+  }
+
+  function setupFormValidation() {
+      const allInputs = document.querySelectorAll('input, select, textarea');
+      
+      allInputs.forEach(input => {
+          input.addEventListener('blur', function() {
+              validateField(this);
+              updatePlaceOrderButtonState();
           });
           
-          // Activăm metoda selectată
-          methodElement.classList.add('active');
+          input.addEventListener('input', function() {
+              clearFieldError(this);
+              updatePlaceOrderButtonState();
+          });
           
-          // Actualizăm UI-ul pentru a reflecta selecția
-          updatePaymentMethodUI(methodId);
-        });
-      });
-    }
-  
-    // Funcție pentru actualizarea UI-ului metodelor de plată
-    function updatePaymentMethodUI(selectedMethodId) {
-      // Putem actualiza și alte elemente din UI în funcție de metoda selectată
-      // De exemplu, afișăm informații specifice sau ajustăm costurile
-      console.log(`Metodă de plată selectată: ${selectedMethodId}`);
-  
-      // Dacă este necesar, putem actualiza și sumarul comenzii
-      if (selectedMethodId === 'cash') {
-        // Pentru plata la livrare am putea adăuga un cost suplimentar
-        // updateShippingSummary();
-      }
-    }
-  
-    // Funcție pentru butonul de înapoi
-    function initBackButton() {
-      if (backToStep2Button) {
-        backToStep2Button.addEventListener('click', function(e) {
-          // În acest caz, linkul va naviga automat către checkout-livrare.html
-          // Dacă dorim să salvăm datele, am putea face asta înainte de navigare
-          saveFormData();
-        });
-      }
-    }
-  
-    // Funcție pentru butonul de plasare comandă
-    function initPlaceOrderButton() {
-      if (placeOrderButton) {
-        placeOrderButton.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Validăm formularul înainte de a plasa comanda
-          if (validateForm()) {
-            // Simulăm procesarea plății
-            processPayment();
+          if (input.type === 'checkbox') {
+              input.addEventListener('change', function() {
+                  validateField(this);
+                  updatePlaceOrderButtonState();
+              });
           }
-        });
+      });
+  }
+
+  function setupRealTimeValidation() {
+      const cardInputs = document.querySelectorAll('#card-number, #card-expiry, #card-cvv, #card-name');
+      
+      cardInputs.forEach(input => {
+          input.addEventListener('input', function() {
+              if (this.value.length > 2) {
+                  setTimeout(() => validateField(this), 300);
+              }
+          });
+      });
+  }
+
+  function setupCardFormatting() {
+      const cardNumberInput = document.getElementById('card-number');
+      const cardExpiryInput = document.getElementById('card-expiry');
+      
+      if (cardNumberInput) {
+          cardNumberInput.addEventListener('input', function(e) {
+              formatCardNumber(e);
+              if (this.value.replace(/\s/g, '').length >= 13) {
+                  validateCardNumber(this);
+              }
+          });
       }
-    }
-  
-    // Funcție pentru validarea formularului
-    function validateForm() {
+      
+      if (cardExpiryInput) {
+          cardExpiryInput.addEventListener('input', function(e) {
+              formatCardExpiry(e);
+              if (this.value.length === 5) {
+                  validateCardExpiry(this);
+              }
+          });
+      }
+  }
+
+  // === VALIDARE CÂMPURI ===
+  function validateField(field) {
+      const fieldType = field.type;
+      const fieldValue = field.value.trim();
+      const fieldId = field.id;
+      
+      clearFieldError(field);
+      
+      // Verificare dacă metoda de plată cu card este selectată
+      const cardMethod = document.getElementById('card-method');
+      const isCardSelected = cardMethod && cardMethod.classList.contains('active');
+      
+      // Validare termeni și condiții
+      if (field.id === 'terms' && !field.checked) {
+          showFieldError(field, 'Trebuie să accepți termenii și condițiile pentru a continua');
+          return false;
+      }
+      
+      // Validare câmpuri card doar dacă metoda card este selectată
+      if (isCardSelected && field.closest('#card-details')) {
+          if (field.hasAttribute('required') && !fieldValue) {
+              showFieldError(field, 'Acest câmp este obligatoriu pentru plata cu cardul');
+              return false;
+          }
+          
+          switch (fieldId) {
+              case 'card-number':
+                  return validateCardNumber(field);
+              case 'card-expiry':
+                  return validateCardExpiry(field);
+              case 'card-cvv':
+                  return validateCardCVV(field);
+              case 'card-name':
+                  return validateCardName(field);
+          }
+      }
+      
+      return true;
+  }
+
+  function validateCardNumber(field) {
+      const value = field.value.replace(/\s/g, '');
+      const cardRegex = /^\d{16}$/;
+      
+      if (!cardRegex.test(value)) {
+          showFieldError(field, 'Numărul cardului trebuie să conțină exact 16 cifre');
+          return false;
+      }
+      
+      // Validare Luhn algorithm pentru carduri reale
+      if (!isValidCardNumber(value)) {
+          showFieldError(field, 'Numărul cardului nu este valid');
+          return false;
+      }
+      
+      clearFieldError(field);
+      field.classList.add('valid');
+      return true;
+  }
+
+  function validateCardExpiry(field) {
+      const value = field.value;
+      const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+      
+      if (!expiryRegex.test(value)) {
+          showFieldError(field, 'Data expirării trebuie să fie în formatul LL/AA (ex: 12/25)');
+          return false;
+      }
+      
+      const [month, year] = value.split('/');
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear() % 100;
+      const currentMonth = currentDate.getMonth() + 1;
+      
+      const cardYear = parseInt(year);
+      const cardMonth = parseInt(month);
+      
+      if (cardYear < currentYear || (cardYear === currentYear && cardMonth < currentMonth)) {
+          showFieldError(field, 'Cardul a expirat. Te rog să introduci o dată validă');
+          return false;
+      }
+      
+      if (cardYear > currentYear + 10) {
+          showFieldError(field, 'Data expirării pare să fie prea în viitor');
+          return false;
+      }
+      
+      clearFieldError(field);
+      field.classList.add('valid');
+      return true;
+  }
+
+  function validateCardCVV(field) {
+      const cvvRegex = /^\d{3,4}$/;
+      const value = field.value;
+      
+      if (!cvvRegex.test(value)) {
+          showFieldError(field, 'CVV-ul trebuie să conțină 3 sau 4 cifre');
+          return false;
+      }
+      
+      clearFieldError(field);
+      field.classList.add('valid');
+      return true;
+  }
+
+  function validateCardName(field) {
+      const nameRegex = /^[a-zA-Z\s]{2,}$/;
+      const value = field.value.trim();
+      
+      if (!nameRegex.test(value)) {
+          showFieldError(field, 'Numele trebuie să conțină cel puțin 2 caractere și doar litere');
+          return false;
+      }
+      
+      clearFieldError(field);
+      field.classList.add('valid');
+      return true;
+  }
+
+  // === FORMATARE AUTOMATĂ ===
+  function formatCardNumber(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      let formattedValue = '';
+      
+      for (let i = 0; i < value.length && i < 16; i++) {
+          if (i > 0 && i % 4 === 0) {
+              formattedValue += ' ';
+          }
+          formattedValue += value[i];
+      }
+      
+      e.target.value = formattedValue;
+  }
+
+  function formatCardExpiry(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      let formattedValue = '';
+      
+      if (value.length > 0) {
+          formattedValue = value.substring(0, 2);
+          if (value.length > 2) {
+              formattedValue += '/' + value.substring(2, 4);
+          }
+      }
+      
+      e.target.value = formattedValue;
+  }
+
+  // === ALGORITM LUHN PENTRU VALIDARE CARD ===
+  function isValidCardNumber(cardNumber) {
+      let sum = 0;
+      let shouldDouble = false;
+      
+      for (let i = cardNumber.length - 1; i >= 0; i--) {
+          let digit = parseInt(cardNumber.charAt(i));
+          
+          if (shouldDouble) {
+              digit *= 2;
+              if (digit > 9) {
+                  digit -= 9;
+              }
+          }
+          
+          sum += digit;
+          shouldDouble = !shouldDouble;
+      }
+      
+      return (sum % 10) === 0;
+  }
+
+  // === AFIȘARE/CURĂȚARE ERORI ===
+  function showFieldError(field, message) {
+      field.classList.add('error');
+      field.classList.remove('valid');
+      
+      clearFieldError(field, false);
+      
+      const errorElement = document.createElement('div');
+      errorElement.className = 'error-message';
+      errorElement.innerHTML = `<i class="fas fa-exclamation-triangle error-icon"></i>${message}`;
+      
+      field.parentNode.appendChild(errorElement);
+      
+      setTimeout(() => {
+          errorElement.classList.add('show');
+      }, 10);
+  }
+
+  function clearFieldError(field, removeClass = true) {
+      if (removeClass) {
+          field.classList.remove('error');
+      }
+      
+      const nextElement = field.nextElementSibling;
+      if (nextElement && nextElement.classList.contains('error-message')) {
+          nextElement.remove();
+      }
+  }
+
+  // === ACTUALIZARE STARE BUTON ===
+  function updatePlaceOrderButtonState() {
+      if (!placeOrderButton) return;
+      
+      const isValid = validateAllFields();
+      
+      if (isValid) {
+          placeOrderButton.classList.remove('disabled');
+          placeOrderButton.disabled = false;
+      } else {
+          placeOrderButton.classList.add('disabled');
+          placeOrderButton.disabled = true;
+      }
+  }
+
+  function validateAllFields() {
+      // Validare termeni și condiții
+      if (termsCheckbox && !termsCheckbox.checked) {
+          return false;
+      }
+      
+      // Verificare dacă metoda de plată cu card este selectată
+      const cardMethod = document.getElementById('card-method');
+      const isCardSelected = cardMethod && cardMethod.classList.contains('active');
+      
+      if (isCardSelected) {
+          const cardFields = document.querySelectorAll('#card-details input[required]');
+          for (let field of cardFields) {
+              if (!field.value.trim() || field.classList.contains('error')) {
+                  return false;
+              }
+          }
+      }
+      
+      return true;
+  }
+
+  // === FUNCȚIONALITĂȚI EXISTENTE ===
+  function initPaymentMethods() {
+      paymentMethodHeaders.forEach(header => {
+          header.addEventListener('click', function() {
+              const methodId = this.getAttribute('data-method');
+              const methodElement = this.closest('.payment-method');
+              
+              paymentMethods.forEach(method => {
+                  method.classList.remove('active');
+              });
+              
+              methodElement.classList.add('active');
+              updatePaymentMethodUI(methodId);
+              updatePlaceOrderButtonState();
+          });
+      });
+  }
+
+  function updatePaymentMethodUI(selectedMethodId) {
+      console.log(`Metodă de plată selectată: ${selectedMethodId}`);
+      
+      // Curăță erorile când se schimbă metoda de plată
+      if (selectedMethodId !== 'card') {
+          const cardFields = document.querySelectorAll('#card-details input');
+          cardFields.forEach(field => {
+              clearFieldError(field);
+              field.classList.remove('valid');
+          });
+      }
+  }
+
+  function initBackButton() {
+      if (backToStep2Button) {
+          backToStep2Button.addEventListener('click', function(e) {
+              saveFormData();
+          });
+      }
+  }
+
+  function initPlaceOrderButton() {
+      if (placeOrderButton) {
+          placeOrderButton.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              if (validateFinalForm()) {
+                  processPayment();
+              } else {
+                  showValidationSummary();
+                  scrollToFirstError();
+              }
+          });
+      }
+  }
+
+  function validateFinalForm() {
       let isValid = true;
       
-      // Verificăm dacă termenii și condițiile sunt acceptate
+      // Validare termeni și condiții
       if (termsCheckbox && !termsCheckbox.checked) {
-        showError(termsCheckbox, 'Trebuie să accepți termenii și condițiile');
-        isValid = false;
-      } else if (termsCheckbox) {
-        clearError(termsCheckbox);
+          showFieldError(termsCheckbox, 'Trebuie să accepți termenii și condițiile');
+          isValid = false;
       }
       
-      // Verificăm datele cardului dacă metoda de plată este cardul
+      // Validare câmpuri card dacă este selectată metoda card
       const cardMethod = document.getElementById('card-method');
       if (cardMethod && cardMethod.classList.contains('active')) {
-        const cardFields = document.querySelectorAll('#card-details input[required]');
-        
-        cardFields.forEach(function(field) {
-          if (!field.value.trim()) {
-            isValid = false;
-            showError(field, 'Acest câmp este obligatoriu');
-          } else {
-            // Validări specifice pentru câmpurile cardului
-            if (field.id === 'card-number' && !isValidCardNumber(field.value)) {
-              isValid = false;
-              showError(field, 'Numărul cardului trebuie să conțină 16 cifre');
-            } else if (field.id === 'card-expiry' && !isValidExpiry(field.value)) {
-              isValid = false;
-              showError(field, 'Format valid: LL/AA');
-            } else if (field.id === 'card-cvv' && !isValidCVV(field.value)) {
-              isValid = false;
-              showError(field, 'CVV trebuie să conțină 3 cifre');
-            } else {
-              clearError(field);
-            }
-          }
-        });
+          const cardFields = document.querySelectorAll('#card-details input[required]');
+          
+          cardFields.forEach(function(field) {
+              if (!validateField(field)) {
+                  isValid = false;
+              }
+          });
       }
       
       return isValid;
-    }
-  
-    // Funcție pentru procesarea plății
-    function processPayment() {
-      // Dezactivăm butonul în timpul procesării
+  }
+
+  function processPayment() {
       placeOrderButton.disabled = true;
-      placeOrderButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se procesează...';
+      placeOrderButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se procesează plata...';
       
-      // Simulăm o cerere asincronă către server (într-o aplicație reală)
       setTimeout(function() {
-        // După procesarea cu succes, afișăm modalul de confirmare
-        if (orderConfirmationModal && confirmationOverlay) {
-          orderConfirmationModal.classList.add('active');
-          confirmationOverlay.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-        
-        // Resetăm butonul
-        placeOrderButton.disabled = false;
-        placeOrderButton.innerHTML = 'Trimite comanda';
+          if (orderConfirmationModal && confirmationOverlay) {
+              orderConfirmationModal.classList.add('active');
+              confirmationOverlay.classList.add('active');
+              document.body.style.overflow = 'hidden';
+          }
+          
+          placeOrderButton.disabled = false;
+          placeOrderButton.innerHTML = 'Trimite comanda';
       }, 2000);
-    }
-  
-    // Funcție pentru inițializarea controalelor modalului
-    function initModalControls() {
+  }
+
+  function initModalControls() {
       if (closeModalButton && orderConfirmationModal && confirmationOverlay) {
-        closeModalButton.addEventListener('click', closeModal);
-        confirmationOverlay.addEventListener('click', closeModal);
+          closeModalButton.addEventListener('click', closeModal);
+          confirmationOverlay.addEventListener('click', closeModal);
       }
-    }
-  
-    // Funcție pentru închiderea modalului
-    function closeModal() {
+  }
+
+  function closeModal() {
       if (orderConfirmationModal && confirmationOverlay) {
-        orderConfirmationModal.classList.remove('active');
-        confirmationOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-        
-        // Opțional: redirecționăm utilizatorul la o pagină de confirmare
-        // sau la pagina principală după închiderea modalului
-        // window.location.href = 'index.html';
+          orderConfirmationModal.classList.remove('active');
+          confirmationOverlay.classList.remove('active');
+          document.body.style.overflow = '';
       }
-    }
-  
-    // Funcție pentru inițializarea validării formularului în timp real
-    function initFormValidation() {
-      // Adăugăm validare în timp real pentru câmpurile cardului
-      const cardInputs = document.querySelectorAll('#card-details input');
-      
-      cardInputs.forEach(function(input) {
-        // Validare la pierderea focusului
-        input.addEventListener('blur', function() {
-          validateField(this);
-        });
-        
-        // Curățăm eroarea la introducerea de date noi
-        input.addEventListener('input', function() {
-          clearError(this);
-        });
-      });
-  
-      // Formatare automată pentru numărul cardului
-      const cardNumberInput = document.getElementById('card-number');
-      if (cardNumberInput) {
-        cardNumberInput.addEventListener('input', function(e) {
-          let value = this.value.replace(/\D/g, '');
-          let formattedValue = '';
-          
-          for (let i = 0; i < value.length; i++) {
-            if (i > 0 && i % 4 === 0) {
-              formattedValue += ' ';
-            }
-            formattedValue += value[i];
-          }
-          
-          this.value = formattedValue;
-        });
-      }
-  
-      // Formatare automată pentru data expirării
-      const cardExpiryInput = document.getElementById('card-expiry');
-      if (cardExpiryInput) {
-        cardExpiryInput.addEventListener('input', function(e) {
-          let value = this.value.replace(/\D/g, '');
-          let formattedValue = '';
-          
-          if (value.length > 0) {
-            formattedValue = value.substring(0, 2);
-            if (value.length > 2) {
-              formattedValue += '/' + value.substring(2, 4);
-            }
-          }
-          
-          this.value = formattedValue;
-        });
-      }
-    }
-  
-    // Funcție pentru validarea unui câmp specific
-    function validateField(field) {
-      if (field.required && !field.value.trim()) {
-        showError(field, 'Acest câmp este obligatoriu');
-        return false;
-      }
-      
-      if (field.id === 'card-number' && !isValidCardNumber(field.value)) {
-        showError(field, 'Numărul cardului trebuie să conțină 16 cifre');
-        return false;
-      }
-      
-      if (field.id === 'card-expiry' && !isValidExpiry(field.value)) {
-        showError(field, 'Format valid: LL/AA');
-        return false;
-      }
-      
-      if (field.id === 'card-cvv' && !isValidCVV(field.value)) {
-        showError(field, 'CVV trebuie să conțină 3 cifre');
-        return false;
-      }
-      
-      clearError(field);
-      return true;
-    }
-  
-    // Funcție pentru afișarea erorilor
-    function showError(field, message) {
-      // Curățăm orice eroare existentă
-      clearError(field);
-      
-      // Adăugăm clasa de eroare la câmp
-      field.classList.add('error');
-      
-      // Creăm și adăugăm mesajul de eroare
-      const errorElement = document.createElement('div');
-      errorElement.className = 'error-message';
-      errorElement.textContent = message;
-      
-      // Adăugăm mesajul după câmp
-      field.parentNode.appendChild(errorElement);
-    }
-  
-    // Funcție pentru curățarea erorilor
-    function clearError(field) {
-      // Eliminăm clasa de eroare
-      field.classList.remove('error');
-      
-      // Căutăm și eliminăm mesajul de eroare dacă există
-      const errorElement = field.parentNode.querySelector('.error-message');
-      if (errorElement) {
-        errorElement.remove();
-      }
-    }
-  
-    // Funcții de validare pentru câmpurile cardului
-    function isValidCardNumber(cardNumber) {
-      // Eliminăm spațiile și verificăm dacă sunt 16 cifre
-      const cleanedNumber = cardNumber.replace(/\s/g, '');
-      return /^\d{16}$/.test(cleanedNumber);
-    }
-  
-    function isValidExpiry(expiry) {
-      // Verifică formatul LL/AA
-      if (!/^\d{2}\/\d{2}$/.test(expiry)) {
-        return false;
-      }
-      
-      // Verifică dacă luna este validă (01-12)
-      const month = parseInt(expiry.split('/')[0], 10);
-      if (month < 1 || month > 12) {
-        return false;
-      }
-      
-      // Verifică dacă data nu a expirat
-      const year = parseInt('20' + expiry.split('/')[1], 10);
-      const currentDate = new Date();
-      const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1;
-      
-      if (year < currentYear || (year === currentYear && month < currentMonth)) {
-        return false;
-      }
-      
-      return true;
-    }
-  
-    function isValidCVV(cvv) {
-      // Verifică dacă sunt 3 cifre
-      return /^\d{3}$/.test(cvv);
-    }
-  
-    // Funcție pentru salvarea datelor formularului (opțional, pentru a menține starea între pași)
-    function saveFormData() {
-      // Aici am putea salva datele în localStorage sau în starea aplicației
-      // pentru a le recupera dacă utilizatorul revine la acest pas
+  }
+
+  function saveFormData() {
       console.log('Datele formularului au fost salvate');
-    }
-  
-    // Funcție pentru afișarea notificărilor
-    function showNotification(message, type = 'info') {
-      // Verificăm dacă există deja o notificare
+  }
+
+  function showValidationSummary() {
+      const errorFields = document.querySelectorAll('.error');
+      
+      if (errorFields.length > 0) {
+          const errorMessages = Array.from(errorFields).map(field => {
+              const errorMsg = field.nextElementSibling;
+              return errorMsg ? errorMsg.textContent.replace('⚠', '').trim() : 'Câmp invalid';
+          });
+          
+          showNotification(
+              `Te rog să corectezi următoarele erori: ${errorMessages.slice(0, 2).join(', ')}${errorMessages.length > 2 ? '...' : ''}`,
+              'error'
+          );
+      }
+  }
+
+  function scrollToFirstError() {
+      const firstErrorField = document.querySelector('.error');
+      if (firstErrorField) {
+          firstErrorField.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+          });
+          firstErrorField.focus();
+      }
+  }
+
+  function showNotification(message, type = 'info') {
       const existingNotification = document.querySelector('.notification');
       
       if (existingNotification) {
-        existingNotification.remove();
+          existingNotification.remove();
       }
       
-      // Creăm elementul notificării
       const notification = document.createElement('div');
       notification.className = `notification ${type}`;
       notification.innerHTML = `
-        <div class="notification-content">
-          <span>${message}</span>
-          <button class="close-notification">&times;</button>
-        </div>
+          <div class="notification-content">
+              <span>${message}</span>
+              <button class="close-notification">&times;</button>
+          </div>
       `;
       
-      // Adăugăm notificarea în DOM
       document.body.appendChild(notification);
       
-      // Afișăm notificarea cu o mică întârziere pentru animație
       setTimeout(() => {
-        notification.classList.add('active');
+          notification.classList.add('active');
       }, 10);
       
-      // Configurăm butonul de închidere
       const closeButton = notification.querySelector('.close-notification');
       closeButton.addEventListener('click', () => {
-        notification.classList.remove('active');
-        
-        setTimeout(() => {
-          notification.remove();
-        }, 300);
+          notification.classList.remove('active');
+          
+          setTimeout(() => {
+              notification.remove();
+          }, 300);
       });
       
-      // Ascundem notificarea după 5 secunde
       setTimeout(() => {
-        notification.classList.remove('active');
-        
-        setTimeout(() => {
-          notification.remove();
-        }, 300);
+          notification.classList.remove('active');
+          
+          setTimeout(() => {
+              notification.remove();
+          }, 300);
       }, 5000);
-    }
-  });
+  }
+});

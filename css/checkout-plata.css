@@ -1,5 +1,11 @@
 /* checkout-plata.css - Stiluri specifice pentru pagina de plată cu corectare footer */
-
+.checkout {
+ padding: 60px 0;
+ background-color: #ffffff !important;
+ /* Forțează fundal alb */
+ min-height: calc(100vh - 200px);
+ /* Asigură înălțime minimă */
+}
 /* Container principal */
 .checkout-form {
  display: block;
@@ -122,7 +128,7 @@
 .payment-method-details {
  display: none;
  padding: 20px;
- background-color: rgba(0, 0, 0, 0.02);
+ background-color: rgba(155, 27, 27, 0.02);
  border-top: 1px solid var(--color-border);
 }
 

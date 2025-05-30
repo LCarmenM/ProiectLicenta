@@ -1,5 +1,11 @@
 /* checkout-info.css - Stiluri specifice pentru pagina de informații personale */
-
+.checkout {
+ padding: 60px 0;
+ background-color: #ffffff !important;
+ /* Forțează fundal alb */
+ min-height: calc(100vh - 200px);
+ /* Asigură înălțime minimă */
+}
 .checkout-form {
  display: none;
  padding: 30px;

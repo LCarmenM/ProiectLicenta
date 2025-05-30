@@ -5,7 +5,7 @@
 
 /* Stiluri de bază pentru footer */
 footer {
- background-color: var(--color-footer-bg);
+ background-color: #F5F4F4 !important;
  color: var(--color-footer-text);
  margin-top: 60px;
  font-family: 'Maven Pro', 'Poppins', sans-serif;
@@ -13,6 +13,8 @@ footer {
 
 .footer-top {
  padding: 40px 0;
+ background-color: #F5F4F4 !important;
+ /* Asigură consistența culorii */
 }
 
 .footer-columns {
@@ -145,6 +147,8 @@ footer {
 .footer-bottom {
  padding: 10px 0 16px 0;
  border-top: none;
+ background-color: #F5F4F4 !important;
+ /* Asigură consistența culorii */
 }
 
 .footer-bottom .container {
