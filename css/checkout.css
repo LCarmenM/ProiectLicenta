@@ -400,10 +400,12 @@
   width: 100%;
   text-align: center;
  }
-  .checkout {
-   padding: 60px 0;
-   background-color: #ffffff !important;
-   /* Forțează fundal alb */
-   min-height: calc(100vh - 200px);
-   /* Asigură înălțime minimă */}
+
+ .checkout {
+  padding: 60px 0;
+  background-color: #ffffff !important;
+  /* Forțează fundal alb */
+  min-height: calc(100vh - 200px);
+  /* Asigură înălțime minimă */
+ }
 }

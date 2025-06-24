@@ -6,6 +6,7 @@
  min-height: calc(100vh - 200px);
  /* Asigură înălțime minimă */
 }
+
 .checkout-form {
  display: none;
  padding: 30px;
@@ -117,12 +118,19 @@ textarea {
  padding: 12px 25px;
  font-weight: 600;
  cursor: pointer;
- transition: background-color 0.3s ease;
+ transition: color 0.3s ease;
+ /* Doar culoarea textului se animează */
+ text-decoration: none;
+ display: inline-block;
 }
 
+/* HOVER EFFECT MODIFICAT - doar textul devine roșu */
 .continue-btn:hover,
 .place-order-btn:hover {
- background-color: var(--color-accent-1);
+ background-color: var(--color-secondary-1) !important;
+ /* Păstrează fundalul negru */
+ color: var(--color-accent-1) !important;
+ /* Doar textul devine roșu */
 }
 
 .place-order-btn {
