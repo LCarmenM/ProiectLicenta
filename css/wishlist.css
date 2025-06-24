@@ -2,12 +2,12 @@
 
 .wishlist-page {
  padding: 60px 0;
- background-color: #f9f9f9; ;
+ background-color: #ffffff;
  min-height: calc(100vh - 200px);
 }
 .breadcrumb{
  padding-top: 30px;
- background-color: #f9f9f9;
+ background-color: #ffffff;
   ;
 }
 /* Header wishlist */
@@ -26,10 +26,10 @@
 }
 
 .wishlist-count {
- background-color: #f9f9f9;
+ background-color: #ffffff;
  color: black;
  padding: 8px 16px;
- font-size: 0.9rem;
+ font-size: 20px;
  font-weight: 500;
 }
 
