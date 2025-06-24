@@ -813,8 +813,9 @@ body.menu-open {
 /* summer-collections.css - Stiluri pentru secțiunea de colecții de vară */
 
 .summer-collections {
- padding-left: 10px;
- padding-right: 150px;
+ padding-left: 100px;
+ padding-right: 100px;
+ padding-top: 100px;
  overflow: hidden;
  position: relative;
  background-color: var(--color-dominant-2);
@@ -828,7 +829,7 @@ body.menu-open {
 }
 
 .collections-container {
- width: 100%;
+ width: 70%;
  position: relative;
  height: 750px;
 }
@@ -881,8 +882,8 @@ body.menu-open {
 
 /* Panourile pentru Women și Men */
 .collections-panel {
- width: 514px;
- height: 750px;
+ width: 400px;
+ height: 600px;
  position: absolute;
  box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.20);
  background-color: #8D8E8D;
@@ -900,7 +901,7 @@ body.menu-open {
 }
 
 .men-panel {
- left: 1104px;
+ left: 1000px;
  top: 0;
 }
 
@@ -1011,6 +1012,8 @@ body.menu-open {
 /* Stiluri actualizate pentru secțiunea de beneficii */
 .features-section {
  padding: 30px 0;
+ padding-top: 100px;
+ padding-bottom: 100px;
  background-color: white;
  border-top: 1px solid #f1f1f1;
  border-bottom: 1px solid #f1f1f1;

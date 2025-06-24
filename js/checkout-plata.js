@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const value = field.value;
       
       if (!cvvRegex.test(value)) {
-          showFieldError(field, 'CVV-ul trebuie să conțină 3 sau 4 cifre');
+          showFieldError(field, 'CVV-ul trebuie să conțină 3 cifre');
           return false;
       }
       
