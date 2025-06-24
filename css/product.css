@@ -195,6 +195,233 @@
  gap: 15px;
  margin-bottom: 30px;
 }
+/* Complete the Look */
+.complete-look {
+ padding: 60px 0;
+ background-color: #ffffff;
+}
+
+.complete-look .section-title {
+ text-align: center;
+ font-size: 1.75rem;
+ margin-bottom: 40px;
+ color: #333;
+ position: relative;
+}
+
+.complete-look .section-title::after {
+ content: '';
+ position: absolute;
+ bottom: -10px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 50px;
+ height: 3px;
+ background-color: #333;
+}
+
+/* Product Grid pentru secțiunile de produse - folosesc stilurile identice cu home */
+.complete-look .product-grid,
+.similar-products .product-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 20px;
+ justify-items: center;
+ padding-bottom: 100px;
+}
+
+/* Forțez folosirea stilurilor din product-card.css */
+.complete-look .product-card,
+.similar-products .product-card {
+ width: 240px !important;
+ position: relative;
+ background-color: #ffffff;
+ overflow: hidden;
+ box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.complete-look .product-card:hover,
+.similar-products .product-card:hover {
+ transform: translateY(-4px);
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.complete-look .product-image,
+.similar-products .product-image {
+ width: 240px !important;
+ height: 300px !important;
+ position: relative;
+ overflow: hidden;
+ background-color: #f9f9f9;
+}
+
+.complete-look .product-image img,
+.similar-products .product-image img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+}
+
+.complete-look .wishlist-btn,
+.similar-products .wishlist-btn {
+ width: 24px;
+ height: 24px;
+ position: absolute;
+ right: 12px;
+ top: 12px;
+ background-color: rgba(255, 255, 255, 0.95);
+ border: none;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+ transition: all 0.3s ease;
+}
+
+.complete-look .wishlist-btn:hover,
+.similar-products .wishlist-btn:hover {
+ background-color: #ffffff;
+ box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.complete-look .wishlist-btn i,
+.similar-products .wishlist-btn i {
+ font-size: 12px;
+ color: #666;
+}
+
+.complete-look .product-info,
+.similar-products .product-info {
+ padding: 12px;
+ position: relative;
+}
+
+.complete-look .product-header,
+.similar-products .product-header {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-bottom: 12px;
+}
+
+.complete-look .product-name,
+.similar-products .product-name {
+ color: black;
+ font-size: 15px;
+ font-family: 'Maven Pro', 'Poppins', sans-serif;
+ font-weight: 500;
+ line-height: 22px;
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ flex: 1;
+ margin: 0;
+}
+
+.complete-look .product-rating,
+.similar-products .product-rating {
+ display: flex;
+ align-items: center;
+ gap: 4px;
+ flex-shrink: 0;
+}
+
+.complete-look .rating-star,
+.similar-products .rating-star {
+ width: 14px;
+ height: 14px;
+ color: #ffc107;
+ font-size: 14px;
+}
+
+.complete-look .rating-value,
+.similar-products .rating-value {
+ color: #666666;
+ font-size: 14px;
+ font-family: 'Inter', sans-serif;
+ font-weight: 400;
+ line-height: 14px;
+}
+
+.complete-look .product-price,
+.similar-products .product-price {
+ color: #333333;
+ font-size: 18px;
+ font-family: 'Maven Pro', 'Poppins', sans-serif;
+ font-weight: 600;
+ line-height: 20px;
+ margin-bottom: 15px;
+}
+
+.complete-look .current-price,
+.similar-products .current-price {
+ color: #333333;
+}
+
+.complete-look .old-price,
+.similar-products .old-price {
+ font-size: 16px;
+ text-decoration: line-through;
+ color: #9e9e9e;
+ font-weight: 400;
+ margin-left: 8px;
+}
+
+.complete-look .product-colors,
+.similar-products .product-colors {
+ display: flex;
+ gap: 8px;
+ align-items: center;
+ margin-bottom: 15px;
+}
+
+.complete-look .color-dot,
+.similar-products .color-dot {
+ width: 14px;
+ height: 14px;
+ border: 1px solid #808080;
+ border-radius: 50%;
+ cursor: pointer;
+ transition: all 0.2s ease;
+}
+
+.complete-look .color-dot:hover,
+.similar-products .color-dot:hover {
+ transform: scale(1.1);
+ border-color: #333333;
+}
+
+.complete-look .add-to-cart-btn,
+.similar-products .add-to-cart-btn {
+ position: absolute;
+ right: 12px;
+ bottom: 12px;
+ width: 32px;
+ height: 32px;
+ background-color: #333333;
+ color: white;
+ border: none;
+ border-radius: 4px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+
+.complete-look .add-to-cart-btn:hover,
+.similar-products .add-to-cart-btn:hover {
+ background-color: #000;
+ transform: scale(1.05);
+}
+
+.complete-look .add-to-cart-btn i,
+.similar-products .add-to-cart-btn i {
+ font-size: 14px;
+}
 
 .add-to-cart {
  flex: 1;
