@@ -28,8 +28,8 @@
 
     <!-- Main Content -->
     <main class="cart-page">
-        <main class="container">
-            <h1 class="page-title">Coșul meu</h1>
+        <div class="container">
+            <h1 class="page-title">Coșul tău</h1>
 
             <div class="cart-container">
                 <!-- Cart Items -->
@@ -95,7 +95,92 @@
                 </div>
             </div>
 
-        </main>
+            <!-- Product Recommendations -->
+            <div class="recommendations-section">
+                <div class="section-tabs">
+                    <button class="tab-btn active" data-tab="frequently-bought">Cumpărate frecvent împreună</button>
+                    <button class="tab-btn" data-tab="recently-viewed">Recent vizionate</button>
+                </div>
+
+                <div class="tab-content active" id="frequently-bought-tab">
+                    <div class="product-grid">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/sandale.png" alt="Sandale">
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sandale</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <div class="product-price">450 lei</div>
+                                <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/geanta.png" alt="Geantă piele">
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Geantă piele</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.2</span>
+                                </div>
+                                <div class="product-price">400 lei</div>
+                                <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/lant.png" alt="Lănțișor">
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Lănțișor</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.3</span>
+                                </div>
+                                <div class="product-price">1.450 lei</div>
+                                <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="images/sacou.png" alt="Inel">
+                                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Inel</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                                <div class="product-price">700 lei</div>
+                                <button class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="recently-viewed-tab">
+                    <!-- Recent viewed products will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
     <!-- Footer -->
     <div id="footer-placeholder"></div>
      
