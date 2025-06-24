@@ -138,6 +138,7 @@
 /* Secțiune recomandări */
 .recommendations {
  margin-top: 80px;
+ padding-top: 100px;
 }
 .recommendations-grid {
  display: grid;
