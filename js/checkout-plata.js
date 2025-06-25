@@ -153,11 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
         
-        // Validare Luhn algorithm pentru carduri reale
-        if (!isValidCardNumber(value)) {
-            showFieldError(field, 'Numărul cardului nu este valid');
-            return false;
-        }
+     
         
         clearFieldError(field);
         field.classList.add('valid');

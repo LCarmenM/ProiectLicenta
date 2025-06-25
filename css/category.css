@@ -6,7 +6,8 @@
  text-align: center;
  background-color: #ffffff;
 }
-.breadcrumb{
+
+.breadcrumb {
  padding-top: 40px;
  background-color: #ffffff;
 }
@@ -119,7 +120,7 @@
 /* Product Container */
 .product-container {
  padding: 40px 0;
- background-color:#ffffff;
+ background-color: #ffffff;
 }
 
 .product-container .container {
@@ -285,193 +286,11 @@
  color: white;
 }
 
-/* Product Grid */
+/* Product Grid - MODIFICAT PENTRU 3 COLOANE */
 .product-grid {
  display: grid;
  grid-template-columns: repeat(3, 1fr);
- gap: 30px;
-}
-
-.product-card {
- background-color: white;
- transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
- transform: translateY(-5px);
- box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.product-image {
- position: relative;
- height: 350px;
- overflow: hidden;
-}
-
-.product-image img {
- width: 100%;
- height: 100%;
- object-fit: cover;
- transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image img {
- transform: scale(1.05);
-}
-
-/* Product Badges */
-.product-badges {
- position: absolute;
- top: 10px;
- left: 10px;
- display: flex;
- flex-direction: column;
- gap: 5px;
-}
-
-.badge-discount,
-.badge-new,
-.badge-bestseller {
- display: inline-block;
- padding: 4px 8px;
- font-size: 0.7rem;
- font-weight: 600;
- text-transform: uppercase;
-}
-
-.badge-discount {
- background-color: var(--color-accent-1);
- color: white;
-}
-
-.badge-new {
- background-color: var(--color-secondary-1);
- color: white;
-}
-
-.badge-bestseller {
- background-color: var(--color-success);
- color: white;
-}
-
-.wishlist-btn {
- position: absolute;
- top: 10px;
- right: 10px;
- background-color: white;
- border: none;
- width: 36px;
- height: 36px;
- display: flex;
- justify-content: center;
- align-items: center;
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
- opacity: 0;
- transform: translateY(-10px);
- transition: opacity 0.3s ease, transform 0.3s ease;
- cursor: pointer;
- z-index: 2;
-}
-
-.product-card:hover .wishlist-btn {
- opacity: 1;
- transform: translateY(0);
-}
-
-.quick-view {
- position: absolute;
- bottom: 0;
- left: 0;
- width: 100%;
- background-color: rgba(0, 0, 0, 0.7);
- padding: 10px;
- transform: translateY(100%);
- transition: transform 0.3s ease;
- z-index: 2;
-}
-
-.product-card:hover .quick-view {
- transform: translateY(0);
-}
-
-.quick-view-btn {
- width: 100%;
- background: none;
- border: 1px solid white;
- color: white;
- padding: 8px 0;
- font-size: 0.8rem;
- text-transform: uppercase;
- cursor: pointer;
- transition: all 0.3s ease;
-}
-
-.quick-view-btn:hover {
- background-color: white;
- color: var(--color-secondary-1);
-}
-
-.product-info {
- padding: 15px;
-}
-
-.product-name {
- font-size: 1rem;
- font-weight: 500;
- margin-bottom: 10px;
- height: 44px;
- /* Aproximativ două rânduri */
- overflow: hidden;
- display: -webkit-box;
- -webkit-line-clamp: 2;
- -webkit-box-orient: vertical;
-}
-
-.product-price {
- display: flex;
- align-items: center;
- margin-bottom: 15px;
-}
-
-.current-price {
- font-weight: 600;
- margin-right: 10px;
-}
-
-.old-price {
- text-decoration: line-through;
- color: var(--color-text-light);
- font-size: 0.9rem;
-}
-
-.product-colors {
- display: flex;
- gap: 5px;
- margin-bottom: 15px;
- height: 20px;
-}
-
-.color-dot {
- width: 16px;
- height: 16px;
- border-radius: 50%;
- cursor: pointer;
-}
-
-.add-to-cart-btn {
- width: 100%;
- background-color: var(--color-secondary-1);
- color: white;
- border: none;
- padding: 10px;
- font-size: 0.9rem;
- font-weight: 500;
- cursor: pointer;
- transition: background-color 0.3s ease;
-}
-
-.add-to-cart-btn:hover {
- background-color: var(--color-accent-1);
+ gap: 40px;
 }
 
 /* Pagination */

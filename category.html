@@ -7,8 +7,10 @@
  <title>Îmbrăcăminte Femei - Dynasty Couture</title>
  <link rel="stylesheet" href="css/main.css">
  <link rel="stylesheet" href="css/category.css">
+ <link rel="stylesheet" href="css/product-card.css">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -83,7 +85,7 @@
   <div class="container">
    <div class="filters-header">
     <div class="filters-count">
-     <span>Afișarea 1-20 din 100 produse</span>
+     <span>Afișarea 1-12 din 100 produse</span>
     </div>
     <div class="filters-actions">
      <button class="filter-toggle">
@@ -104,7 +106,7 @@
   </div>
  </div>
 
- <!-- Product Grid -->
+ <!-- Product Container -->
  <div class="product-container">
   <div class="container">
    <!-- Sidebar Filters (Hidden on mobile) -->
@@ -159,14 +161,24 @@
        <span class="color-name">Bej</span>
       </label>
       <label class="color-filter">
-       <input type="checkbox" name="color" value="bej">
+       <input type="checkbox" name="color" value="verde">
        <span class="color-dot" style="background-color: #06410b"></span>
        <span class="color-name">Verde smarald</span>
-      </label>        
-       <label class="color-filter">
-        <input type="checkbox" name="color" value="bej">
-        <span class="color-dot" style="background-color: #744911"></span>
-        <span class="color-name">Maro</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="maro">
+       <span class="color-dot" style="background-color: #744911"></span>
+       <span class="color-name">Maro</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="roz">
+       <span class="color-dot" style="background-color: #d063c2"></span>
+       <span class="color-name">Roz</span>
+      </label>
+      <label class="color-filter">
+       <input type="checkbox" name="color" value="albastru deschis">
+       <span class="color-dot" style="background-color: #4492b9"></span>
+       <span class="color-name">Albastru deschis</span>
       </label>
      </div>
     </div>
@@ -236,104 +248,452 @@
 
    <!-- Product Grid -->
    <div class="product-grid">
-    <!-- Product Cards - Row 1 -->
-    <div class="product-card">
+
+    <!-- Card 1 -->
+    <div class="product-card" data-product-id="9">
      <div class="product-image">
-      <img src="images/rochie-midi-seara.jpg" alt="Rochie midi de seară">
+      <img src="images/rochie-midi.png" alt="Rochie midi de seară">
       <div class="product-badges">
        <span class="badge-discount">-50%</span>
        <span class="badge-new">Nou</span>
       </div>
-      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-      <div class="quick-view">
-       <button class="quick-view-btn">Previzualizare rapidă</button>
-      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
      </div>
      <div class="product-info">
-      <h3 class="product-name">Rochie midi de seară</h3>
-      <div class="product-price">
-       <span class="current-price">500 lei</span>
-       <span class="old-price">1000 lei</span>
+      <div class="product-header">
+       <h3 class="product-name">Rochie midi de seară</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.8</span>
+       </div>
       </div>
-      <div class="product-colors">
-       <span class="color-dot" style="background-color: #000" title="Negru"></span>
-       <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">500 lei</span>
+         <span class="old-price">1000 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+        </div>
+       </div>
       </div>
-      <button class="add-to-cart-btn">Adaugă în coș</button>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
      </div>
     </div>
 
-    <div class="product-card">
+    <!-- Card 2 -->
+    <div class="product-card" data-product-id="2">
      <div class="product-image">
-      <img src="images/bluza-satin.jpg" alt="Bluză din satin">
-      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-      <div class="quick-view">
-       <button class="quick-view-btn">Previzualizare rapidă</button>
+      <img src="images/rochieCuManeci.png" alt="Rochie cu mâneci">
+      <div class="product-badges">
+       <span class="badge-new">Nou</span>
+       <span class="badge-discount">-20%</span>
       </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
      </div>
      <div class="product-info">
-      <h3 class="product-name">Bluză din satin</h3>
-      <div class="product-price">
-       <span class="current-price">250 lei</span>
+      <div class="product-header">
+       <h3 class="product-name">Rochie cu mâneci</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.7</span>
+       </div>
       </div>
-      <div class="product-colors">
-       <span class="color-dot" style="background-color: #fff; border: 1px solid #ddd" title="Alb"></span>
-       <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
-       <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">400 lei</span>
+         <span class="old-price">500 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+         <span class="color-dot" style="background-color: #744911" title="Maro"></span>
+        </div>
+       </div>
       </div>
-      <button class="add-to-cart-btn">Adaugă în coș</button>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
      </div>
     </div>
 
-    <div class="product-card">
+    <!-- Card 3 -->
+    <div class="product-card" data-product-id="11">
      <div class="product-image">
-      <img src="images/pantaloni-office.jpg" alt="Pantaloni office">
+      <img src="images/pantaloniEleganti.png" alt="Pantaloni office">
       <div class="product-badges">
        <span class="badge-bestseller">Bestseller</span>
       </div>
-      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-      <div class="quick-view">
-       <button class="quick-view-btn">Previzualizare rapidă</button>
-      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
      </div>
      <div class="product-info">
-      <h3 class="product-name">Pantaloni office</h3>
-      <div class="product-price">
-       <span class="current-price">320 lei</span>
+      <div class="product-header">
+       <h3 class="product-name">Pantaloni office</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.7</span>
+       </div>
       </div>
-      <div class="product-colors">
-       <span class="color-dot" style="background-color: #000" title="Negru"></span>
-       <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
-       <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">320 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+         <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+        </div>
+       </div>
       </div>
-      <button class="add-to-cart-btn">Adaugă în coș</button>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
      </div>
     </div>
 
-    <div class="product-card">
+    <!-- Card 4 -->
+    <div class="product-card" data-product-id="12">
      <div class="product-image">
-      <img src="images/fusta-plisata.jpg" alt="Fustă plisată">
-      <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-      <div class="quick-view">
-       <button class="quick-view-btn">Previzualizare rapidă</button>
-      </div>
+      <img src="images/fustaMidi.png" alt="Fustă plisată">
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
      </div>
      <div class="product-info">
-      <h3 class="product-name">Fustă plisată</h3>
-      <div class="product-price">
-       <span class="current-price">280 lei</span>
+      <div class="product-header">
+       <h3 class="product-name">Fustă midi</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.5</span>
+       </div>
       </div>
-      <div class="product-colors">
-       <span class="color-dot" style="background-color: #000" title="Negru"></span>
-       <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
-       <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">280 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #8B0000" title="Roșu"></span>
+         <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+        </div>
+       </div>
       </div>
-      <button class="add-to-cart-btn">Adaugă în coș</button>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
      </div>
     </div>
 
-    <!-- Product Cards - Row 2 (și alte rânduri similar) -->
-    <!-- Se pot adăuga mai multe carduri de produse cu structură similară -->
+    <!-- Card 5 -->
+    <div class="product-card" data-product-id="13">
+     <div class="product-image">
+      <img src="images/sacou.png" alt="Sacou elegant">
+      <div class="product-badges">
+       <span class="badge-new">Nou</span>
+      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Sacou elegant</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.9</span>
+       </div>
+      </div>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">450 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+        </div>
+       </div>
+      </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="product-card" data-product-id="14">
+     <div class="product-image">
+      <img src="images/palton.png" alt="Palton de iarnă">
+      <div class="product-badges">
+       <span class="badge-discount">-25%</span>
+      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Palton de iarnă</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.8</span>
+       </div>
+      </div>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">675 lei</span>
+         <span class="old-price">900 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+         <span class="color-dot" style="background-color: #744911" title="Maro"></span>
+        </div>
+       </div>
+      </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="product-card" data-product-id="15">
+     <div class="product-image">
+      <img src="images/rochieAlbă.png" alt="Rochie albă">
+      <div class="product-badges">
+       <span class="badge-bestseller">Bestseller</span>
+      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Rochie albă</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.9</span>
+       </div>
+      </div>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">520 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #fff; border: 1px solid #ddd" title="Alb"></span>
+         <span class="color-dot" style="background-color: #F5F5DC" title="Bej"></span>
+        </div>
+       </div>
+      </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="product-card" data-product-id="16">
+     <div class="product-image">
+      <img src="images/TopFemei.png" alt="Top casual">
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Top casual</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.6</span>
+       </div>
+      </div>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">180 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #fff; border: 1px solid #ddd" title="Alb"></span>
+         <span class="color-dot" style="background-color: #000" title="Negru"></span>
+         <span class="color-dot" style="background-color: #87CEEB" title="Albastru deschis"></span>
+        </div>
+       </div>
+      </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="product-card" data-product-id="17">
+     <div class="product-image">
+      <img src="images/pantaloniAlbi.png" alt="Pantaloni">
+      <div class="product-badges">
+       <span class="badge-new">Nou</span>
+       <span class="badge-discount">-20%</span>
+      </div>
+      <button class="wishlist-btn" aria-label="Adaugă la favorite">
+       <i class="far fa-heart"></i>
+      </button>
+     </div>
+     <div class="product-info">
+      <div class="product-header">
+       <h3 class="product-name">Pantaloni</h3>
+       <div class="product-rating">
+        <i class="fas fa-star rating-star"></i>
+        <span class="rating-value">4.7</span>
+       </div>
+      </div>
+      <div class="product-details">
+       <div class="product-left-section">
+        <div class="product-price">
+         <span class="current-price">400 lei</span>
+         <span class="old-price">500 lei</span>
+        </div>
+        <div class="product-colors">
+         <span class="color-dot" style="background-color: #fff" title="Alb"></span>
+         <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+         <span class="color-dot" style="background-color: #744911" title="Maro"></span>
+        </div>
+       </div>
+      </div>
+      <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+       <i class="fas fa-shopping-cart"></i>
+      </button>
+     </div>
+    </div>
+     <!-- Card 10 -->
+     <div class="product-card" data-product-id="18">
+      <div class="product-image">
+       <img src="images/FustaMini.png" alt="Fustă mini">
+       <div class="product-badges">
+        <span class="badge-new">Nou</span>
+        <span class="badge-discount">-20%</span>
+       </div>
+       <button class="wishlist-btn" aria-label="Adaugă la favorite">
+        <i class="far fa-heart"></i>
+       </button>
+      </div>
+      <div class="product-info">
+       <div class="product-header">
+        <h3 class="product-name">Fustă mini</h3>
+        <div class="product-rating">
+         <i class="fas fa-star rating-star"></i>
+         <span class="rating-value">4.7</span>
+        </div>
+       </div>
+       <div class="product-details">
+        <div class="product-left-section">
+         <div class="product-price">
+          <span class="current-price">400 lei</span>
+          <span class="old-price">500 lei</span>
+         </div>
+         <div class="product-colors">
+          <span class="color-dot" style="background-color: #000" title="Negru"></span>
+          <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+          <span class="color-dot" style="background-color: #744911" title="Maro"></span>
+         </div>
+        </div>
+       </div>
+       <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+        <i class="fas fa-shopping-cart"></i>
+       </button>
+      </div>
+     </div>
+      <!-- Card 11 -->
+      <div class="product-card" data-product-id="19">
+       <div class="product-image">
+        <img src="images/paltonGros.png" alt="Palton gros">
+        <div class="product-badges">
+         <span class="badge-new">Nou</span>
+         <span class="badge-discount">-20%</span>
+        </div>
+        <button class="wishlist-btn" aria-label="Adaugă la favorite">
+         <i class="far fa-heart"></i>
+        </button>
+       </div>
+       <div class="product-info">
+        <div class="product-header">
+         <h3 class="product-name">Palton gros</h3>
+         <div class="product-rating">
+          <i class="fas fa-star rating-star"></i>
+          <span class="rating-value">4.7</span>
+         </div>
+        </div>
+        <div class="product-details">
+         <div class="product-left-section">
+          <div class="product-price">
+           <span class="current-price">400 lei</span>
+           <span class="old-price">500 lei</span>
+          </div>
+          <div class="product-colors">
+           <span class="color-dot" style="background-color: #4b71b6" title="Blue"></span>
+           <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+           <span class="color-dot" style="background-color: #744911" title="Maro"></span>
+          </div>
+         </div>
+        </div>
+        <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+         <i class="fas fa-shopping-cart"></i>
+        </button>
+       </div>
+      </div>
+       <!-- Card 12 -->
+       <div class="product-card" data-product-id="20">
+        <div class="product-image">
+         <img src="images/bluzaRoz.png" alt="Bluză">
+         <div class="product-badges">
+          <span class="badge-new">Nou</span>
+          <span class="badge-discount">-20%</span>
+         </div>
+         <button class="wishlist-btn" aria-label="Adaugă la favorite">
+          <i class="far fa-heart"></i>
+         </button>
+        </div>
+        <div class="product-info">
+         <div class="product-header">
+          <h3 class="product-name">Bluză</h3>
+          <div class="product-rating">
+           <i class="fas fa-star rating-star"></i>
+           <span class="rating-value">4.7</span>
+          </div>
+         </div>
+         <div class="product-details">
+          <div class="product-left-section">
+           <div class="product-price">
+            <span class="current-price">400 lei</span>
+            <span class="old-price">500 lei</span>
+           </div>
+           <div class="product-colors">
+            <span class="color-dot" style="background-color: #bd5999" title="Roz"></span>
+            <span class="color-dot" style="background-color: #1A2639" title="Bleumarin"></span>
+            <span class="color-dot" style="background-color: #744911" title="Maro"></span>
+           </div>
+          </div>
+         </div>
+         <button class="add-to-cart-btn" aria-label="Adaugă în coș">
+          <i class="fas fa-shopping-cart"></i>
+         </button>
+        </div>
+       </div>
+
    </div>
   </div>
  </div>
@@ -355,10 +715,9 @@
  <!-- Footer -->
  <div id="footer-placeholder"></div>
  <script src="js/includes.js"></script>
-     
-
  <script src="js/main.js"></script>
  <script src="js/category.js"></script>
+ <script src="js/product-card.js"></script>
 </body>
 
 </html>
