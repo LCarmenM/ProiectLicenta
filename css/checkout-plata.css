@@ -505,4 +505,111 @@
  .modal-actions {
   flex-direction: column;
  }
+ /* Adaugă aceste stiluri la sfârșitul fișierului css/checkout-plata.css */
+
+/* ASCUNDE MODAL-UL ȘI OVERLAY-UL IMPLICIT */
+.order-confirmation-modal {
+ position: fixed;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%) scale(0.9);
+ width: 90%;
+ max-width: 500px;
+ max-height: 90vh;
+ background-color: white;
+ box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+ z-index: 1001;
+ opacity: 0;
+ visibility: hidden; /* ASCUNS IMPLICIT */
+ transition: all 0.3s ease;
+ overflow: auto;
+ border-radius: 8px;
+ display: none; /* ADĂUGAT - COMPLET ASCUNS */
+}
+
+.order-confirmation-modal.active {
+ opacity: 1;
+ visibility: visible;
+ transform: translate(-50%, -50%) scale(1);
+ display: block; /* ADĂUGAT - AFIȘEAZĂ DOAR CÂND ESTE ACTIV */
+}
+
+.modal-overlay {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.5);
+ z-index: 1000;
+ opacity: 0;
+ visibility: hidden; /* ASCUNS IMPLICIT */
+ transition: opacity 0.3s ease, visibility 0.3s ease;
+ display: none; /* ADĂUGAT - COMPLET ASCUNS */
+}
+
+.modal-overlay.active {
+ opacity: 1;
+ visibility: visible;
+ display: block; /* ADĂUGAT - AFIȘEAZĂ DOAR CÂND ESTE ACTIV */
+}
+
+/* ASIGURĂ-TE CĂ TEXTUL ROȘU NU APARE PE FUNDALUL NEGRU */
+.error-message {
+ color: #f44336 !important;
+ font-size: 0.8rem;
+ margin-top: 5px;
+ background-color: transparent !important; /* FĂRĂ FUNDAL */
+ position: relative; /* NU FIXED */
+ z-index: auto; /* Z-INDEX NORMAL */
+}
+
+/* VERIFICĂ CĂ NU EXISTĂ ELEMENTE CARE SĂ CREEZE FUNDALUL NEGRU */
+.notification {
+ position: fixed;
+ top: 20px;
+ right: 20px;
+ z-index: 1000;
+ max-width: 350px;
+ transform: translateX(100%);
+ opacity: 0;
+ transition: transform 0.3s ease, opacity 0.3s ease;
+ background-color: white !important; /* FUNDAL ALB */
+ color: #333 !important; /* TEXT ÎNTUNECAT */
+}
+
+/* ELIMINĂ ORICE FUNDAL NEGRU NEDORIT */
+body::before,
+body::after,
+.checkout::before,
+.checkout::after {
+ display: none !important;
+}
+
+/* ASIGURĂ-TE CĂ PAGINA DE CHECKOUT RĂMÂNE CU FUNDAL ALB */
+.checkout {
+ background-color: #ffffff !important;
+ position: relative;
+ z-index: 1;
+}
+
+.checkout-container {
+ background-color: transparent;
+ position: relative;
+ z-index: 2;
+}
+
+/* VERIFICĂ ELEMENTELE DE VALIDARE */
+.card-input.error {
+ border-color: #f44336;
+ background-color: white !important; /* PĂSTREAZĂ FUNDALUL ALB */
+}
+
+/* ELIMINĂ ORICE OVERLAY NEDORIT */
+.checkout-form::before,
+.checkout-form::after,
+.form-section::before,
+.form-section::after {
+ display: none !important;
+}
 }

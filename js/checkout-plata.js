@@ -541,4 +541,110 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 5000);
     }
+    // Adaugă această funcție la începutul fișierului js/checkout-plata.js
+// sau înlocuiește funcția initModalControls existentă
+
+function initModalControls() {
+    const orderConfirmationModal = document.getElementById('orderConfirmationModal');
+    const confirmationOverlay = document.getElementById('confirmationOverlay');
+    const closeModalButton = document.querySelector('.close-modal');
+
+    // ASIGURĂ-TE CĂ MODAL-UL ESTE COMPLET ASCUNS LA ÎNCEPUT
+    if (orderConfirmationModal) {
+        orderConfirmationModal.classList.remove('active');
+        orderConfirmationModal.style.display = 'none';
+    }
+    
+    if (confirmationOverlay) {
+        confirmationOverlay.classList.remove('active');
+        confirmationOverlay.style.display = 'none';
+    }
+
+    // RESTABILEȘTE SCROLL-UL NORMAL
+    document.body.style.overflow = '';
+
+    if (closeModalButton && orderConfirmationModal && confirmationOverlay) {
+        closeModalButton.addEventListener('click', closeModal);
+        confirmationOverlay.addEventListener('click', closeModal);
+    }
+
+    function closeModal() {
+        if (orderConfirmationModal && confirmationOverlay) {
+            orderConfirmationModal.classList.remove('active');
+            confirmationOverlay.classList.remove('active');
+            
+            // ASCUNDE COMPLET ELEMENTELE
+            setTimeout(() => {
+                orderConfirmationModal.style.display = 'none';
+                confirmationOverlay.style.display = 'none';
+            }, 300);
+            
+            document.body.style.overflow = '';
+        }
+    }
+
+    // ASCUNDE MODAL-UL LA APĂSAREA TASTEI ESCAPE
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+        }
+    });
+}
+
+// Actualizează funcția processPayment pentru a afișa corect modal-ul
+function processPayment() {
+    const placeOrderButton = document.getElementById('place-order-btn');
+    const orderConfirmationModal = document.getElementById('orderConfirmationModal');
+    const confirmationOverlay = document.getElementById('confirmationOverlay');
+    
+    if (placeOrderButton) {
+        placeOrderButton.disabled = true;
+        placeOrderButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Se procesează plata...';
+    }
+    
+    setTimeout(function() {
+        if (orderConfirmationModal && confirmationOverlay) {
+            // AFIȘEAZĂ MODAL-UL CORECT
+            orderConfirmationModal.style.display = 'block';
+            confirmationOverlay.style.display = 'block';
+            
+            // APOI ADAUGĂ CLASELE ACTIVE
+            setTimeout(() => {
+                orderConfirmationModal.classList.add('active');
+                confirmationOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }, 10);
+        }
+        
+        if (placeOrderButton) {
+            placeOrderButton.disabled = false;
+            placeOrderButton.innerHTML = 'Trimite comanda';
+        }
+    }, 2000);
+}
+
+// CURĂȚĂ ORICE ELEMENTE NEDORITE LA ÎNCĂRCAREA PAGINII
+document.addEventListener('DOMContentLoaded', function() {
+    // Elimină orice overlay nedorit
+    const overlays = document.querySelectorAll('.modal-overlay, .overlay');
+    overlays.forEach(overlay => {
+        if (!overlay.classList.contains('active')) {
+            overlay.style.display = 'none';
+        }
+    });
+    
+    // Elimină orice modal nedorit
+    const modals = document.querySelectorAll('.modal, .order-confirmation-modal');
+    modals.forEach(modal => {
+        if (!modal.classList.contains('active')) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Asigură-te că body-ul nu are overflow hidden
+    document.body.style.overflow = '';
+    
+    // Elimină clasa menu-open dacă există
+    document.body.classList.remove('menu-open');
+});
   });
