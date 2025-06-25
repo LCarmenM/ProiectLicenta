@@ -4,7 +4,7 @@
 .category-header {
  padding: 40px 0;
  text-align: center;
- background-color: var(--color-dominant-1);
+ background-color: #ffffff;
 }
 .breadcrumb{
  padding-top: 40px;
@@ -119,7 +119,7 @@
 /* Product Container */
 .product-container {
  padding: 40px 0;
- background-color: var(--color-dominant-1);
+ background-color:#ffffff;
 }
 
 .product-container .container {
@@ -478,6 +478,7 @@
 .pagination {
  padding: 40px 0;
  text-align: center;
+ padding-bottom: 200px;
 }
 
 .pagination-list {
