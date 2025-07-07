@@ -30,5 +30,4 @@ function initializeHeaderScripts() {
       });
     }
     
-    // Alte funcționalități ale header-ului...
   }

@@ -1,5 +1,3 @@
-/* checkout.css - Stiluri comune pentru toate paginile de checkout */
-
 .checkout {
  padding: 60px 0;
  background-color: var(--color-dominant-1);
@@ -232,7 +230,6 @@
  gap: 10px;
 }
 
-/* Stiluri pentru Modal-ul de Confirmare a Comenzii */
 .order-confirmation-modal {
  position: fixed;
  top: 50%;
@@ -404,8 +401,6 @@
  .checkout {
   padding: 60px 0;
   background-color: #ffffff !important;
-  /* Forțează fundal alb */
   min-height: calc(100vh - 200px);
-  /* Asigură înălțime minimă */
  }
 }

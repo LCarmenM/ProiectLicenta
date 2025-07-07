@@ -13,7 +13,6 @@
  gap: 40px;
 }
 
-/* Product Gallery */
 .product-gallery {
  display: flex;
  flex-direction: column;
@@ -43,14 +42,11 @@
  overflow-x: auto;
  flex: 1;
  scrollbar-width: none;
- /* Firefox */
  -ms-overflow-style: none;
- /* IE and Edge */
 }
 
 .thumbnails::-webkit-scrollbar {
  display: none;
- /* Chrome, Safari, Opera */
 }
 
 .thumbnail {
@@ -81,7 +77,6 @@
  cursor: pointer;
 }
 
-/* Product Info */
 .product-info .ratings {
  display: flex;
  align-items: center;
@@ -123,7 +118,6 @@
  margin-left: 10px;
 }
 
-/* Product Options */
 .product-options {
  margin-bottom: 30px;
 }
@@ -189,13 +183,12 @@
  display: inline-block;
 }
 
-/* Product Actions */
 .product-actions {
  display: flex;
  gap: 15px;
  margin-bottom: 30px;
 }
-/* Complete the Look */
+
 .complete-look {
  padding: 60px 0;
  background-color: #ffffff;
@@ -220,7 +213,6 @@
  background-color: #333;
 }
 
-/* Product Grid pentru secțiunile de produse - folosesc stilurile identice cu home */
 .complete-look .product-grid,
 .similar-products .product-grid {
  display: grid;
@@ -230,7 +222,6 @@
  padding-bottom: 100px;
 }
 
-/* Forțez folosirea stilurilor din product-card.css */
 .complete-look .product-card,
 .similar-products .product-card {
  width: 240px !important;
@@ -457,7 +448,6 @@
  border-color: var(--color-secondary-1);
 }
 
-/* Accordion */
 .accordion-item {
  border-bottom: 1px solid var(--color-border);
 }
@@ -518,13 +508,11 @@
  width: 40%;
 }
 
-/* Complete the Look */
 .complete-look {
  padding: 60px 0;
  background-color: #ffffff;
 }
 
-/* Reviews */
 .reviews {
  padding: 60px 0;
 }
@@ -672,7 +660,6 @@
  color: var(--color-text);
 }
 
-/* Similar Products */
 .similar-products {
  padding: 60px 0;
 }
@@ -716,7 +703,6 @@
  display: block;
 }
 
-/* Responsive Styles */
 @media (max-width: 992px) {
  .product-detail .container {
   grid-template-columns: 1fr;

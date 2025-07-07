@@ -1,9 +1,5 @@
-/* footer.css - Stilizări specifice pentru footer */
-
-/* Importăm familia de fonturi Maven Pro folosită în footer */
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700&display=swap');
 
-/* Stiluri de bază pentru footer */
 footer {
  background-color: #F5F4F4 !important;
  color: var(--color-footer-text);
@@ -14,7 +10,6 @@ footer {
 .footer-top {
  padding: 40px 0;
  background-color: #F5F4F4 !important;
- /* Asigură consistența culorii */
 }
 
 .footer-columns {
@@ -23,7 +18,6 @@ footer {
  gap: 30px;
 }
 
-/* Titluri pentru secțiunile din footer */
 .footer-column h3 {
  font-size: 16px;
  text-transform: initial;
@@ -34,7 +28,6 @@ footer {
  line-height: 24px;
 }
 
-/* Liste și link-uri în footer */
 .footer-column ul {
  list-style: none;
  padding: 0;
@@ -58,7 +51,6 @@ footer {
  color: var(--color-footer-title);
 }
 
-/* Secțiunea de newsletter */
 .footer-column.newsletter h3 {
  color: var(--color-footer-text);
  font-size: 16px;
@@ -103,7 +95,6 @@ footer {
  margin-bottom: 0;
 }
 
-/* Iconițe social media */
 .social-icons {
  display: flex;
  gap: 11px;
@@ -120,7 +111,6 @@ footer {
  color: var(--color-footer-title);
 }
 
-/* Metode de plată */
 .payment-section {
  margin-top: 20px;
 }
@@ -143,12 +133,10 @@ footer {
  height: 22px;
 }
 
-/* Partea de jos a footer-ului */
 .footer-bottom {
  padding: 10px 0 16px 0;
  border-top: none;
  background-color: #F5F4F4 !important;
- /* Asigură consistența culorii */
 }
 
 .footer-bottom .container {
@@ -157,7 +145,6 @@ footer {
  align-items: center;
 }
 
-/* Link-uri politici */
 .footer-policies {
  display: flex;
  justify-content: center;
@@ -177,7 +164,6 @@ footer {
  color: var(--color-footer-title);
 }
 
-/* Copyright */
 .copyright {
  text-align: center;
  color: var(--color-footer-text);
@@ -187,7 +173,6 @@ footer {
  width: 100%;
 }
 
-/* Responsivitate */
 @media (max-width: 1200px) {
  .footer-columns {
   grid-template-columns: repeat(2, 1fr);

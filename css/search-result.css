@@ -1,11 +1,8 @@
-/* search-results.css - Stiluri pentru pagina de rezultate ale căutării */
-
 .search-results-page {
  padding: 40px 0;
  background-color: var(--color-dominant-1);
 }
 
-/* Header de căutare */
 .search-header {
  margin-bottom: 30px;
 }
@@ -54,14 +51,12 @@
  background-color: var(--color-accent-1);
 }
 
-/* Conținut căutare */
 .search-content {
  display: grid;
  grid-template-columns: 250px 1fr;
  gap: 30px;
 }
 
-/* Filtre */
 .search-filters {
  background-color: white;
  padding: 20px;
@@ -117,7 +112,6 @@
  font-weight: 500;
 }
 
-/* Slider preț */
 .price-slider {
  padding: 10px 0;
 }
@@ -134,7 +128,6 @@
  color: var(--color-text-light);
 }
 
-/* Checkbox filters */
 .checkbox-filter {
  display: flex;
  align-items: center;
@@ -147,7 +140,6 @@
  cursor: pointer;
 }
 
-/* Filter actions */
 .filter-actions {
  margin-top: 20px;
 }
@@ -169,7 +161,6 @@
  border-color: var(--color-secondary-1);
 }
 
-/* Container rezultate */
 .search-results-container {
  display: flex;
  flex-direction: column;
@@ -206,14 +197,12 @@
  background-color: white;
 }
 
-/* Grid rezultate */
 .results-grid {
  display: grid;
  grid-template-columns: repeat(3, 1fr);
  gap: 30px;
 }
 
-/* Card produs */
 .product-card {
  background-color: white;
  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -393,7 +382,6 @@
  background-color: var(--color-accent-1);
 }
 
-/* Mesaj fără rezultate */
 .no-results {
  padding: 30px;
  text-align: center;
@@ -418,7 +406,6 @@
  color: var(--color-text-light);
 }
 
-/* Responsivitate */
 @media (max-width: 992px) {
  .search-content {
   grid-template-columns: 1fr;

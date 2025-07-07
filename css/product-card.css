@@ -1,12 +1,8 @@
-/* product-card.css - Rating aliniat cu numele și preț scăzut mutat sus */
-
-/* Container pentru grid-ul de produse */
 .wishlist-grid,
 .product-grid {
  display: grid;
  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
  gap: 10px;
- /* Modifică această valoare pentru a schimba distanța dintre carduri */
  padding: 10px 0;
  background-color: transparent;
  max-width: 1200px;
@@ -14,7 +10,6 @@
  justify-content: center;
 }
 
-/* Card produs - container principal */
 .product-card {
  width: 240px !important;
  position: relative;
@@ -29,7 +24,6 @@
  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Imagine produs */
 .product-image {
  width: 240px !important;
  height: 300px !important;
@@ -44,7 +38,6 @@
  object-fit: cover;
 }
 
-/* Badge-uri - actualizat pentru a include preț scăzut */
 .product-badges {
  position: absolute;
  top: 10px;
@@ -83,7 +76,7 @@
  background-color: #ff9800;
 }
 
-/* Buton X pentru wishlist */
+
 .wishlist-btn {
  width: 24px;
  height: 24px;
@@ -111,13 +104,11 @@
  color: #666;
 }
 
-/* Container informații produs */
 .product-info {
  padding: 12px;
  position: relative;
 }
 
-/* Container pentru nume și rating pe aceeași linie */
 .product-header {
  display: flex;
  justify-content: space-between;
@@ -125,7 +116,6 @@
  margin-bottom: 12px;
 }
 
-/* Nume produs */
 .product-name {
  color: black;
  font-size: 15px;
@@ -135,11 +125,8 @@
  white-space: nowrap;
  overflow: hidden;
  text-overflow: ellipsis;
-
- /* Limitează lățimea pentru a face loc rating-ului */
 }
 
-/* Rating - acum aliniat cu numele */
 .product-rating {
  display: flex;
  align-items: center;
@@ -161,7 +148,6 @@
  line-height: 14px;
 }
 
-/* Container pentru detaliile produsului */
 .product-details {
  display: flex;
  justify-content: space-between;
@@ -169,14 +155,12 @@
  margin-bottom: 12px;
 }
 
-/* Secțiune stângă - preț și culori */
 .product-left-section {
  display: flex;
  flex-direction: column;
  gap: 8px;
 }
 
-/* Preț */
 .product-price {
  display: flex;
  align-items: center;
@@ -198,7 +182,6 @@
  font-weight: 400;
 }
 
-/* Culori disponibile */
 .product-colors {
  display: flex;
  gap: 8px;
@@ -219,7 +202,6 @@
  border-color: #333333;
 }
 
-/* Buton coș */
 .add-to-cart-btn {
  position: absolute;
  right: 12px;
@@ -246,7 +228,6 @@
  font-size: 14px;
 }
 
-/* Secțiune alertă preț */
 .price-alert-section {
  display: flex;
  align-items: center;
@@ -288,7 +269,6 @@
  font-family: 'Inter', sans-serif;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
 
  .wishlist-grid,
@@ -316,17 +296,14 @@
  }
 }
 
-/* Stiluri suplimentare pentru wishlist */
 .wishlist-page .product-card {
  cursor: default;
 }
 
 .wishlist-page .price-alert-section {
  display: flex;
- /* Mereu vizibil în wishlist */
 }
 
-/* Animație pentru eliminare */
 .product-card.removing {
  animation: fadeOut 0.3s ease forwards;
 }

@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function() {
  const wishlistItems = [
   { id: 1, name: 'Rochie midi', image: 'images/rochie-midi.jpg', price: 500 },
   { id: 2, name: 'Pantaloni office', image: 'images/pantaloni-office.jpg', price: 320 },
-  // ... mai multe produse
  ];
 
  // Funcție pentru afișarea produselor favorite

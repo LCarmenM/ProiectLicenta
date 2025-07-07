@@ -1,25 +1,11 @@
-/* main.css - Stiluri globale pentru site-ul Dynasty Couture
-==========================================================
-Acest fișier conține doar stiluri globale, comune pentru întregul site.
-Stilurile specifice pentru header și footer au fost mutate în fișiere separate.
-*/
-
-/* Variabile globale de culori */
 :root {
- /* Regula 60-30-10 pentru culori */
- /* Culori dominante (60%) */
  --color-dominant-1: #FFFFFB;
  --color-dominant-2: #ffffff;
-
- /* Culori secundare (30%) */
  --color-secondary-1: #222222;
  --color-secondary-2: #444444;
-
- /* Culori de accent (10%) */
  --color-accent-1: #c62828;
  --color-accent-2: #8b0000;
 
- /* Alte culori de utilitate */
  --color-text: #222222;
  --color-text-light: #666666;
  --color-border: #e0e0e0;
@@ -28,7 +14,6 @@ Stilurile specifice pentru header și footer au fost mutate în fișiere separat
  --color-warning: #ff9800;
  --color-info: #2196f3;
 
- /* Culori specifice pentru footer */
  --color-footer-bg: #F5F4F4;
  --color-footer-title: #262626;
  --color-footer-text: #737373;
@@ -48,20 +33,17 @@ body {
  line-height: 1.6;
  overflow-x: hidden;
  padding-top: 90px;
- /* ADĂUGAT - compensează înălțimea header-ului fix */
  display: grid;
  grid-template-rows: auto 1fr auto;
  min-height: 100vh;
 }
 
-/* Container */
 .container {
  max-width: 1200px;
  margin: 0 auto;
  padding: 0 15px;
 }
 
-/* Tipografie generală */
 h1,
 h2,
 h3,
@@ -110,7 +92,6 @@ a:hover {
  color: var(--color-accent-1);
 }
 
-/* Butoane generale */
 button {
  cursor: pointer;
  font-family: 'Poppins', sans-serif;
@@ -150,7 +131,6 @@ button {
  color: white;
 }
 
-/* Titluri de secțiuni */
 .section-title {
  text-align: center;
  margin-bottom: 2rem;

@@ -1,6 +1,4 @@
-/* Base Styles */
 :root {
- /* Color variables - 60-30-10 rule */
  --color-dominant-1: #f9f9f9;
  --color-dominant-2: #ffffff;
  --color-secondary-1: #222222;
@@ -15,13 +13,13 @@
  --color-warning: #ff9800;
  --color-info: #2196f3;
 
- /* Mega Menu Colors */
+
  --color-dark: #0f1c2b;
  --color-light: #d7dce2;
  --color-white: #ffffff;
 }
 
-/* Mobile Menu Styles */
+
 .mobile-menu {
  position: fixed;
  top: 0;
@@ -214,8 +212,6 @@
 body.menu-open {
  overflow: hidden;
 }
-
-/* Mega Menu Styles */
 .main-nav {
  position: relative;
 }
@@ -247,7 +243,6 @@ body.menu-open {
  visibility: visible;
 }
 
-/* Mega Menu */
 .mega-menu {
  position: absolute;
  top: 100%;
@@ -267,7 +262,6 @@ body.menu-open {
  flex-direction: column;
 }
 
-/* Category Sidebar */
 .category-sidebar {
  position: absolute;
  top: 0;
@@ -324,10 +318,8 @@ body.menu-open {
  padding-left: 25px;
 }
 
-/* Submenu Content */
 .submenu-content {
  margin-left: 220px;
- /* Matches width of sidebar */
  padding: 30px;
  display: flex;
  flex-direction: column;
@@ -400,7 +392,6 @@ body.menu-open {
  font-size: 0.9rem;
 }
 
-/* Action Buttons */
 .action-buttons {
  grid-column: 1 / -1;
  display: flex;
@@ -426,7 +417,6 @@ body.menu-open {
  background-color: #d03252;
 }
 
-/* Mobile Menu Adaptations */
 .mobile-nav-list .dropdown-item.featured-category {
  position: relative;
  padding-left: 15px;
@@ -472,7 +462,6 @@ body.menu-open {
  max-height: 500px;
 }
 
-/* Hero Slider */
 .hero-slider {
  position: relative;
  height: 600px;
@@ -517,45 +506,33 @@ body.menu-open {
 .slide-title {
  font-size: 4rem;
  width: 100%;
- /* Adjusted font-size */
  margin-bottom: 10px;
- /* Reduced space to paragraph */
  font-weight: 700;
  line-height: 1.2;
- /* Adjusted line-height for better fit */
 }
 
 .slide-description {
  font-size: 1.1rem;
- /* Adjusted font-size */
  margin-bottom: 20px;
- /* Increased space to button */
  line-height: 1.4;
- /* Adjusted line-height */
 }
 
 .slide-button {
  display: inline-block;
  padding: 12px 25px;
- /* Adjusted padding */
  background-color: white;
- /* Changed background color */
  color: var(--color-secondary-1);
- /* Changed text color */
  font-weight: 700;
- /* Adjusted font-weight */
  text-transform: uppercase;
  letter-spacing: 1px;
  transition: all 0.3s ease;
  border: 2px solid white;
- /* Added border */
 }
 
 .slide-button:hover {
  background-color: var(--color-accent-1);
  color: white;
  border-color: var(--color-accent-1);
- /* Changed border color on hover */
 }
 
 .slide-button:hover {
@@ -612,7 +589,6 @@ body.menu-open {
  background-color: white;
 }
 
-/* Featured Categories */
 .featured-categories {
  padding: 60px 0;
 }
@@ -679,8 +655,6 @@ body.menu-open {
  transform: translateX(5px);
 }
 
-
-/* Buton wishlist */
 .new-arrivals .wishlist-btn,
 .bestsellers .wishlist-btn {
  width: 24px;
@@ -711,14 +685,12 @@ body.menu-open {
  color: #666;
 }
 
-/* Container informații produs */
 .new-arrivals .product-info,
 .bestsellers .product-info {
  padding: 12px;
  position: relative;
 }
 
-/* Container pentru nume și rating pe aceeași linie */
 .new-arrivals .product-header,
 .bestsellers .product-header {
  display: flex;
@@ -726,8 +698,6 @@ body.menu-open {
  align-items: center;
  margin-bottom: 12px;
 }
-
-
 
 .new-arrivals .color-dot,
 .bestsellers .color-dot {
@@ -745,7 +715,6 @@ body.menu-open {
  border-color: #333333;
 }
 
-/* Buton coș */
 .new-arrivals .add-to-cart-btn,
 .bestsellers .add-to-cart-btn {
  position: absolute;
@@ -775,7 +744,6 @@ body.menu-open {
  font-size: 14px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
 
  .new-arrivals .product-grid,
@@ -810,8 +778,6 @@ body.menu-open {
  }
 }
 
-/* summer-collections.css - Stiluri pentru secțiunea de colecții de vară */
-
 .summer-collections {
  padding-left: 100px;
  padding-right: 100px;
@@ -834,7 +800,6 @@ body.menu-open {
  height: 750px;
 }
 
-/* Conținutul din stânga */
 .collections-content {
  width: 510px;
  position: absolute;
@@ -880,7 +845,6 @@ body.menu-open {
  color: white;
 }
 
-/* Panourile pentru Women și Men */
 .collections-panel {
  width: 400px;
  height: 600px;
@@ -944,7 +908,6 @@ body.menu-open {
  margin: 0;
 }
 
-/* Responsive pentru tablete mari și desktop-uri mai mici */
 @media (max-width: 1650px) {
  .collections-container {
   transform: scale(0.9);
@@ -952,7 +915,6 @@ body.menu-open {
  }
 }
 
-/* Responsive pentru tablete */
 @media (max-width: 1400px) {
  .collections-container {
   height: auto;
@@ -983,7 +945,6 @@ body.menu-open {
  }
 }
 
-/* Responsive pentru telefoane */
 @media (max-width: 576px) {
  .collections-title {
   font-size: 36px;
@@ -1009,7 +970,6 @@ body.menu-open {
  }
 }
 
-/* Stiluri actualizate pentru secțiunea de beneficii */
 .features-section {
  padding: 30px 0;
  padding-top: 100px;
@@ -1068,7 +1028,7 @@ body.menu-open {
  background-color: #e0e0e0;
 }
 
-/* Responsive styles */
+
 @media (max-width: 992px) {
  .features-container {
   flex-wrap: wrap;
@@ -1101,10 +1061,6 @@ body.menu-open {
  }
 }
 
-
-
-
-/* Responsive Styles */
 @media (max-width: 1200px) {
  .product-carousel {
   grid-template-columns: repeat(3, 1fr);
@@ -1229,6 +1185,4 @@ body.menu-open {
   width: 100%;
   padding: 15px;
  }
- 
- 
 }

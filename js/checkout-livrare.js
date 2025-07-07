@@ -24,12 +24,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
  // Funcție pentru afișarea erorilor (aceeași ca înainte)
  function showError(field, message) {
-     // ... (codul pentru showError) ...
+        let errorElement = field.nextElementSibling;
+        if (!errorElement || !errorElement.classList.contains('error-message')) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'error-message';
+            field.parentNode.insertBefore(errorElement, field.nextSibling);
+        }
+        errorElement.textContent = message;
+        field.classList.add('error');
  }
 
  // Funcție pentru eliminarea erorilor (aceeași ca înainte)
  function clearError(field) {
-     // ... (codul pentru clearError) ...
+        const errorElement = field.nextElementSibling;
+        if (errorElement && errorElement.classList.contains('error-message')) {
+            errorElement.remove();
+        }
+        field.classList.remove('error');
  }
 
  // Navigare între pași (modificat pentru a folosi link)
@@ -58,18 +69,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
  // Funcție pentru actualizarea costului de livrare (aceeași ca înainte)
  function updateShippingCost(shippingMethod) {
-     // ... (codul pentru updateShippingCost) ...
+        const shippingCostElement = document.getElementById('shipping-cost');
+        let cost = 0;
+    
+        switch (shippingMethod) {
+            case 'standard':
+                cost = 20;
+                break;
+            case 'express':
+                cost = 50;
+                break;
+            case 'pickup':
+                cost = 0;
+                break;
+            default:
+                cost = 0;
+        }
+    
+        shippingCostElement.textContent = `${cost} lei`;
  }
 
  // Adaugă validare în timp real pentru câmpurile formularului
  const allInputs = step2.querySelectorAll('input, select, textarea');
  allInputs.forEach(function(input) {
      input.addEventListener('blur', function() {
-         // ... (codul pentru validarea la blur) ...
+
      });
 
      input.addEventListener('input', function() {
-         // ... (codul pentru eliminarea erorilor la input) ...
+            clearError(input);
      });
  });
 });

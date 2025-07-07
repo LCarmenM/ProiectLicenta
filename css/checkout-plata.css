@@ -447,9 +447,13 @@
 }
 
 .btn-secondary:hover {
- background-color: var(--color-dominant-1);
+ background-color: white !important;
+ /* Păstrează fundalul alb */
+ color: var(--color-accent-1) !important;
+ /* Doar textul devine roșu */
+ border-color: var(--color-secondary-1) !important;
+ /* Păstrează border-ul negru */
 }
-
 .modal-overlay {
  position: fixed;
  top: 0;

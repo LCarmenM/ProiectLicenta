@@ -1,5 +1,3 @@
-/* account-user.css - Stiluri pentru pagina contului utilizator */
-
 .account-page {
  padding: 40px 0;
  background-color:#ffffff;
@@ -69,7 +67,6 @@
  display: block;
 }
 
-/* Stiluri pentru formulare */
 .form-group {
  margin-bottom: 15px;
 }
@@ -88,7 +85,6 @@
  border: 1px solid var(--color-border);
  border-radius: 4px;
  font-size: 1rem;
- /* Added font-size */
 }
 
 .form-group small {
@@ -96,7 +92,6 @@
  font-size: 0.8rem;
 }
 
-/* Stiluri pentru tabele */
 .order-list table {
  width: 100%;
  border-collapse: collapse;

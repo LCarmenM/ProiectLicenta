@@ -1,26 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize cart functionality
   initCart();
-
-  // Initialize quantity controls
   initQuantityControls();
-
-  // Initialize item removal
   initRemoveItems();
-
-  // Initialize tab switching
   initTabSwitching();
-
-  // Initialize add to cart buttons for recommended products
   initAddToCartButtons();
-
-  // Initialize wishlist buttons
   initWishlistButtons();
 });
 
-// Initialize cart functionality
+
 function initCart() {
-  // Check if cart is empty
   const cartItems = document.querySelectorAll('.cart-item');
   
   if (cartItems.length === 0) {
@@ -30,24 +18,22 @@ function initCart() {
       }
   }
 
-  // Set up edit button functionality
+
   const editButtons = document.querySelectorAll('.edit-btn');
   editButtons.forEach(button => {
       button.addEventListener('click', function() {
-          // In a real app, you would open a modal for editing product options
-          // For demo purposes, we'll just show an alert
           alert('Funcționalitate de editare va fi implementată în curând!');
       });
   });
 }
 
-// Initialize quantity controls
+
 function initQuantityControls() {
   const minusButtons = document.querySelectorAll('.quantity-btn.minus');
   const plusButtons = document.querySelectorAll('.quantity-btn.plus');
   const quantityInputs = document.querySelectorAll('.quantity-input');
-
-  // Decrease quantity
+  
+  
   minusButtons.forEach(button => {
       button.addEventListener('click', function() {
           const input = this.nextElementSibling;
@@ -60,7 +46,8 @@ function initQuantityControls() {
       });
   });
 
-  // Increase quantity
+
+
   plusButtons.forEach(button => {
       button.addEventListener('click', function() {
           const input = this.previousElementSibling;
@@ -74,7 +61,8 @@ function initQuantityControls() {
       });
   });
 
-  // Manual input change
+
+
   quantityInputs.forEach(input => {
       input.addEventListener('change', function() {
           let value = parseInt(this.value);
@@ -92,32 +80,27 @@ function initQuantityControls() {
   });
 }
 
-// Update cart totals
+
 function updateCartTotals() {
-  // In a real app, this would recalculate based on actual quantities and prices
-  // For this demo, we'll just keep the existing values
   console.log('Cart totals updated');
 }
 
-// Initialize item removal
+
 function initRemoveItems() {
   const removeButtons = document.querySelectorAll('.remove-item');
   
   removeButtons.forEach(button => {
       button.addEventListener('click', function() {
           const cartItem = this.closest('.cart-item');
-          
-          // Animate removal
+     
           cartItem.style.opacity = '0';
           cartItem.style.height = '0';
           cartItem.style.overflow = 'hidden';
           
-          // Remove after animation
           setTimeout(() => {
               cartItem.remove();
               updateCartTotals();
               
-              // Check if cart is now empty
               const remainingItems = document.querySelectorAll('.cart-item');
               if (remainingItems.length === 0) {
                   const cartItemsContainer = document.querySelector('.cart-items');
@@ -130,47 +113,30 @@ function initRemoveItems() {
   });
 }
 
-// Initialize tab switching
 function initTabSwitching() {
   const tabButtons = document.querySelectorAll('.tab-btn');
   
   tabButtons.forEach(button => {
       button.addEventListener('click', function() {
-          // Remove active class from all tabs
           tabButtons.forEach(btn => btn.classList.remove('active'));
-          
-          // Add active class to clicked tab
           this.classList.add('active');
-          
-          // Show corresponding content
           const tabId = this.getAttribute('data-tab');
-          
-          // Hide all tab content
           document.querySelectorAll('.tab-content').forEach(content => {
               content.classList.remove('active');
           });
           
-          // Show selected tab content
           document.getElementById(`${tabId}-tab`).classList.add('active');
       });
   });
-  
-  // Load recently viewed products when that tab is clicked
   const recentViewedTab = document.querySelector('[data-tab="recently-viewed"]');
   if (recentViewedTab) {
       recentViewedTab.addEventListener('click', loadRecentlyViewedProducts);
   }
 }
 
-// Load recently viewed products
 function loadRecentlyViewedProducts() {
   const tabContent = document.getElementById('recently-viewed-tab');
-  
-  // Check if content is already loaded
   if (tabContent.children.length > 0) return;
-  
-  // In a real app, this would load from localStorage or session
-  // For demo, we'll add placeholder content
   
   tabContent.innerHTML = `
   <div class="product-grid">
@@ -252,12 +218,11 @@ function loadRecentlyViewedProducts() {
   </div>
   `;
   
-  // Initialize buttons for newly added products
+
   initAddToCartButtons();
   initWishlistButtons();
 }
 
-// Initialize add to cart buttons
 function initAddToCartButtons() {
   const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
   
@@ -266,15 +231,11 @@ function initAddToCartButtons() {
           const productCard = this.closest('.product-card');
           const productName = productCard.querySelector('.product-name').textContent;
           const productPrice = productCard.querySelector('.current-price').textContent;
-          
-          // In a real app, this would add the product to the cart
-          // For this demo, we'll just show a notification
           showNotification(`${productName} a fost adăugat în coș`, 'success');
       });
   });
 }
 
-// Initialize wishlist buttons
 function initWishlistButtons() {
   const wishlistButtons = document.querySelectorAll('.wishlist-btn');
   
@@ -285,12 +246,10 @@ function initWishlistButtons() {
           const productName = productCard.querySelector('.product-name').textContent;
           
           if (icon.classList.contains('far')) {
-              // Add to wishlist
               icon.classList.remove('far');
               icon.classList.add('fas');
               showNotification(`${productName} a fost adăugat la favorite`, 'success');
           } else {
-              // Remove from wishlist
               icon.classList.remove('fas');
               icon.classList.add('far');
               showNotification(`${productName} a fost eliminat de la favorite`, 'info');
@@ -299,9 +258,7 @@ function initWishlistButtons() {
   });
 }
 
-// Show notification
 function showNotification(message, type) {
-  // Create notification element
   const notification = document.createElement('div');
   notification.className = `notification ${type}`;
   notification.innerHTML = `
@@ -310,31 +267,22 @@ function showNotification(message, type) {
           <button class="close-notification">&times;</button>
       </div>
   `;
-  
-  // Add to body
+
   document.body.appendChild(notification);
-  
-  // Show notification with a delay for animation
   setTimeout(() => {
       notification.classList.add('active');
   }, 10);
   
-  // Set up close button
   const closeButton = notification.querySelector('.close-notification');
   closeButton.addEventListener('click', () => {
       notification.classList.remove('active');
-      
-      // Remove from DOM after animation
       setTimeout(() => {
           notification.remove();
       }, 300);
   });
   
-  // Auto-hide after 3 seconds
   setTimeout(() => {
       notification.classList.remove('active');
-      
-      // Remove from DOM after animation
       setTimeout(() => {
           notification.remove();
       }, 300);

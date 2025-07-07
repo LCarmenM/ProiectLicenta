@@ -1,5 +1,3 @@
-/* Cart Page Styles - Exact match to the design */
-
 body {
   font-family: 'Poppins', sans-serif;
   color: #333;
@@ -14,11 +12,11 @@ body {
   padding: 0 15px;
 }
 
-/* Header styles */
 header {
   background-color: white;
 }
-.breadcrumb{
+
+.breadcrumb {
   padding-top: 120px;
   background-color: #ffffff;
 }
@@ -106,7 +104,6 @@ header {
   color: #c62828;
 }
 
-/* Cart page specific styles */
 .cart-page {
   padding: 20px 0;
 }
@@ -124,7 +121,6 @@ header {
   margin-bottom: 40px;
 }
 
-/* Cart items */
 .cart-items {
   background-color: white;
 }
@@ -261,7 +257,6 @@ header {
   color: #c62828;
 }
 
-/* Order summary */
 .order-summary {
   background-color: #f9f9f9;
   padding: 20px;
@@ -307,7 +302,6 @@ header {
   background-color: #333;
 }
 
-/* Product recommendations */
 .recommendations-section {
   margin-top: 50px;
 }
@@ -352,7 +346,6 @@ header {
   display: block;
 }
 
-/* Product grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -435,7 +428,6 @@ header {
   background-color: #c62828;
 }
 
-/* Footer */
 footer {
   background-color: #222;
   color: white;
@@ -528,7 +520,6 @@ footer {
   height: 20px;
 }
 
-/* Responsive */
 @media (max-width: 992px) {
   .cart-container {
     grid-template-columns: 1fr;
@@ -582,7 +573,7 @@ footer {
   .footer-columns {
     grid-template-columns: 1fr;
   }
-}a/* Cart Page Styles - Exact match to the design */
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -598,7 +589,6 @@ body {
   padding: 0 15px;
 }
 
-/* Header styles */
 header {
   background-color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -687,7 +677,6 @@ header {
   color: #c62828;
 }
 
-/* Cart page specific styles */
 .cart-page {
   padding: 40px 0;
 }
@@ -705,7 +694,6 @@ header {
   margin-bottom: 40px;
 }
 
-/* Cart items */
 .cart-items {
   background-color: white;
 }
@@ -842,7 +830,6 @@ header {
   color: #c62828;
 }
 
-/* Order summary */
 .order-summary {
   background-color: #f9f9f9;
   padding: 20px;
@@ -888,7 +875,6 @@ header {
   background-color: #333;
 }
 
-/* Product recommendations */
 .recommendations-section {
   margin-top: 50px;
 }
@@ -933,7 +919,6 @@ header {
   display: block;
 }
 
-/* Product grid - Clean layout for recommendations section */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1057,7 +1042,6 @@ header {
   font-size: 16px;
 }
 
-/* Footer */
 footer {
   background-color: #222;
   color: white;
@@ -1150,7 +1134,6 @@ footer {
   height: 20px;
 }
 
-/* Responsive - Updated for cleaner card layout */
 @media (max-width: 992px) {
   .cart-container {
     grid-template-columns: 1fr;
@@ -1212,182 +1195,171 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .recommendations-section .product-card {
+    width: 240px !important;
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+  }
 
-    /* ==========================================================================
-     FIX PENTRU CARDURILE DE RECOMANDĂRI DIN CART.HTML
-     Adaugă la sfârșitul fișierului css/cart.css
-     ========================================================================== */
-  
-    /* Stiluri specifice pentru cardurile din secțiunea de recomandări */
-    .recommendations-section .product-card {
-      width: 240px !important;
-      position: relative;
-      background-color: #ffffff;
-      overflow: hidden;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      margin: 0 auto;
-      /* Centrează cardurile */
-    }
-  
-    .recommendations-section .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    }
-  
-    .recommendations-section .product-image {
-      width: 240px !important;
-      height: 300px !important;
-      position: relative;
-      overflow: hidden;
-      background-color: #f9f9f9;
-      margin-right: 0 !important;
-      /* Override din cart.css */
-    }
-  
-    .recommendations-section .product-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  
-    .recommendations-section .wishlist-btn {
-      width: 24px;
-      height: 24px;
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      background-color: rgba(255, 255, 255, 0.95);
-      border: none;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-      transition: all 0.3s ease;
-    }
-  
-    .recommendations-section .wishlist-btn:hover {
-      background-color: #ffffff;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    }
-  
-    .recommendations-section .wishlist-btn i {
-      font-size: 12px;
-      color: #666;
-    }
-  
-    .recommendations-section .product-info {
-      padding: 12px;
-      position: relative;
-    }
-  
-    .recommendations-section .product-name {
-      color: black !important;
-      font-size: 15px;
-      font-family: 'Maven Pro', 'Poppins', sans-serif;
-      font-weight: 500;
-      line-height: 22px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin: 0 0 8px 0;
-    }
-  
-    .recommendations-section .rating {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-bottom: 12px;
-    }
-  
-    .recommendations-section .rating i {
-      width: 14px;
-      height: 14px;
-      color: #ffc107;
-      font-size: 14px;
-    }
-  
-    .recommendations-section .rating span {
-      color: #666666;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      line-height: 14px;
-    }
-  
-    .recommendations-section .product-price {
-      color: #333333 !important;
-      font-size: 18px;
-      font-family: 'Maven Pro', 'Poppins', sans-serif;
-      font-weight: 600;
-      line-height: 20px;
-      margin-bottom: 15px;
-    }
-  
-    .recommendations-section .add-to-cart-btn {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      width: 32px;
-      height: 32px;
-      background-color: #333333;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-  
-    .recommendations-section .add-to-cart-btn:hover {
-      background-color: #000;
-      transform: scale(1.05);
-    }
-  
-    .recommendations-section .add-to-cart-btn i {
-      font-size: 14px;
-    }
-  
-    /* Grid pentru cardurile de recomandări */
+  .recommendations-section .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .recommendations-section .product-image {
+    width: 240px !important;
+    height: 300px !important;
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    margin-right: 0 !important;
+  }
+
+  .recommendations-section .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .recommendations-section .wishlist-btn {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .recommendations-section .wishlist-btn:hover {
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .recommendations-section .wishlist-btn i {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .recommendations-section .product-info {
+    padding: 12px;
+    position: relative;
+  }
+
+  .recommendations-section .product-name {
+    color: black !important;
+    font-size: 15px;
+    font-family: 'Maven Pro', 'Poppins', sans-serif;
+    font-weight: 500;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0 0 8px 0;
+  }
+
+  .recommendations-section .rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .recommendations-section .rating i {
+    width: 14px;
+    height: 14px;
+    color: #ffc107;
+    font-size: 14px;
+  }
+
+  .recommendations-section .rating span {
+    color: #666666;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 14px;
+  }
+
+  .recommendations-section .product-price {
+    color: #333333 !important;
+    font-size: 18px;
+    font-family: 'Maven Pro', 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 15px;
+  }
+
+  .recommendations-section .add-to-cart-btn {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 32px;
+    height: 32px;
+    background-color: #333333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .recommendations-section .add-to-cart-btn:hover {
+    background-color: #000;
+    transform: scale(1.05);
+  }
+
+  .recommendations-section .add-to-cart-btn i {
+    font-size: 14px;
+  }
+
+  .recommendations-section .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: center;
+  }
+
+  @media (max-width: 992px) {
     .recommendations-section .product-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      justify-items: center;
+      grid-template-columns: repeat(3, 1fr);
     }
-  
-    /* Responsive pentru recomandări */
-    @media (max-width: 992px) {
-      .recommendations-section .product-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+  }
+
+  @media (max-width: 768px) {
+    .recommendations-section .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
     }
-  
-    @media (max-width: 768px) {
-      .recommendations-section .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-      }
-  
-      .recommendations-section .product-card {
-        width: 100% !important;
-        max-width: 240px;
-      }
-  
-      .recommendations-section .product-image {
-        width: 100% !important;
-        height: 250px !important;
-      }
+
+    .recommendations-section .product-card {
+      width: 100% !important;
+      max-width: 240px;
     }
-  
-    @media (max-width: 576px) {
-      .recommendations-section .product-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
+
+    .recommendations-section .product-image {
+      width: 100% !important;
+      height: 250px !important;
     }
+  }
+
+  @media (max-width: 576px) {
+    .recommendations-section .product-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
 }
